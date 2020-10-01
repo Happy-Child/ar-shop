@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="66425bd5-43fa-4ecb-bba2-ff1abc931582" name="Default Changelist" comment="Init project. User logic">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/reactjs-adonisjs-shop.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/App.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/App.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/react-app-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/serviceWorker.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/setupTests.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/.adonisrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/ace" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/app/Controllers/Http/UserController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/app/Exceptions/Handler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/app/Middleware/Auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/app/Middleware/Guest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/app/Models/ResetPassword.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/app/Models/TokensVerifiedEmail.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/app/Models/User.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/app/Services/User/CreatePasswordService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/app/Services/User/LoginService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/app/Services/User/ReConfirmationEmailService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/app/Services/User/RegistrationService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/app/Services/User/ResetPasswordService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/app/Services/User/UpdateService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/app/Services/User/VerifyEmailService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/commands/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/config/app.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/config/auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/config/bodyparser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/config/cors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/config/database.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/config/hash.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/config/mail.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/contracts/auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/contracts/enums/userRoles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/contracts/enums/userSexes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/contracts/events.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/contracts/hash.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/contracts/interfaces/IErrorResponse.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/contracts/interfaces/ISuccessResponse.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/contracts/interfaces/IUser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/contracts/mail.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/database/factories/UserFactory.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/database/migrations/1587988332388_users.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/database/migrations/1592489784670_api_tokens.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/database/migrations/1601568540947_reset_passwords.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/database/migrations/1601572045043_tokens_verified_emails.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/database/seeders/UserSeeder.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/lib/errorTypes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/lib/regV.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/lib/validationSchemes/validationSchemeAuthByToken.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/lib/validationSchemes/validationSchemeLogin.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/lib/validationSchemes/validationSchemeRegistration.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/lib/validationSchemes/validationSchemeUserUpdate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/providers/AppProvider.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/resources/views/emails/reset_password.edge" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/resources/views/emails/verified_email.edge" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/start/kernel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/start/routes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/some/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/some/config/app.ts" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectId" id="1i4FrS3Y4wRECPMY1bSCOeAwTkk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.linters.configure.manually.selectedeslint" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/some/resources/views/emails" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="$USER_HOME$/n/bin/node" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/some/resources/views/emails" />
+      <recent name="$PROJECT_DIR$/some/app/Services/User" />
+      <recent name="$PROJECT_DIR$/some/lib/validationSchemes" />
+      <recent name="$PROJECT_DIR$/some/contracts/interfaces" />
+      <recent name="$PROJECT_DIR$/some/contracts/enums" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.lint" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="66425bd5-43fa-4ecb-bba2-ff1abc931582" name="Default Changelist" comment="" />
+      <created>1601159155476</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601159155476</updated>
+      <workItem from="1601159156675" duration="7337000" />
+      <workItem from="1601207616368" duration="7037000" />
+      <workItem from="1601228739507" duration="6346000" />
+      <workItem from="1601314227087" duration="17329000" />
+      <workItem from="1601495675886" duration="17436000" />
+      <workItem from="1601544313194" duration="143000" />
+      <workItem from="1601544468315" duration="45000" />
+      <workItem from="1601566067062" duration="11614000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Init project. User logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init project. User logic" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2757" y="436" width="307" height="243" key="#ESLint" timestamp="1601159332978">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2757" y="436" width="307" height="243" key="#ESLint/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601159332978" />
+    <state x="2578" y="346" width="665" height="430" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601501187820">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2578" y="346" width="665" height="430" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601501187820" />
+    <state x="2724" y="273" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1601335973744">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2724" y="273" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601335973744" />
+    <state x="2649" y="303" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601499403614">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2649" y="303" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601499403614" />
+    <state x="2405" y="189" width="1022" height="737" key="SettingsEditor" timestamp="1601501223642">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2405" y="189" key="SettingsEditor/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601501223642" />
+    <state x="2405" y="189" width="1022" height="737" key="SettingsEditor/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601160538072" />
+    <state x="2608" y="277" width="616" height="554" key="find.popup" timestamp="1601591641668">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2608" y="277" width="616" height="554" key="find.popup/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601591641668" />
+    <state x="2608" y="277" width="616" height="554" key="find.popup/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601165609806" />
+    <state x="734" y="298" width="593" height="554" key="find.popup/1920.0.1920.1080/72.28.1848.1052@72.28.1848.1052" timestamp="1601570472349" />
+    <state x="709" y="294" width="563" height="526" key="refactoring.ChangeSignatureDialog" timestamp="1601569325569">
+      <screen x="72" y="28" width="1848" height="1052" />
+    </state>
+    <state x="709" y="294" width="563" height="526" key="refactoring.ChangeSignatureDialog/1920.0.1920.1080/72.28.1848.1052@72.28.1848.1052" timestamp="1601569325569" />
+    <state x="2580" y="252" key="run.anything.popup" timestamp="1601160230646">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2580" y="252" key="run.anything.popup/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601160230646" />
+    <state x="2579" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1601161587072">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2579" y="260" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601161587072" />
+  </component>
+</project>
