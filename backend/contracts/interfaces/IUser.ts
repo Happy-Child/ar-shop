@@ -10,7 +10,6 @@ export default interface IUser {
   avatar?: string;
   sex?: EUserSexes;
   verified?: boolean,
-  last_visited?: Date | null;
   created_at?: Date | null;
   updated_at?: Date | null;
 }

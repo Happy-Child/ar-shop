@@ -11,96 +11,71 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66425bd5-43fa-4ecb-bba2-ff1abc931582" name="Default Changelist" comment="Init project. User logic">
-      <change afterPath="$PROJECT_DIR$/backend/app/Controllers/Http/BaseController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Controllers/Http/Products/ProductsController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Controllers/Http/Users/UsersAdminsController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Controllers/Http/Users/UsersAuthorizedController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Controllers/Http/Users/UsersGuestsController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Controllers/Http/Users/UsersMembersController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Helpers/files/uploadFile.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Middleware/Admin.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Middleware/CheckRole.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Middleware/Member.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/Product/CreateProductService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/Product/DeleteProductService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/Product/GetProductService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/Product/GetProductsService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/Product/UpdateProductService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/User/Admin/AdminService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/User/Admin/UserCreateService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/User/Admin/UserDeleteService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/User/Admin/UserUpdateService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/User/Guest/RegistrationService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/User/Member/GetUserService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/User/Member/GetUsersService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/contracts/interfaces/IGetUsersServiceParams.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/factories/CategoryFactory.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/factories/ProductFactory.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/CategorySeeder.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/lib/validationSchemes/validationSchemeGetUsers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/emails/verified_email_for_member.edge" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/start/routes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Controllers/Http/Categories/CategoriesController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/categories/schemeCreate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/categories/schemeList.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/categories/schemeUpdate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/products/schemeCreate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/products/schemeList.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/products/schemeUpdate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Services/Categories/CreateService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Services/Categories/DeleteService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Services/Categories/GetAllService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Services/Categories/ListService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Services/Categories/ShowService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Services/Categories/UpdateService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Services/Product/CreateService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Services/Product/DeleteService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Services/Product/ListService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Services/Product/ShowService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Services/Product/UpdateService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/contracts/interfaces/IListCategoriesServiceParams.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/seeders/ProductSeeder.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/serviceWorker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/serviceWorker.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/.adonisrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.adonisrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/ace" beforeDir="false" afterPath="$PROJECT_DIR$/backend/ace" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/app/Controllers/Http/UserController.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/app/Exceptions/Handler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Exceptions/Handler.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/app/Middleware/Auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Middleware/Auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/app/Middleware/Guest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Middleware/Guest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/app/Models/ResetPassword.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/VerifiedEmailsToken.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/app/Models/TokensVerifiedEmail.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/ResetPasswordsToken.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/app/Models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/app/Services/User/CreatePasswordService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Guest/CreatePasswordService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/app/Services/User/LoginService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Guest/LoginService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/app/Services/User/ReConfirmationEmailService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Guest/ReConfirmationEmailService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/app/Services/User/RegistrationService.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/app/Services/User/ResetPasswordService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Guest/ResetPasswordService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/app/Services/User/UpdateService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Authorized/UpdateService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/app/Services/User/VerifyEmailService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Guest/VerifyEmailService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/commands/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/commands/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/config/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/config/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/config/bodyparser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/bodyparser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/config/cors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/cors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/config/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/database.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/config/hash.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/hash.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/config/mail.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/mail.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/contracts/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/contracts/enums/userRoles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/enums/userRoles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/contracts/enums/userSexes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/enums/userSexes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/contracts/events.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/events.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/contracts/hash.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/hash.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/contracts/interfaces/IErrorResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/interfaces/IErrorResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/contracts/interfaces/ISuccessResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/interfaces/ISuccessResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/contracts/interfaces/IUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/interfaces/IUser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/contracts/mail.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/mail.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/database/factories/UserFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/factories/UserFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/database/migrations/1587988332388_users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/1587988332388_users.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/database/migrations/1592489784670_api_tokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/1592489784670_api_tokens.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/database/migrations/1601568540947_reset_passwords.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/1601740470363_verified_emails_tokens.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/database/migrations/1601572045043_tokens_verified_emails.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/1601740435569_reset_passwords_tokens.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/database/seeders/UserSeeder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/UserSeeder.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/lib/errorTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/lib/errorTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/lib/regV.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/lib/regV.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/lib/validationSchemes/validationSchemeAuthByToken.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/lib/validationSchemes/validationSchemeAuthByToken.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/lib/validationSchemes/validationSchemeLogin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/lib/validationSchemes/validationSchemeLogin.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/lib/validationSchemes/validationSchemeRegistration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/lib/validationSchemes/validationSchemeRegistration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/lib/validationSchemes/validationSchemeUserUpdate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/lib/validationSchemes/validationSchemeUserUpdate.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/providers/AppProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/providers/AppProvider.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/resources/views/emails/reset_password.edge" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/emails/reset_password.edge" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/resources/views/emails/verified_email.edge" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/emails/verified_email.edge" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/start/kernel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/start/kernel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/start/routes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/some/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controllers/Http/Products/ProductsController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controllers/Http/Products/ProductsController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controllers/Http/Users/UsersAdminsController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controllers/Http/Users/UsersAdminsController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controllers/Http/Users/UsersAuthorizedController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controllers/Http/Users/UsersAuthorizedController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controllers/Http/Users/UsersGuestsController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controllers/Http/Users/UsersGuestsController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controllers/Http/Users/UsersMembersController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controllers/Http/Users/UsersMembersController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Middleware/Auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Middleware/Auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Middleware/CheckRole.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Middleware/CheckRole.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Middleware/Guest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Middleware/Guest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Category.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Category.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Product.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/Product/CreateProductService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/BaseService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/Product/DeleteProductService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/interfaces/IListProductsServiceParams.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/Product/GetProductService.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/Product/GetProductsService.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/Product/UpdateProductService.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/User/Admin/AdminService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Admin/AdminService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/User/Admin/UserCreateService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Admin/UserCreateService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/User/Admin/UserDeleteService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Admin/UserDeleteService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/User/Admin/UserUpdateService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Admin/UserUpdateService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/User/Guest/CreatePasswordService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Guest/CreatePasswordService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/User/Guest/LoginService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Guest/LoginService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/User/Guest/ReConfirmationEmailService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Guest/ReConfirmationEmailService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/User/Guest/ResetPasswordService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Guest/ResetPasswordService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/User/Guest/VerifyEmailService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Guest/VerifyEmailService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/User/Member/GetUserService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Member/GetUserService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/contracts/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/contracts/interfaces/IGetUsersServiceParams.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/interfaces/IGetUsersServiceParams.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/contracts/interfaces/IUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/interfaces/IUser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/factories/CategoryFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/factories/CategoryFactory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/factories/ProductFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/factories/ProductFactory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/factories/UserFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/factories/UserFactory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/1587988332388_users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/1587988332388_users.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/1601822427224_categories.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/1601822427224_categories.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/seeders/CategorySeeder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/CategorySeeder.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/seeders/UserSeeder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/UserSeeder.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/lib/errorTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Helpers/errorTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/lib/regV.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Helpers/regV.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/lib/validationSchemes/validationSchemeAuthByToken.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/lib/validationSchemes/validationSchemeGetUsers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/users/schemeGetUsers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/lib/validationSchemes/validationSchemeLogin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/users/schemeLogin.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/lib/validationSchemes/validationSchemeRegistration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/users/schemeRegistration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/lib/validationSchemes/validationSchemeUserUpdate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/users/schemeUserUpdate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/start/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/start/routes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +104,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/database/seeders" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/app/Services/Categories" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="$USER_HOME$/n/bin/node" />
@@ -142,17 +117,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/users" />
+      <recent name="$PROJECT_DIR$/backend/app/Helpers" />
+      <recent name="$PROJECT_DIR$/backend/database/migrations" />
+      <recent name="$PROJECT_DIR$/backend/database/factories" />
       <recent name="$PROJECT_DIR$/backend/app/Controllers/Http/Users" />
-      <recent name="$PROJECT_DIR$/backend/app/Controllers/Http" />
-      <recent name="$PROJECT_DIR$/some/app/Services/User/Authorized" />
-      <recent name="$PROJECT_DIR$/some/app/Services/User/Guest" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/backend/database/seeders" />
+      <recent name="$PROJECT_DIR$/backend/app/Services/Categories" />
       <recent name="$PROJECT_DIR$/backend/app/Services/Product" />
-      <recent name="$PROJECT_DIR$/backend/app/Services/User/Admin" />
-      <recent name="$PROJECT_DIR$/backend/resources/views/emails" />
-      <recent name="$PROJECT_DIR$/backend/lib/validationSchemes" />
+      <recent name="$PROJECT_DIR$/backend/lib/validationSchemes/products" />
+      <recent name="$PROJECT_DIR$/backend/contracts/interfaces" />
+      <recent name="$PROJECT_DIR$/backend/lib/validationSchemes/categories" />
     </key>
   </component>
   <component name="RunManager">
@@ -185,7 +161,10 @@
       <workItem from="1601566067062" duration="20315000" />
       <workItem from="1601666453951" duration="49000" />
       <workItem from="1601666512438" duration="43875000" />
-      <workItem from="1601820924222" duration="4971000" />
+      <workItem from="1601820924222" duration="7446000" />
+      <workItem from="1601833852182" duration="12726000" />
+      <workItem from="1601883192345" duration="18000" />
+      <workItem from="1601930819763" duration="8689000" />
     </task>
     <task id="LOCAL-00001" summary="Init project. User logic">
       <created>1601593338858</created>
@@ -194,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601593338858</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Init project. User logic">
+      <created>1601826004526</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1601826004526</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,27 +225,32 @@
     </state>
     <state x="2405" y="189" key="SettingsEditor/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601501223642" />
     <state x="2405" y="189" width="1022" height="737" key="SettingsEditor/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601160538072" />
-    <state x="2608" y="277" width="616" height="554" key="find.popup" timestamp="1601763042977">
+    <state x="2468" y="159" width="944" height="797" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1601859590027">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2608" y="277" width="616" height="554" key="find.popup/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601763042977" />
-    <state x="2608" y="277" width="616" height="554" key="find.popup/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601165609806" />
+    <state x="2468" y="159" width="944" height="797" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601859590027" />
+    <state x="2608" y="277" width="616" height="554" key="find.popup" timestamp="1601937894736">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2605" y="280" width="674" height="658" key="find.popup/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601860370257" />
+    <state x="2608" y="277" width="616" height="554" key="find.popup/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601937894736" />
     <state x="734" y="298" width="593" height="554" key="find.popup/1920.0.1920.1080/72.28.1848.1052@72.28.1848.1052" timestamp="1601740815045" />
+    <state x="734" y="299" width="593" height="554" key="find.popup/72.29.1848.1051@72.29.1848.1051" timestamp="1601826389157" />
     <state x="2582" y="273" width="563" height="526" key="refactoring.ChangeSignatureDialog" timestamp="1601751796555">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2582" y="273" key="refactoring.ChangeSignatureDialog/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601751796555" />
     <state x="709" y="294" width="563" height="526" key="refactoring.ChangeSignatureDialog/1920.0.1920.1080/72.28.1848.1052@72.28.1848.1052" timestamp="1601569325569" />
-    <state x="707" y="274" key="run.anything.popup" timestamp="1601824915872">
-      <screen x="72" y="29" width="1848" height="1051" />
+    <state x="2580" y="252" key="run.anything.popup" timestamp="1601936233190">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2580" y="252" key="run.anything.popup/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601160230646" />
+    <state x="2580" y="252" key="run.anything.popup/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601936233190" />
     <state x="707" y="274" key="run.anything.popup/72.29.1848.1051@72.29.1848.1051" timestamp="1601824915872" />
-    <state x="706" y="282" width="672" height="660" key="search.everywhere.popup" timestamp="1601822715952">
+    <state x="706" y="282" width="672" height="660" key="search.everywhere.popup" timestamp="1601828122058">
       <screen x="72" y="29" width="1848" height="1051" />
     </state>
     <state x="2579" y="260" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601683136991" />
     <state x="2579" y="260" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601161587072" />
-    <state x="706" y="282" width="672" height="660" key="search.everywhere.popup/72.29.1848.1051@72.29.1848.1051" timestamp="1601822715952" />
+    <state x="706" y="282" width="672" height="660" key="search.everywhere.popup/72.29.1848.1051@72.29.1848.1051" timestamp="1601828122058" />
   </component>
 </project>

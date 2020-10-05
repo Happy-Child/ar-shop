@@ -1,6 +1,6 @@
 import {ModelObject} from "@ioc:Adonis/Lucid/Model";
 import User from "App/Models/User";
-import {E_EMAIL_NOT_VERIFIED} from "../../../../lib/errorTypes";
+import {E_EMAIL_NOT_VERIFIED} from "App/Helpers/errorTypes";
 import {AuthContract} from "@ioc:Adonis/Addons/Auth";
 
 interface ILoginParams {

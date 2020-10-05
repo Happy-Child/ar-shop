@@ -9,7 +9,7 @@ export default Factory
     return {
       role: EUserRoles.ROLE_USER,
       avatar: faker.image.avatar(),
-      name: `${faker.name.firstName()} ${faker.name.lastName()}`,
+      name: faker.name.title(),
       email: faker.internet.email(),
       phone: faker.phone.phoneNumberFormat(2),
       password: 'secret',

@@ -8,6 +8,7 @@ export default class Categories extends BaseSchema {
       table.increments('id').primary()
       table.integer('user_id').notNullable()
       table.string('image').nullable()
+      table.string('image_small').nullable()
       table.string('name', 255).unique().notNullable()
       table.timestamps(true)
     })

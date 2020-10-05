@@ -1,11 +1,10 @@
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.group(() => { // API
+Route.group(() => {
 
 
-  Route.group(() => { // /users
-
-    Route.group(() => { // Guests
+  Route.group(() => {
+    Route.group(() => {
       Route.post(
         '/login',
         'Users/UsersGuestsController.login'
@@ -37,8 +36,7 @@ Route.group(() => { // API
       ).as('createNewPassword')
     }).middleware('guest')
 
-
-    Route.group(() => { // Authorized
+    Route.group(() => {
       Route.get(
         '/auth-by-token',
         'Users/UsersAuthorizedController.authByToken'
@@ -55,7 +53,7 @@ Route.group(() => { // API
       ).as('updateAuthUser')
 
 
-      Route.group(() => { // Members
+      Route.group(() => {
         Route.get(
           '/',
           'Users/UsersMembersController.getUsers'
@@ -67,7 +65,7 @@ Route.group(() => { // API
         ).as('getUser')
 
 
-        Route.group(() => { // Admins
+        Route.group(() => {
           Route.post(
             '/',
             'Users/UsersAdminsController.userCreate'
@@ -89,40 +87,76 @@ Route.group(() => { // API
 
 
     }).middleware('auth')
-
   }).prefix('/users')
 
 
-  Route.group(() => { // /products
+  Route.group(() => {
     Route.get(
       '/',
-      'Products/ProductsController.getProducts'
-    ).as('getProducts')
+      'Products/ProductsController.list'
+    ).as('listProducts')
 
     Route.get(
       '/:id',
-      'Products/ProductsController.getProduct'
+      'Products/ProductsController.show'
     ).as('getProduct')
 
-
-    Route.group(() => { // Members
+    Route.group(() => {
       Route.post(
         '/',
-        'Products/ProductsController.createProduct'
+        'Products/ProductsController.create'
       ).as('createProduct')
 
       Route.put(
-        '/',
-        'Products/ProductsController.updateProduct'
+        '/:id',
+        'Products/ProductsController.update'
       ).as('updateProduct')
 
       Route.delete(
-        '/',
-        'Products/ProductsController.deleteProduct'
+        '/:id',
+        'Products/ProductsController.delete'
       ).as('deleteProduct')
-    }).middleware('member')
-
+    }).middleware(['auth', 'member'])
   }).prefix('/products')
+
+
+  Route.group(() => {
+    Route.get(
+      '/all',
+      'Categories/CategoriesController.getAll'
+    ).as('getAllCategories')
+
+    Route.get(
+      '/',
+      'Categories/CategoriesController.list'
+    ).as('listCategories')
+
+    Route.get(
+      '/:id',
+      'Categories/CategoriesController.show'
+    ).as('getCategory')
+
+    Route.group(() => {
+      Route.post(
+        '/',
+        'Categories/CategoriesController.create'
+      ).as('createCategory')
+
+      Route.put(
+        '/:id',
+        'Categories/CategoriesController.update'
+      ).as('updateCategory')
+
+      Route.delete(
+        '/:id',
+        'Categories/CategoriesController.delete'
+      ).as('deleteCategory')
+    }).middleware(['auth', 'member'])
+
+  }).prefix('/categories')
+
+
+
 
 
 }).prefix('/api')

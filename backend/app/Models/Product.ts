@@ -12,10 +12,10 @@ export default class Product extends BaseModel {
   public user_id: number
 
   @column()
-  public image: string | null
+  public image?: string | null
 
   @column()
-  public image_small: string | null
+  public image_small?: string | null
 
   @column()
   public name: string
@@ -24,10 +24,10 @@ export default class Product extends BaseModel {
   public price: number
 
   @column()
-  public description_small: string | null
+  public description_small?: string | null
 
   @column()
-  public description_full: string | null
+  public description_full?: string | null
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

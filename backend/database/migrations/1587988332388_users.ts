@@ -13,9 +13,9 @@ export default class UsersSchema extends BaseSchema {
       table.string('phone', 30).nullable()
       table.string('email', 255).notNullable().unique()
       table.string('password', 180).notNullable()
+      table.string('remember_me_token').nullable()
       table.string('sex', 10).nullable()
       table.boolean('verified').defaultTo(false)
-      table.date('last_visited').nullable()
       table.timestamps(true)
     })
   }

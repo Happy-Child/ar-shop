@@ -1,5 +1,5 @@
 import {rules, schema} from "@ioc:Adonis/Core/Validator";
-import {regVPassword} from "../regV";
+import {regVPassword} from "App/Helpers/regV";
 import EUserSexes from "Contracts/enums/userSexes";
 
 export default {

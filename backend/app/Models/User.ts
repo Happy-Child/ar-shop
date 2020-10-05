@@ -28,13 +28,13 @@ export default class User extends BaseModel {
   public password: string
 
   @column()
+  public remember_me_token?: string | null
+
+  @column()
   public sex?: EUserSexes | null
 
   @column()
   public verified?: boolean
-
-  @column()
-  public lastVisited?: Date | null
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

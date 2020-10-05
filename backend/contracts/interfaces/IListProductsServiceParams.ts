@@ -1,7 +1,7 @@
-import EUserRoles from "Contracts/enums/userRoles";
-
 export default interface IGetUsersServiceParams {
-  type: EUserRoles | undefined,
+  category_id: number | undefined,
+  price_min: number | undefined,
+  price_max: number | undefined,
   search: string | undefined,
   sort_by: string,
   sort_desc: boolean | undefined,

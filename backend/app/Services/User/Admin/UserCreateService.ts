@@ -16,7 +16,7 @@ export default class UserCreateService extends AdminService {
 
       this.checkPermissions(roleAuthUser, Number(role))
 
-      const user = new User()
+      const user: User = new User()
 
       if (phone) user.phone = phone
       if (sex) user.sex = sex

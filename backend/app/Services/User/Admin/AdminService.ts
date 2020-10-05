@@ -1,5 +1,5 @@
 import EUserRoles from "Contracts/enums/userRoles";
-import {E_ACCESS_DENIED} from "../../../../lib/errorTypes";
+import {E_ACCESS_DENIED} from "App/Helpers/errorTypes";
 
 export default class AdminService {
   private readonly _forbiddenRolesToUpdate: EUserRoles[] = [

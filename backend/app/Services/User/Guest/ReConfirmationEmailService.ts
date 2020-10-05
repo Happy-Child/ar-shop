@@ -1,7 +1,7 @@
 import Mail from "@ioc:Adonis/Addons/Mail";
 import Env from "@ioc:Adonis/Core/Env";
 import User from "App/Models/User";
-import {E_USER_NOT_FOUND} from "../../../../lib/errorTypes";
+import {E_USER_NOT_FOUND} from "App/Helpers/errorTypes";
 import VerifiedEmailsToken from "App/Models/VerifiedEmailsToken";
 import {AuthContract} from "@ioc:Adonis/Addons/Auth";
 
@@ -34,14 +34,7 @@ export default class ReConfirmationEmailService {
           .htmlView('emails/verified_email', {url})
       })
     } catch (e) {
-      console.log(e)
       throw e
     }
   }
-  //
-  // private async uploadFile (file: MultipartFileContract): Promise<any> {
-  //   return await file.move(Application.tmpPath('uploads'), {
-  //     name: `${new Date().getTime()}.${file.extname}`,
-  //   })
-  // }
 }

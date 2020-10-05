@@ -2,7 +2,7 @@ import Mail from "@ioc:Adonis/Addons/Mail";
 import Env from "@ioc:Adonis/Core/Env";
 import User from "App/Models/User";
 import ResetPasswordsToken from "App/Models/ResetPasswordsToken";
-import {E_USER_NOT_FOUND} from "../../../../lib/errorTypes";
+import {E_USER_NOT_FOUND} from "App/Helpers/errorTypes";
 import {AuthContract} from "@ioc:Adonis/Addons/Auth";
 
 export default class ResetPasswordService {

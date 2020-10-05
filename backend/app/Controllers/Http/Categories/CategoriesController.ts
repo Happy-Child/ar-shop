@@ -2,43 +2,53 @@ import BaseController from "App/Controllers/Http/BaseController";
 import {RequestContract} from "@ioc:Adonis/Core/Request";
 import {AuthContract} from "@ioc:Adonis/Addons/Auth";
 import {LucidModel, LucidRow} from "@ioc:Adonis/Lucid/Model";
+import {SimplePaginatorMeta} from "@ioc:Adonis/Lucid/DatabaseQueryBuilder";
 
 import ISuccessResponse from "Contracts/interfaces/ISuccessResponse";
 import IErrorResponse from "Contracts/interfaces/IErrorResponse";
 
 import {schema} from "@ioc:Adonis/Core/Validator";
 
-import schemeCreate from "App/Helpers/validationSchemes/products/schemeCreate";
-import schemeUpdate from "App/Helpers/validationSchemes/products/schemeUpdate";
-import schemeList from "App/Helpers/validationSchemes/products/schemeList";
+import schemeCreate from "App/Helpers/validationSchemes/categories/schemeCreate";
+import schemeUpdate from "App/Helpers/validationSchemes/categories/schemeUpdate";
+import schemeList from "App/Helpers/validationSchemes/categories/schemeList";
 
-import IListProductsServiceParams from "Contracts/interfaces/IListProductsServiceParams";
+import IListCategoriesServiceParams from "Contracts/interfaces/IListCategoriesServiceParams";
 
+import GetAllService from "App/Services/Categories/GetAllService";
+import CreateService from "App/Services/Categories/CreateService";
+import ListService from "App/Services/Categories/ListService";
+import ShowService from "App/Services/Categories/ShowService";
+import UpdateService from "App/Services/Categories/UpdateService";
+import DeleteService from "App/Services/Categories/DeleteService";
+
+import Category from "App/Models/Category";
 import User from "App/Models/User";
-import Product from "App/Models/Product";
 
-import CreateService from "App/Services/Product/CreateService";
-import ListService from "App/Services/Product/ListService";
-import ShowService from "App/Services/Product/ShowService";
-import UpdateService from "App/Services/Product/UpdateService";
-import DeleteService from "App/Services/Product/DeleteService";
-
+const GetAllServiceInit = new GetAllService()
 const CreateServiceInit = new CreateService()
 const ListServiceInit = new ListService()
 const ShowServiceInit = new ShowService()
 const UpdateServiceInit = new UpdateService()
 const DeleteServiceInit = new DeleteService()
 
-export default class ProductsController extends BaseController {
+export default class CategoriesController extends BaseController {
+  public async getAll (): Promise<ISuccessResponse | IErrorResponse>
+  {
+    try {
+      const data: Category[] = await GetAllServiceInit.run()
+      return this.successResponse(200, data)
+    } catch (e) {
+      return this.errorResponse(e)
+    }
+  }
+
   public async list (
     {request}: {request: RequestContract}
   ): Promise<ISuccessResponse | IErrorResponse>
   {
     try {
       const {
-        category_id,
-        price_min,
-        price_max,
         search,
         sort_by = 'name',
         sort_desc = true,
@@ -48,17 +58,14 @@ export default class ProductsController extends BaseController {
         schema: schema.create(schemeList)
       })
 
-      const data: InstanceType<LucidModel>[] = await ListServiceInit.run(
+      const data: { meta: SimplePaginatorMeta; data: InstanceType<LucidModel>[] } = await ListServiceInit.run(
         {
-          category_id,
-          price_min,
-          price_max,
           search,
           sort_by,
           sort_desc,
           page,
           limit,
-        } as IListProductsServiceParams,
+        } as IListCategoriesServiceParams,
       )
 
       return this.successResponse(200, data)
@@ -86,12 +93,8 @@ export default class ProductsController extends BaseController {
   {
     try {
       const {
-        category_id,
-        price,
         image,
         name,
-        description_full,
-        description_small,
       } = await request.validate({
         schema: schema.create(schemeCreate)
       })
@@ -102,13 +105,9 @@ export default class ProductsController extends BaseController {
       await CreateServiceInit.run(
         {
           user_id,
-          category_id,
-          price,
           image,
           name,
-          description_full,
-          description_small,
-        } as Product,
+        } as Category,
       )
 
       return this.successResponse(200)
@@ -123,25 +122,17 @@ export default class ProductsController extends BaseController {
   {
     try {
       const {
-        category_id,
-        price,
         image,
         name,
-        description_full,
-        description_small,
       } = await request.validate({
         schema: schema.create(schemeUpdate)
       })
 
       await UpdateServiceInit.run(
         {
-          category_id,
-          price,
           image,
           name,
-          description_full,
-          description_small,
-        } as Product,
+        } as Category,
         Number(params.id)
       )
 

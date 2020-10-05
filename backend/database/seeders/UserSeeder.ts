@@ -14,12 +14,8 @@ const admins: Array<object> = new Array(3)
     }
 
     if (index === 1) {
-      admin.name = 'superadmin'
-      admin.name = 'superadmin@gmail.com'
       admin.role = EUserRoles.ROLE_SUPER_ADMIN
     }
-
-    console.log(admin)
 
     return admin
   })

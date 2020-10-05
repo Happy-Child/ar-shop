@@ -1,7 +1,7 @@
 import User from "App/Models/User";
 import {LucidRow} from "@ioc:Adonis/Lucid/Model";
 import EUserRoles from "Contracts/enums/userRoles";
-import {E_USER_NOT_FOUND} from "../../../../lib/errorTypes";
+import {E_USER_NOT_FOUND} from "App/Helpers/errorTypes";
 
 export default class GetUserService {
   private readonly _columns: string[] = [
@@ -13,7 +13,6 @@ export default class GetUserService {
     'email',
     'createdAt',
     'verified',
-    'lastVisited',
   ]
   public async run(id: number): Promise<LucidRow>
   {

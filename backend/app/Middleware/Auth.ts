@@ -1,5 +1,5 @@
 import {HttpContextContract} from '@ioc:Adonis/Core/HttpContext'
-import {E_NOT_AUTHORIZED} from "../../lib/errorTypes";
+import {E_NOT_AUTHORIZED} from "App/Helpers/errorTypes";
 import IErrorResponse from "Contracts/interfaces/IErrorResponse";
 
 export default class AuthMiddleware {

@@ -6,10 +6,11 @@ import {rules, schema} from "@ioc:Adonis/Core/Validator";
 
 import BaseController from "App/Controllers/Http/BaseController";
 
-import {E_INVALID_TOKEN} from "../../../../lib/errorTypes";
-import {regVPassword} from "../../../../lib/regV";
-import validationSchemeLogin from "../../../../lib/validationSchemes/validationSchemeLogin";
-import validationSchemeRegistration from "../../../../lib/validationSchemes/validationSchemeRegistration";
+import {E_INVALID_TOKEN} from "App/Helpers/errorTypes";
+import {regVPassword} from "App/Helpers/regV";
+
+import schemeLogin from "App/Helpers/validationSchemes/users/schemeLogin";
+import schemeRegistration from "App/Helpers/validationSchemes/users/schemeRegistration";
 
 import User from "App/Models/User";
 
@@ -68,7 +69,7 @@ export default class UsersGuestsController extends BaseController {
   {
     try {
       const {email, password} = await request.validate({
-        schema: schema.create(validationSchemeLogin)
+        schema: schema.create(schemeLogin)
       })
 
       const data: object = await LoginServiceInit.run({
@@ -95,7 +96,7 @@ export default class UsersGuestsController extends BaseController {
         password,
         sex,
       } = await request.validate({
-        schema: schema.create(validationSchemeRegistration)
+        schema: schema.create(schemeRegistration)
       })
 
       await RegistrationServiceInit.run(

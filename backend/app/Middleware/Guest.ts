@@ -1,6 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import IErrorResponse from "Contracts/interfaces/IErrorResponse";
-import {E_FOR_UNAUTHORIZED_USERS} from "../../lib/errorTypes";
+import {E_FOR_UNAUTHORIZED_USERS} from "App/Helpers/errorTypes";
 
 export default class GuestMiddleware {
   public async handle ({ auth, response }: HttpContextContract, next: () => Promise<void>) {

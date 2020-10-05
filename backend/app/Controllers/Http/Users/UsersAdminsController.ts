@@ -1,8 +1,8 @@
 import BaseController from "App/Controllers/Http/BaseController";
 import {schema} from "@ioc:Adonis/Core/Validator";
 
-import validationSchemeRegistration from "../../../../lib/validationSchemes/validationSchemeRegistration";
-import validationSchemeUserUpdate from "../../../../lib/validationSchemes/validationSchemeUserUpdate";
+import schemeRegistration from "App/Helpers/validationSchemes/users/schemeRegistration";
+import schemeUserUpdate from "App/Helpers/validationSchemes/users/schemeUserUpdate";
 
 import {RequestContract} from "@ioc:Adonis/Core/Request";
 import {AuthContract} from "@ioc:Adonis/Addons/Auth";
@@ -43,7 +43,7 @@ export default class UsersAdminsController extends BaseController {
         sex,
       } = await request.validate({
         schema: schema.create({
-          ...validationSchemeRegistration,
+          ...schemeRegistration,
           role: schema.enum.optional(this._rolesForCreated),
           verified: schema.boolean.optional(),
         })
@@ -67,6 +67,7 @@ export default class UsersAdminsController extends BaseController {
       return this.errorResponse(e)
     }
   }
+
   public async userUpdate (
     {request, params, auth}: {request: RequestContract, params: any, auth: AuthContract}
   ): Promise<ISuccessResponse | IErrorResponse>
@@ -82,7 +83,7 @@ export default class UsersAdminsController extends BaseController {
         sex,
       } = await request.validate({
         schema: schema.create({
-          ...validationSchemeUserUpdate,
+          ...schemeUserUpdate,
           role: schema.enum.optional(this._rolesForCreated),
           verified: schema.boolean.optional(),
         })
@@ -107,6 +108,7 @@ export default class UsersAdminsController extends BaseController {
       return this.errorResponse(e)
     }
   }
+
   public async userDelete (
     {params, auth}: {params: any, auth: AuthContract}
   ): Promise<ISuccessResponse | IErrorResponse>

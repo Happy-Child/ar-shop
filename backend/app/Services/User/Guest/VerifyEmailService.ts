@@ -1,6 +1,6 @@
 import IErrorResponse from "Contracts/interfaces/IErrorResponse";
 import User from "App/Models/User";
-import {E_EVENT_NOT_REGISTERED, E_USER_NOT_UPDATED} from "../../../../lib/errorTypes";
+import {E_EVENT_NOT_REGISTERED, E_USER_NOT_UPDATED} from "App/Helpers/errorTypes";
 import VerifiedEmailsToken from "App/Models/VerifiedEmailsToken";
 
 export default class VerifyEmailService {
@@ -14,9 +14,11 @@ export default class VerifyEmailService {
         }
       }
 
+      const email: string = actionExists.email
+
       const [result]: number[] = await User
         .query()
-        .where('email', actionExists.email)
+        .where('email', email)
         .update({ verified: true })
 
       if (!result) {
@@ -24,6 +26,13 @@ export default class VerifyEmailService {
           code: E_USER_NOT_UPDATED
         }
       }
+
+      VerifiedEmailsToken
+        .query()
+        .where('email', email)
+        .delete()
+        .then()
+        .catch((e => { throw e }))
     } catch (e) {
       throw e
     }

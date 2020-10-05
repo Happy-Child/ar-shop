@@ -5,14 +5,13 @@ import IErrorResponse from "Contracts/interfaces/IErrorResponse";
 
 import BaseController from "App/Controllers/Http/BaseController";
 
-import validationSchemeUserUpdate from "../../../../lib/validationSchemes/validationSchemeUserUpdate";
+import schemeUserUpdate from "App/Helpers/validationSchemes/users/schemeUserUpdate";
 
 import UpdateService from "App/Services/User/Authorized/UpdateService";
 
 import User from "App/Models/User";
 
 import {AuthContract} from "@ioc:Adonis/Addons/Auth";
-
 
 const UpdateServiceInit = new UpdateService()
 
@@ -53,7 +52,7 @@ export default class UsersAuthorizedController extends BaseController {
         password,
         sex,
       } = await request.validate({
-        schema: schema.create(validationSchemeUserUpdate)
+        schema: schema.create(schemeUserUpdate)
       })
 
       await UpdateServiceInit.run(

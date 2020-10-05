@@ -10,7 +10,8 @@ import ISuccessResponse from "Contracts/interfaces/ISuccessResponse";
 import IErrorResponse from "Contracts/interfaces/IErrorResponse";
 import IGetUsersServiceParams from "Contracts/interfaces/IGetUsersServiceParams";
 
-import validationSchemeGetUsers from "../../../../lib/validationSchemes/validationSchemeGetUsers";
+import schemeGetUsers from "App/Helpers/validationSchemes/users/schemeGetUsers";
+
 import {LucidModel, LucidRow} from "@ioc:Adonis/Lucid/Model";
 
 const GetUsersServiceInit = new GetUsersService()
@@ -30,7 +31,7 @@ export default class UsersMembersController extends BaseController {
         page,
         limit,
       } = await request.validate({
-        schema: schema.create(validationSchemeGetUsers)
+        schema: schema.create(schemeGetUsers)
       })
 
       const data: InstanceType<LucidModel>[] = await GetUsersServiceInit.run({
