@@ -9,34 +9,36 @@ import IErrorResponse from "Contracts/interfaces/IErrorResponse";
 
 import {schema} from "@ioc:Adonis/Core/Validator";
 
-import schemeCreate from "App/Helpers/validationSchemes/categories/schemeCreate";
-import schemeUpdate from "App/Helpers/validationSchemes/categories/schemeUpdate";
-import schemeList from "App/Helpers/validationSchemes/categories/schemeList";
+import schemeCreate from "App/Helpers/validationSchemes/orders/schemeCreate";
+import schemeUpdate from "App/Helpers/validationSchemes/orders/schemeUpdate";
+import schemeList from "App/Helpers/validationSchemes/orders/schemeList";
 
-import IListCategoriesServiceParams from "Contracts/interfaces/IListCategoriesServiceParams";
+import IListOrdersServiceParams from "Contracts/interfaces/IListOrdersServiceParams";
 
-import GetAllService from "App/Services/Categories/GetAllService";
-import CreateService from "App/Services/Categories/CreateService";
-import ListService from "App/Services/Categories/ListService";
-import ShowService from "App/Services/Categories/ShowService";
-import UpdateService from "App/Services/Categories/UpdateService";
-import DeleteService from "App/Services/Categories/DeleteService";
+import GetMyService from "App/Services/Orders/GetMyService";
+import CreateService from "App/Services/Orders/CreateService";
+import ListService from "App/Services/Orders/ListService";
+import ShowService from "App/Services/Orders/ShowService";
+import UpdateService from "App/Services/Orders/UpdateService";
+import DeleteService from "App/Services/Orders/DeleteService";
 
-import Category from "App/Models/Category";
+import Order from "App/Models/Order";
 import User from "App/Models/User";
+import EOrderStatuses from "Contracts/enums/orderStatuses";
+import IOrderProducts from "Contracts/interfaces/IOrderProducts";
 
-const GetAllServiceInit = new GetAllService()
+const GetMyServiceInit = new GetMyService()
 const CreateServiceInit = new CreateService()
 const ListServiceInit = new ListService()
 const ShowServiceInit = new ShowService()
 const UpdateServiceInit = new UpdateService()
 const DeleteServiceInit = new DeleteService()
 
-export default class CategoriesController extends BaseController {
-  public async getAll (): Promise<ISuccessResponse | IErrorResponse>
+export default class OrdersController extends BaseController {
+  public async getMyOrders (): Promise<ISuccessResponse | IErrorResponse>
   {
     try {
-      const data: InstanceType<LucidModel>[] = await GetAllServiceInit.run()
+      const data: InstanceType<LucidModel>[] = await GetMyServiceInit.run()
       return this.successResponse(200, data)
     } catch (e) {
       return this.errorResponse(e)
@@ -50,7 +52,7 @@ export default class CategoriesController extends BaseController {
     try {
       const {
         search,
-        sort_by = 'name',
+        sort_by = 'created_at',
         sort_desc = true,
         page,
         limit,
@@ -65,7 +67,7 @@ export default class CategoriesController extends BaseController {
           sort_desc,
           page,
           limit,
-        } as IListCategoriesServiceParams,
+        } as IListOrdersServiceParams,
       )
 
       return this.successResponse(200, data)
@@ -93,21 +95,31 @@ export default class CategoriesController extends BaseController {
   {
     try {
       const {
-        image,
-        name,
+        products,
+        delivery_address,
+        comment,
       } = await request.validate({
         schema: schema.create(schemeCreate)
       })
 
       const user: User | undefined = auth.use('api').user
       const user_id: number = Number(user?.id)
+      const name: string = String(user?.name)
+      const phone: string = String(user?.phone)
+      const email: string = String(user?.email)
+      const status: EOrderStatuses = EOrderStatuses.STATUS_NEW
 
       await CreateServiceInit.run(
         {
           user_id,
-          image,
           name,
-        } as Category,
+          phone,
+          email,
+          comment,
+          status,
+          delivery_address,
+        } as Order,
+        products as Array<IOrderProducts>
       )
 
       return this.successResponse(200)
@@ -122,17 +134,26 @@ export default class CategoriesController extends BaseController {
   {
     try {
       const {
-        image,
-        name,
+        products,
+        delivery_address,
+        comment,
+        status,
       } = await request.validate({
         schema: schema.create(schemeUpdate)
       })
 
       await UpdateServiceInit.run(
         {
-          image,
-          name,
-        } as Category,
+          products,
+          delivery_address,
+          comment,
+          status,
+        } as {
+          products: Array<IOrderProducts> | undefined,
+          delivery_address: string | undefined,
+          comment: string | undefined,
+          status: EOrderStatuses | undefined,
+        },
         Number(params.id)
       )
 

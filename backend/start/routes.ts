@@ -156,7 +156,40 @@ Route.group(() => {
   }).prefix('/categories')
 
 
+  Route.group(() => {
+    Route.get(
+      '/get-my-orders',
+      'Orders/OrdersController.getMyOrders'
+    ).as('getMyOrders')
 
+    Route.post(
+      '/',
+      'Orders/OrdersController.create'
+    ).as('createOrder')
+
+    Route.group(() => {
+      Route.get(
+        '/',
+        'Orders/OrdersController.list'
+      ).as('listOrders')
+
+      Route.get(
+        '/:id',
+        'Orders/OrdersController.show'
+      ).as('getOrder')
+
+      Route.put(
+        '/:id',
+        'Orders/OrdersController.update'
+      ).as('updateOrder')
+
+      Route.delete(
+        '/:id',
+        'Orders/OrdersController.delete'
+      ).as('deleteOrder')
+    }).middleware(['auth', 'member'])
+
+  }).middleware('auth').prefix('/orders')
 
 
 }).prefix('/api')

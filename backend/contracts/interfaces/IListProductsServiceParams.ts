@@ -1,4 +1,4 @@
-export default interface IGetUsersServiceParams {
+export default interface IListProductsServiceParams {
   category_id: number | undefined,
   price_min: number | undefined,
   price_max: number | undefined,
