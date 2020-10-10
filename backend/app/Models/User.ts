@@ -1,11 +1,17 @@
 import {DateTime} from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
-import {BaseModel, beforeSave, column,} from '@ioc:Adonis/Lucid/Orm'
+import {BaseModel, beforeSave, column, hasMany, HasMany} from '@ioc:Adonis/Lucid/Orm'
 import EUserRoles from "Contracts/enums/userRoles";
 import EUserSexes from "Contracts/enums/userSexes";
 import {ModelObject} from "@ioc:Adonis/Lucid/Model";
+import Order from "App/Models/Order";
 
 export default class User extends BaseModel {
+  @hasMany(() => Order, {
+    foreignKey: 'user_id'
+  })
+  public orders: HasMany<typeof Order>
+
   @column({ isPrimary: true })
   public id: number
 

@@ -1,5 +1,6 @@
 export default interface IListOrdersServiceParams {
-  search: string | undefined,
+  from_date: Date | undefined,
+  to_date: Date | undefined,
   sort_by: string,
   sort_desc: boolean | undefined,
   page: number | undefined,

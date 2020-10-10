@@ -1,11 +1,18 @@
-import Category from "App/Models/Category";
+import Order from "App/Models/Order";
+import OrdersProduct from "App/Models/OrdersProduct";
 
 export default class DeleteService {
   public async run(id: number): Promise<void> {
     try {
-      const category: Category = await Category.findOrFail(id)
+      const order: Order = await Order.findOrFail(id)
 
-      await category.delete()
+      await Promise.all([
+        OrdersProduct
+          .query()
+          .where('order_id', order.id)
+          .delete(),
+        order.delete()
+      ])
     } catch (e) {
       console.log(e)
       throw e

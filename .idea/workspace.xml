@@ -11,34 +11,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66425bd5-43fa-4ecb-bba2-ff1abc931582" name="Default Changelist" comment="Init project. User logic">
-      <change afterPath="$PROJECT_DIR$/backend/app/Controllers/Http/Orders/OrdersController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/orders/schemeCreate.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/orders/schemeList.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/orders/schemeUpdate.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/Order.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/OrdersProduct.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/Orders/CreateService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/Orders/DeleteService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/Orders/GetMyService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/Orders/ListService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/Orders/ShowService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Services/Orders/UpdateService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/contracts/enums/orderStatuses.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/contracts/interfaces/IListOrdersServiceParams.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/contracts/interfaces/IOrderProducts.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/1601988236197_orders.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/1601988273419_orders_products.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Controllers/Http/Categories/CategoriesController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controllers/Http/Categories/CategoriesController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/contracts/interfaces/IListCategoriesServiceParams.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/interfaces/IListCategoriesServiceParams.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/contracts/interfaces/IListProductsServiceParams.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/interfaces/IListProductsServiceParams.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/contracts/interfaces/ISuccessResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/interfaces/ISuccessResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/start/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/start/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controllers/Http/Orders/OrdersController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controllers/Http/Orders/OrdersController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/orders/schemeCreate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/orders/schemeCreate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/orders/schemeList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/orders/schemeList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Order.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Order.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/Orders/DeleteService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Orders/DeleteService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/Orders/GetMyService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Orders/GetMyService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/Orders/ListService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Orders/ListService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/Orders/ShowService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Orders/ShowService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/contracts/interfaces/IListOrdersServiceParams.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/interfaces/IListOrdersServiceParams.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="ElmWorkspace">
+    <elmProjects />
+    <settings elmCompilerPath="" elmFormatPath="" elmTestPath="" isElmFormatOnSaveEnabled="false" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -60,9 +59,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/contracts/interfaces" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../chemie-armor" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="$USER_HOME$/n/bin/node" />
@@ -101,7 +101,10 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="66425bd5-43fa-4ecb-bba2-ff1abc931582" name="Default Changelist" comment="" />
@@ -125,7 +128,13 @@
       <workItem from="1601930819763" duration="8703000" />
       <workItem from="1601975200743" duration="1573000" />
       <workItem from="1601987127760" duration="9327000" />
-      <workItem from="1602023473824" duration="4955000" />
+      <workItem from="1602023473824" duration="5105000" />
+      <workItem from="1602032536777" duration="9539000" />
+      <workItem from="1602071869398" duration="108000" />
+      <workItem from="1602072029653" duration="74000" />
+      <workItem from="1602091359380" duration="680000" />
+      <workItem from="1602145119867" duration="550000" />
+      <workItem from="1602247323674" duration="599000" />
     </task>
     <task id="LOCAL-00001" summary="Init project. User logic">
       <created>1601593338858</created>
@@ -148,23 +157,31 @@
       <option name="project" value="LOCAL" />
       <updated>1601940390250</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Init project. User logic">
+      <created>1602032462539</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1602032462539</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init project. User logic" />
@@ -188,6 +205,10 @@
     </state>
     <state x="2649" y="303" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601499403614" />
     <state x="774" y="323" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1080/72.28.1848.1052@72.28.1848.1052" timestamp="1601740548490" />
+    <state x="2663" y="298" width="424" height="491" key="FileChooserDialogImpl" timestamp="1602072101431">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2663" y="298" width="424" height="491" key="FileChooserDialogImpl/72.26.1848.1054/1920.0.1920.1080@1920.0.1920.1080" timestamp="1602072101431" />
     <state x="2405" y="189" width="1022" height="737" key="SettingsEditor" timestamp="1601501223642">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -197,25 +218,31 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2468" y="159" width="944" height="797" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601859590027" />
-    <state x="336" y="0" width="1445" height="773" maximized="true" key="dock-window-1" timestamp="1602031184750">
+    <state x="762" y="469" width="457" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602340391164">
+      <screen x="72" y="28" width="1848" height="1052" />
+    </state>
+    <state x="762" y="469" width="457" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.28.1848.1052@72.28.1848.1052" timestamp="1602340391164" />
+    <state x="137" y="26" width="1523" height="682" maximized="true" key="dock-window-1" timestamp="1602071976524">
       <screen x="72" y="26" width="1848" height="1054" />
     </state>
     <state x="336" y="0" width="1445" height="773" key="dock-window-1/1920.0.1920.1080/0.26.1920.1054@1920.0.1920.1080" timestamp="1602024409368" />
     <state x="336" y="0" width="1445" height="773" maximized="true" key="dock-window-1/1920.0.1920.1080/72.26.1848.1054@72.26.1848.1054" timestamp="1602031184750" />
-    <state x="158" y="26" width="1506" height="1024" maximized="true" key="dock-window-1/72.26.1848.1054/1920.0.1920.1080@1920.0.1920.1080" timestamp="1601998773616" />
+    <state x="158" y="26" width="1506" height="1024" maximized="true" key="dock-window-1/72.26.1848.1054/1920.0.1920.1080@1920.0.1920.1080" timestamp="1602071976524" />
+    <state x="137" y="26" width="1523" height="682" key="dock-window-1/72.26.3768.1054@72.26.3768.1054" timestamp="1602069821160" />
     <state x="2113" y="26" width="1506" height="574" key="dock-window-2" timestamp="1602023489539">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="193" y="26" width="1506" height="560" key="dock-window-2/0.26.1920.1054/1920.0.1920.1080@0.26.1920.1054" timestamp="1602015854329" />
     <state x="2113" y="26" width="1506" height="574" key="dock-window-2/1920.0.1920.1080/0.26.1920.1054@1920.0.1920.1080" timestamp="1602023489539" />
     <state x="193" y="26" width="1506" height="560" maximized="true" key="dock-window-2/72.26.1848.1054/1920.0.1920.1080@1920.0.1920.1080" timestamp="1602003116560" />
-    <state x="2608" y="277" width="616" height="554" key="find.popup" timestamp="1602002998483">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="2212" y="174" width="1209" height="554" key="find.popup" timestamp="1602070455056">
+      <screen x="72" y="26" width="3768" height="1054" />
     </state>
     <state x="2605" y="280" width="674" height="658" key="find.popup/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601860370257" />
     <state x="2608" y="277" width="616" height="554" key="find.popup/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601937894736" />
     <state x="734" y="298" width="593" height="554" key="find.popup/1920.0.1920.1080/72.28.1848.1052@72.28.1848.1052" timestamp="1601740815045" />
     <state x="2608" y="277" width="616" height="554" key="find.popup/72.26.1848.1054/1920.0.1920.1080@1920.0.1920.1080" timestamp="1602002998483" />
+    <state x="2212" y="174" width="1209" height="554" key="find.popup/72.26.3768.1054@72.26.3768.1054" timestamp="1602070455056" />
     <state x="734" y="299" width="593" height="554" key="find.popup/72.29.1848.1051@72.29.1848.1051" timestamp="1601826389157" />
     <state x="2582" y="273" width="563" height="526" key="refactoring.ChangeSignatureDialog" timestamp="1601751796555">
       <screen x="1920" y="0" width="1920" height="1080" />

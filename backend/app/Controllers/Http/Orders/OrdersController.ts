@@ -1,11 +1,12 @@
 import BaseController from "App/Controllers/Http/BaseController";
 import {RequestContract} from "@ioc:Adonis/Core/Request";
 import {AuthContract} from "@ioc:Adonis/Addons/Auth";
-import {LucidModel, LucidRow} from "@ioc:Adonis/Lucid/Model";
-import {SimplePaginatorMeta} from "@ioc:Adonis/Lucid/DatabaseQueryBuilder";
+import {LucidModel} from "@ioc:Adonis/Lucid/Model";
+import {SimplePaginatorContract} from "@ioc:Adonis/Lucid/DatabaseQueryBuilder";
 
 import ISuccessResponse from "Contracts/interfaces/ISuccessResponse";
 import IErrorResponse from "Contracts/interfaces/IErrorResponse";
+import IOrderProducts from "Contracts/interfaces/IOrderProducts";
 
 import {schema} from "@ioc:Adonis/Core/Validator";
 
@@ -25,7 +26,6 @@ import DeleteService from "App/Services/Orders/DeleteService";
 import Order from "App/Models/Order";
 import User from "App/Models/User";
 import EOrderStatuses from "Contracts/enums/orderStatuses";
-import IOrderProducts from "Contracts/interfaces/IOrderProducts";
 
 const GetMyServiceInit = new GetMyService()
 const CreateServiceInit = new CreateService()
@@ -35,10 +35,10 @@ const UpdateServiceInit = new UpdateService()
 const DeleteServiceInit = new DeleteService()
 
 export default class OrdersController extends BaseController {
-  public async getMyOrders (): Promise<ISuccessResponse | IErrorResponse>
+  public async getMyOrders ({auth}: {auth: AuthContract}): Promise<ISuccessResponse | IErrorResponse>
   {
     try {
-      const data: InstanceType<LucidModel>[] = await GetMyServiceInit.run()
+      const data: InstanceType<LucidModel>[] = await GetMyServiceInit.run(auth)
       return this.successResponse(200, data)
     } catch (e) {
       return this.errorResponse(e)
@@ -51,7 +51,8 @@ export default class OrdersController extends BaseController {
   {
     try {
       const {
-        search,
+        from_date,
+        to_date,
         sort_by = 'created_at',
         sort_desc = true,
         page,
@@ -60,9 +61,10 @@ export default class OrdersController extends BaseController {
         schema: schema.create(schemeList)
       })
 
-      const data: { meta: SimplePaginatorMeta; data: InstanceType<LucidModel>[] } = await ListServiceInit.run(
+      const data: SimplePaginatorContract<InstanceType<LucidModel>> = await ListServiceInit.run(
         {
-          search,
+          from_date,
+          to_date,
           sort_by,
           sort_desc,
           page,
@@ -81,7 +83,7 @@ export default class OrdersController extends BaseController {
   ): Promise<ISuccessResponse | IErrorResponse>
   {
     try {
-      const data: LucidRow = await ShowServiceInit.run(params.id)
+      const data: Order = await ShowServiceInit.run(Number(params.id))
 
       return this.successResponse(200, data)
     } catch (e) {

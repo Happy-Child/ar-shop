@@ -1,8 +1,15 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import {BaseModel, column, hasMany} from '@ioc:Adonis/Lucid/Orm'
 import EOrderStatuses from "Contracts/enums/orderStatuses";
+import OrdersProduct from "App/Models/OrdersProduct";
+import {HasMany} from "@ioc:Adonis/Lucid/Relations";
 
 export default class Order extends BaseModel {
+  @hasMany(() => OrdersProduct, {
+    foreignKey: 'order_id'
+  })
+  public products: HasMany<typeof OrdersProduct>
+
   @column({ isPrimary: true })
   public id: number
 

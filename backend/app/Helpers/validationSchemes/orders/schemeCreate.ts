@@ -1,7 +1,7 @@
 import {rules, schema} from "@ioc:Adonis/Core/Validator";
 
 export default {
-  products: schema.array().members(
+  products: schema.array([rules.minLength(1)]).members(
     schema.object().members({
       id: schema.number(),
       quantity: schema.number(),

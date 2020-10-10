@@ -1,32 +1,31 @@
 import {LucidModel} from "@ioc:Adonis/Lucid/Model";
-import Category from "App/Models/Category";
-import IListCategoriesServiceParams from "Contracts/interfaces/IListCategoriesServiceParams";
-import {SimplePaginatorContract, SimplePaginatorMeta} from "@ioc:Adonis/Lucid/DatabaseQueryBuilder";
+import Order from "App/Models/Order";
+import {SimplePaginatorContract} from "@ioc:Adonis/Lucid/DatabaseQueryBuilder";
+import IListOrdersServiceParams from "Contracts/interfaces/IListOrdersServiceParams";
 
 export default class ListService {
   private readonly _columns: string[] = [
     'id',
-    'image',
     'name',
+    'email',
+    'status',
     'createdAt',
   ]
   public async run(
-    params: IListCategoriesServiceParams
-  ): Promise<{ meta: SimplePaginatorMeta; data: InstanceType<LucidModel>[] }> {
+    params: IListOrdersServiceParams
+  ): Promise<SimplePaginatorContract<InstanceType<LucidModel>>> {
     try {
-      const resultQuery = Category
+      const resultQuery = Order
         .query()
         .select(this._columns)
-        .withCount('products')
 
-      if (params.search) {
-        const resultString: string = params.search.toLowerCase()
-        resultQuery.whereRaw(`name LIKE '%${resultString}%'`)
+      if (params.from_date) {
+        resultQuery.where('created_at', '>=', params.from_date)
       }
 
-      resultQuery.withCount('products', query => {
-        query.as('productsCount')
-      })
+      if (params.to_date) {
+        resultQuery.where('created_at', '<=', params.to_date)
+      }
 
       if (params.sort_desc) {
         resultQuery.orderBy(params.sort_by, 'desc')
@@ -37,18 +36,7 @@ export default class ListService {
       const limit: number = params.limit || 9
       const page: number = params.page || 1
 
-      const categories: SimplePaginatorContract<InstanceType<LucidModel>> = await resultQuery.paginate(page, limit)
-
-      const resultCategories = categories.toJSON()
-
-      resultCategories.data = resultCategories.data.map((category: Category) => {
-        return {
-          ...category.$attributes,
-          productsCount: category.$extras?.productsCount
-        } as Category
-      })
-
-      return resultCategories
+      return await resultQuery.paginate(page, limit)
     } catch (e) {
       throw e
     }

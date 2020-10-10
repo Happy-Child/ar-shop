@@ -1,32 +1,27 @@
-import {LucidRow} from "@ioc:Adonis/Lucid/Model";
-import {E_CATEGORY_NOT_FOUND} from "App/Helpers/errorTypes";
-import Category from "App/Models/Category";
+import Order from "App/Models/Order";
+import {E_ORDER_NOT_FOUND} from "App/Helpers/errorTypes";
 
 export default class ShowService {
-  private readonly _columns: string[] = [
-    'id',
-    'user_id',
-    'image',
-    'name',
-    'createdAt',
-  ]
-  public async run(id: number): Promise<LucidRow>
+  public async run(id: number): Promise<Order>
   {
     try {
-      const resultQuery = Category
+      const order = Order
         .query()
-        .select(this._columns)
-        .where('id', '=', id)
+        .where('id', id)
 
-      const [category]: LucidRow[] =  await resultQuery
+      order.preload('products', query => {
+        query.as('products')
+      })
 
-      if (!category) {
+      const [orderResult]: Order[] = await order
+
+      if (!orderResult) {
         throw {
-          code: E_CATEGORY_NOT_FOUND
+          code: E_ORDER_NOT_FOUND
         }
       }
 
-      return category
+      return orderResult
     } catch (e) {
       throw e
     }

@@ -1,9 +1,10 @@
 import {rules, schema} from "@ioc:Adonis/Core/Validator";
 
-const sortByValues = ['created_at', 'name']
+const sortByValues = ['created_at']
 
 export default {
-  search: schema.string.optional(),
+  from_date: schema.date.optional(),
+  to_date: schema.date.optional(),
   sort_by: schema.enum.optional(sortByValues),
   sort_desc: schema.boolean.optional(),
   page: schema.number.optional([
