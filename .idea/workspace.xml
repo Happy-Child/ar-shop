@@ -11,18 +11,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66425bd5-43fa-4ecb-bba2-ff1abc931582" name="Default Changelist" comment="Init project. User logic">
+      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.prettierrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/PHome.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/ui/templates/TAdmin.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/ui/templates/TDefault.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/webpack.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Controllers/Http/Orders/OrdersController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controllers/Http/Orders/OrdersController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/orders/schemeCreate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/orders/schemeCreate.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/orders/schemeList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/orders/schemeList.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Order.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Order.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Services/Orders/DeleteService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Orders/DeleteService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Services/Orders/GetMyService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Orders/GetMyService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Services/Orders/ListService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Orders/ListService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Services/Orders/ShowService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Orders/ShowService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/contracts/interfaces/IListOrdersServiceParams.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/interfaces/IListOrdersServiceParams.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/logo.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,31 +64,31 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../chemie-armor" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="$USER_HOME$/n/bin/node" />
     <property name="node.js.path.for.package.standard" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.eslint" value="$USER_HOME$/n/lib/node_modules/eslint" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/backend/contracts/interfaces" />
-      <recent name="$PROJECT_DIR$/backend/app/Helpers/validationSchemes" />
-      <recent name="$PROJECT_DIR$/backend/app/Services" />
-      <recent name="$PROJECT_DIR$/backend/app/Controllers/Http/Orders" />
-      <recent name="$PROJECT_DIR$/backend/contracts/enums" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/pages" />
       <recent name="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/users" />
       <recent name="$PROJECT_DIR$/backend/app/Helpers" />
       <recent name="$PROJECT_DIR$/backend/database/migrations" />
       <recent name="$PROJECT_DIR$/backend/database/factories" />
-      <recent name="$PROJECT_DIR$/backend/app/Controllers/Http/Users" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend" />
+      <recent name="$PROJECT_DIR$/frontend/src/ui/templates" />
+      <recent name="$PROJECT_DIR$/frontend/src/ui" />
+      <recent name="$PROJECT_DIR$/backend/contracts/interfaces" />
+      <recent name="$PROJECT_DIR$/backend/app/Helpers/validationSchemes" />
     </key>
   </component>
   <component name="RunManager">
@@ -135,6 +137,9 @@
       <workItem from="1602091359380" duration="680000" />
       <workItem from="1602145119867" duration="550000" />
       <workItem from="1602247323674" duration="599000" />
+      <workItem from="1602340384068" duration="637000" />
+      <workItem from="1602440932868" duration="7111000" />
+      <workItem from="1602455030170" duration="183000" />
     </task>
     <task id="LOCAL-00001" summary="Init project. User logic">
       <created>1601593338858</created>
@@ -164,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602032462539</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Init project. User logic">
+      <created>1602340416019</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1602340416019</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,14 +196,21 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Init project. User logic" />
     <option name="LAST_COMMIT_MESSAGE" value="Init project. User logic" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2757" y="436" width="307" height="243" key="#ESLint" timestamp="1601159332978">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="826" y="261" width="800" height="684" key="#ESLint" timestamp="1602452415832">
+      <screen x="72" y="28" width="1848" height="1052" />
     </state>
     <state x="2757" y="436" width="307" height="243" key="#ESLint/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601159332978" />
+    <state x="826" y="261" width="800" height="684" key="#ESLint/1920.0.1920.1080/72.28.1848.1052@72.28.1848.1052" timestamp="1602452415832" />
+    <state x="591" y="178" width="810" height="759" key="#TypeScript" timestamp="1602449925491">
+      <screen x="72" y="28" width="1848" height="1052" />
+    </state>
+    <state x="591" y="178" width="810" height="759" key="#TypeScript/1920.0.1920.1080/72.28.1848.1052@72.28.1848.1052" timestamp="1602449925491" />
     <state x="2578" y="346" width="665" height="430" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601501187820">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -205,6 +224,16 @@
     </state>
     <state x="2649" y="303" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601499403614" />
     <state x="774" y="323" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1080/72.28.1848.1052@72.28.1848.1052" timestamp="1601740548490" />
+    <state x="556" y="60" width="869" height="995" key="CommitChangelistDialog2" timestamp="1602455211590">
+      <screen x="72" y="28" width="1848" height="1052" />
+    </state>
+    <state x="556" y="60" width="870" height="995" key="CommitChangelistDialog2/1920.0.1920.1080/72.28.1848.1052@72.28.1848.1052" timestamp="1602454728102" />
+    <state x="556" y="60" width="869" height="995" key="CommitChangelistDialog2/72.28.1848.1052/1920.0.1920.1080@72.28.1848.1052" timestamp="1602455211590" />
+    <state x="556" y="60" width="870" height="995" key="CommitChangelistDialog2/72.28.1848.1052@72.28.1848.1052" timestamp="1602340415838" />
+    <state x="247" y="122" width="1478" height="878" key="DiffContextDialog" timestamp="1602340411109">
+      <screen x="72" y="28" width="1848" height="1052" />
+    </state>
+    <state x="247" y="122" width="1478" height="878" key="DiffContextDialog/72.28.1848.1052@72.28.1848.1052" timestamp="1602340411109" />
     <state x="2663" y="298" width="424" height="491" key="FileChooserDialogImpl" timestamp="1602072101431">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -214,6 +243,10 @@
     </state>
     <state x="2405" y="189" key="SettingsEditor/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601501223642" />
     <state x="2405" y="189" width="1022" height="737" key="SettingsEditor/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601160538072" />
+    <state x="591" y="286" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1602340420866">
+      <screen x="72" y="28" width="1848" height="1052" />
+    </state>
+    <state x="591" y="286" width="800" height="543" key="Vcs.Push.Dialog.v2/72.28.1848.1052@72.28.1848.1052" timestamp="1602340420866" />
     <state x="2468" y="159" width="944" height="797" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1601859590027">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
