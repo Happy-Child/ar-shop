@@ -1,14 +1,29 @@
 import React, { ReactNode } from 'react';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { Location } from 'history';
+
+import { createStyles, makeStyles, useTheme } from '@material-ui/core/styles';
+import { useLocation } from 'react-router-dom';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useToggle } from '../../hooks/useToggle';
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import ALink from '../atoms/ALink';
-import { ShoppingBasket } from '@material-ui/icons';
 
-interface IMenuLink {
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Grow from '@material-ui/core/Grow';
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
+import { ShoppingBasket, Menu as MenuIcon, MenuOpen } from '@material-ui/icons';
+
+import OMenuDesktop from './OMenuDesktop';
+import ALink from '../atoms/ALink';
+
+export interface IMenuLink {
   to: string;
   text: string;
 }
@@ -44,22 +59,11 @@ const useStyles = makeStyles((theme) =>
       alignItems: 'center',
       justifyContent: 'center',
     },
-    menu: {
-      display: 'flex',
-      alignItems: 'center',
-    },
-    menuItem: {
-      marginRight: '1rem',
-
-      [theme.breakpoints.down('md')]: {
-        fontSize: '14px',
-      },
-
-      '&:last-child': {
-        marginRight: 0,
+    wrapBasket: {
+      [theme.breakpoints.down('xs')]: {
+        marginLeft: 'auto',
       },
     },
-
     basketButton: {
       display: 'flex',
       alignItems: 'center',
@@ -67,6 +71,10 @@ const useStyles = makeStyles((theme) =>
     basketIcon: {
       marginRight: '0.5rem',
       position: 'relative',
+
+      [theme.breakpoints.down('xs')]: {
+        marginRight: '0',
+      },
     },
     productCount: {
       position: 'absolute',
@@ -80,19 +88,33 @@ const useStyles = makeStyles((theme) =>
       lineHeight: '18px',
       fontWeight: 500,
     },
+    menuBtn: {
+      marginLeft: '1rem',
+      position: 'relative',
+    },
+    mobMenu: {
+      right: '0 !important',
+      top: '100% !important',
+      left: 'auto !important',
+      transform: 'none !important',
+    },
   }),
 );
 
 const OHeader: React.FC<ReactNode> = () => {
+  const location: Location = useLocation();
+  const mobileUp = useMediaQuery(useTheme().breakpoints.up('sm'));
   const classes = useStyles();
   const productCount = 12;
+  const popperRef = React.useRef<HTMLButtonElement>(null);
+  const [menuOpened, setMenuOpened] = useToggle(false);
 
   return (
     <AppBar position="static">
       <Container>
         <Toolbar className={classes.toolbar}>
           <Grid container alignItems="center" justify="space-between" spacing={0}>
-            <Grid item sm={4} md={3}>
+            <Grid item xs={7} sm={4} md={3}>
               <ALink to={'/'}>
                 <Typography variant="h6" className={classes.title}>
                   Adonis & React Shop
@@ -100,26 +122,68 @@ const OHeader: React.FC<ReactNode> = () => {
               </ALink>
             </Grid>
 
-            <Grid className={classes.wrapperMenu} item sm={4} md={6}>
-              <div className={classes.menu}>
-                {menuLinks?.map((link: IMenuLink) => (
-                  <ALink key={link.to} to={link.to} className={classes.menuItem}>
-                    <Typography>{link.text}</Typography>
-                  </ALink>
-                ))}
-              </div>
-            </Grid>
+            {mobileUp && (
+              <Grid className={classes.wrapperMenu} item sm={4} md={6}>
+                <OMenuDesktop menuLinks={menuLinks} />
+              </Grid>
+            )}
 
-            <Grid container alignItems="center" justify="flex-end" item sm={4} md={3}>
+            <Grid
+              container
+              className={classes.wrapBasket}
+              alignItems="center"
+              justify="flex-end"
+              item
+              xs={2}
+              sm={4}
+              md={3}
+            >
               <button className={classes.basketButton}>
                 <span className={classes.basketIcon}>
                   <ShoppingBasket />
                   {productCount && <Typography className={classes.productCount}>{productCount}</Typography>}
                 </span>
 
-                <Typography>Cart</Typography>
+                {mobileUp && <Typography>Cart</Typography>}
               </button>
             </Grid>
+
+            {!mobileUp && (
+              <Grid className={classes.menuBtn} item>
+                <button onClick={() => setMenuOpened.toggle()} ref={popperRef}>
+                  {menuOpened ? <MenuOpen /> : <MenuIcon />}
+                </button>
+
+                <Popper
+                  className={classes.mobMenu}
+                  open={menuOpened}
+                  anchorEl={popperRef.current}
+                  transition
+                  disablePortal
+                >
+                  {({ TransitionProps }) => (
+                    <Grow {...TransitionProps}>
+                      <Paper>
+                        <ClickAwayListener onClickAway={() => setMenuOpened.setLeft()}>
+                          <MenuList autoFocusItem={menuOpened} id="menu-list-grow">
+                            {menuLinks?.map((link: IMenuLink) => (
+                              <ALink key={link.to} to={link.to}>
+                                <MenuItem
+                                  onClick={() => setMenuOpened.setLeft}
+                                  selected={link.to === location.pathname}
+                                >
+                                  {link.text}
+                                </MenuItem>
+                              </ALink>
+                            ))}
+                          </MenuList>
+                        </ClickAwayListener>
+                      </Paper>
+                    </Grow>
+                  )}
+                </Popper>
+              </Grid>
+            )}
           </Grid>
         </Toolbar>
       </Container>
