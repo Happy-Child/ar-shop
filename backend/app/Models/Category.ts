@@ -13,7 +13,7 @@ export default class Category extends BaseModel {
   public id: number
 
   @column()
-  public productsCount?: number
+  public products_count?: number
 
   @column()
   public user_id: number
@@ -28,8 +28,8 @@ export default class Category extends BaseModel {
   public name: string
 
   @column.dateTime({ autoCreate: true })
-  public createdAt: DateTime
+  public created_at: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  public updatedAt: DateTime
+  public updated_at: DateTime
 }

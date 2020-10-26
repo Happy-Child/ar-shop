@@ -8,7 +8,7 @@ export default class ShowService {
     'user_id',
     'image',
     'name',
-    'createdAt',
+    'created_at',
   ]
   public async run(id: number): Promise<LucidRow>
   {
@@ -16,7 +16,12 @@ export default class ShowService {
       const resultQuery = Category
         .query()
         .select(this._columns)
+        .withCount('products')
         .where('id', '=', id)
+
+      resultQuery.withCount('products', query => {
+        query.as('productsCount')
+      })
 
       const [category]: LucidRow[] =  await resultQuery
 

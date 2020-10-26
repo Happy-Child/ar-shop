@@ -1,29 +1,41 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import OHeader from '../organisms/OHeader';
 import OFooter from '../organisms/OFooter';
-import styled from 'styled-components';
+import MBreadcrumbs, { IBreadcrumbEl } from '../molecules/MBreadcrumbs';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 
-const LayoutStyled = styled.div`
-  display: flex;
-  align-items: stretch;
-  flex-direction: column;
-`;
-
-const StyledMain = styled.main`
-  flex-grow: 1;
-`;
+const useStyles = makeStyles(() =>
+  createStyles({
+    root: {
+      display: 'flex',
+      alignItems: 'stretch',
+      flexDirection: 'column',
+    },
+    main: {
+      flexGrow: 1,
+      display: 'flex',
+      alignItems: 'stretch',
+      flexDirection: 'column',
+    },
+  }),
+);
 
 interface IProps {
-  children: ReactNode;
+  breadcrumbs?: Array<IBreadcrumbEl>;
+  children: any;
 }
 
-const TDefault: React.FC<IProps> = ({ children }: IProps) => {
+const TDefault: React.FC<IProps> = ({ breadcrumbs, children }: IProps) => {
+  const classes = useStyles();
   return (
-    <LayoutStyled className="t-common">
+    <div className={`t-common ${classes.root}`}>
       <OHeader />
-      <StyledMain>{children}</StyledMain>
+      <main className={classes.main}>
+        {breadcrumbs && <MBreadcrumbs list={breadcrumbs} />}
+        {children}
+      </main>
       <OFooter />
-    </LayoutStyled>
+    </div>
   );
 };
 

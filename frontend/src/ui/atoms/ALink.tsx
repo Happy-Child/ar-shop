@@ -5,7 +5,7 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 
 interface IALinkProps {
   to: string | object;
-  children: ReactNode;
+  children: any;
   className?: string;
 }
 
@@ -30,7 +30,13 @@ const ALink: React.FC<IALinkProps> = ({ to, children, className }: IALinkProps) 
   const location: Location = useLocation();
   const isActive = location.pathname === to;
 
-  const totalClassName = [defaultClassName, styles.link, className].join(' ');
+  const classesArray: Array<string> = [defaultClassName, styles.link];
+
+  if (className) {
+    classesArray.push(className);
+  }
+
+  const totalClassName: string = classesArray.join(' ');
 
   return isActive ? (
     <div className={`${totalClassName} a-link_active`}>{children}</div>

@@ -35,8 +35,8 @@ export default class Order extends BaseModel {
   public status: EOrderStatuses
 
   @column.dateTime({ autoCreate: true })
-  public createdAt: DateTime
+  public created_at: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  public updatedAt: DateTime
+  public updated_at: DateTime
 }

@@ -11,7 +11,7 @@ export default class GetUsersService {
     'name',
     'phone',
     'email',
-    'createdAt',
+    'created_at',
   ]
   public async run(
     params: IGetUsersServiceParams

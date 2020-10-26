@@ -18,10 +18,13 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+import MLogo from '../molecules/MLogo';
 import { ShoppingBasket, Menu as MenuIcon, MenuOpen } from '@material-ui/icons';
 
 import OMenuDesktop from './OMenuDesktop';
 import ALink from '../atoms/ALink';
+import { useDispatch } from 'react-redux';
+import { actionFetchAllCategories } from '../../lib/store/categories/actions';
 
 export interface IMenuLink {
   to: string;
@@ -41,9 +44,6 @@ const menuLinks: Array<IMenuLink> = [
 
 const useStyles = makeStyles((theme) =>
   createStyles({
-    root: {
-      flexGrow: 1,
-    },
     title: {
       flexGrow: 1,
 
@@ -102,6 +102,12 @@ const useStyles = makeStyles((theme) =>
 );
 
 const OHeader: React.FC<ReactNode> = () => {
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(actionFetchAllCategories());
+  }, []);
+
   const location: Location = useLocation();
   const mobileUp = useMediaQuery(useTheme().breakpoints.up('sm'));
   const classes = useStyles();
@@ -115,11 +121,7 @@ const OHeader: React.FC<ReactNode> = () => {
         <Toolbar className={classes.toolbar}>
           <Grid container alignItems="center" justify="space-between" spacing={0}>
             <Grid item xs={7} sm={4} md={3}>
-              <ALink to={'/'}>
-                <Typography variant="h6" className={classes.title}>
-                  Adonis & React Shop
-                </Typography>
-              </ALink>
+              <MLogo />
             </Grid>
 
             {mobileUp && (

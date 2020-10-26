@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
-import PHome from '../pages/PHome';
-import PCategories from '../pages/PCategories';
-import PProducts from '../pages/PProducts';
+const PHome = React.lazy(() => import('../pages/PHome'));
+const PCategories = React.lazy(() => import('../pages/PCategories'));
+const PProducts = React.lazy(() => import('../pages/PProducts'));
 
 export interface IRoute {
   path: string;

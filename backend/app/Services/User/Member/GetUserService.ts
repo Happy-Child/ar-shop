@@ -11,7 +11,7 @@ export default class GetUserService {
     'name',
     'phone',
     'email',
-    'createdAt',
+    'created_at',
     'verified',
   ]
   public async run(id: number): Promise<LucidRow>

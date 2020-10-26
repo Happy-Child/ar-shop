@@ -10,11 +10,63 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66425bd5-43fa-4ecb-bba2-ff1abc931582" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useToggle.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/ui/organisms/OMenuDesktop.tsx" afterDir="false" />
+    <list default="true" id="66425bd5-43fa-4ecb-bba2-ff1abc931582" name="Default Changelist" comment="Init project. User logic">
+      <change afterPath="$PROJECT_DIR$/.idea/composerJson.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.idea/frontend.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/interfases/metaPagination.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/categories/actions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/categories/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/categories/interfases.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/categories/reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/root-reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/store.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/plugins/axios.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/services/api/categories/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/services/api/categories/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/services/api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/services/api/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/ui/molecules/MBreadcrumbs.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/ui/molecules/MLogo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/ui/molecules/MPageTitle.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/ui/organisms/OCategories/OCategoriesFilterPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Category.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Category.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Order.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Order.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/OrdersProduct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/OrdersProduct.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Product.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/ResetPasswordsToken.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/ResetPasswordsToken.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/VerifiedEmailsToken.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/VerifiedEmailsToken.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/Categories/ListService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Categories/ListService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/Categories/ShowService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Categories/ShowService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/Orders/ListService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Orders/ListService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/Product/ShowService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Product/ShowService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/User/Member/GetUserService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Member/GetUserService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/User/Member/GetUsersService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Member/GetUsersService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/contracts/interfaces/IErrorResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/interfaces/IErrorResponse.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/contracts/interfaces/ISuccessResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/interfaces/ISuccessResponse.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/PCategories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PCategories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/PHome.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PHome.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/react-app-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/react-app-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/routes/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/routes/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/ui/atoms/ALink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/ui/atoms/ALink.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/ui/organisms/OFooter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/ui/organisms/OFooter.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/ui/organisms/OHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/ui/organisms/OHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/ui/organisms/OMenuDesktop.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/ui/organisms/OMenuDesktop.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/ui/templates/TDefault.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/ui/templates/TDefault.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,9 +85,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="CSS File" />
         <option value="TypeScript JSX File" />
+        <option value="CoffeeScript Class" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -46,6 +99,7 @@
     <setting file="file://$PROJECT_DIR$/backend/config/app.ts" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1i4FrS3Y4wRECPMY1bSCOeAwTkk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -55,7 +109,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/ui/organisms" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -65,24 +119,24 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/backend/node_modules/typescript/lib" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/frontend/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/services/api" />
+      <recent name="$PROJECT_DIR$/frontend" />
+      <recent name="$PROJECT_DIR$/frontend/src/lib/api/categories" />
       <recent name="$PROJECT_DIR$/frontend/src/ui/organisms" />
       <recent name="$PROJECT_DIR$/frontend/src/pages" />
-      <recent name="$PROJECT_DIR$/frontend" />
-      <recent name="$PROJECT_DIR$/frontend/src/ui/templates" />
-      <recent name="$PROJECT_DIR$/frontend/src/ui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs" />
+      <recent name="$PROJECT_DIR$/frontend/src/services" />
+      <recent name="$PROJECT_DIR$/frontend/src" />
       <recent name="$PROJECT_DIR$/frontend/src/pages" />
       <recent name="$PROJECT_DIR$/backend/app/Helpers/validationSchemes/users" />
-      <recent name="$PROJECT_DIR$/backend/app/Helpers" />
-      <recent name="$PROJECT_DIR$/backend/database/migrations" />
-      <recent name="$PROJECT_DIR$/backend/database/factories" />
     </key>
   </component>
   <component name="RunManager">
@@ -142,7 +196,13 @@
       <workItem from="1602661307432" duration="4191000" />
       <workItem from="1602717405366" duration="3832000" />
       <workItem from="1602838766618" duration="857000" />
-      <workItem from="1602944542552" duration="13857000" />
+      <workItem from="1602944542552" duration="39078000" />
+      <workItem from="1603362919510" duration="4584000" />
+      <workItem from="1603448715900" duration="7829000" />
+      <workItem from="1603468217689" duration="622000" />
+      <workItem from="1603491413287" duration="5149000" />
+      <workItem from="1603577312927" duration="146000" />
+      <workItem from="1603721222589" duration="885000" />
     </task>
     <task id="LOCAL-00001" summary="Init project. User logic">
       <created>1601593338858</created>
@@ -193,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603062411804</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Init project. User logic">
+      <created>1603107463633</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1603107463633</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,11 +286,12 @@
     <option name="LAST_COMMIT_MESSAGE" value="Init project. User logic" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="826" y="261" width="800" height="684" key="#ESLint" timestamp="1602452415832">
-      <screen x="72" y="28" width="1848" height="1052" />
+    <state x="2703" y="239" width="800" height="684" key="#ESLint" timestamp="1603454326903">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2757" y="436" width="307" height="243" key="#ESLint/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601159332978" />
     <state x="826" y="261" width="800" height="684" key="#ESLint/1920.0.1920.1080/72.28.1848.1052@72.28.1848.1052" timestamp="1602452415832" />
+    <state x="2703" y="239" width="800" height="684" key="#ESLint/72.27.1848.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603454326903" />
     <state x="591" y="178" width="810" height="759" key="#TypeScript" timestamp="1602449925491">
       <screen x="72" y="28" width="1848" height="1052" />
     </state>
@@ -236,39 +304,49 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2724" y="273" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601335973744" />
-    <state x="774" y="323" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601740548490">
-      <screen x="72" y="28" width="1848" height="1052" />
+    <state x="2649" y="303" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603372334341">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2649" y="303" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601499403614" />
     <state x="774" y="323" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1080/72.28.1848.1052@72.28.1848.1052" timestamp="1601740548490" />
+    <state x="2649" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.27.1848.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603372334341" />
     <state x="728" y="390" width="525" height="335" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1602522379731">
       <screen x="72" y="28" width="1848" height="1052" />
     </state>
     <state x="728" y="390" width="525" height="335" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/72.28.1848.1052/1920.0.1920.1080@72.28.1848.1052" timestamp="1602522379731" />
-    <state x="1920" y="58" width="869" height="995" key="CommitChangelistDialog2" timestamp="1603062411689">
-      <screen x="72" y="26" width="3768" height="1054" />
+    <state x="2582" y="41" width="870" height="995" key="CommitChangelistDialog2" timestamp="1603722094505">
+      <screen x="0" y="27" width="3840" height="1053" />
     </state>
+    <state x="2582" y="41" width="870" height="995" key="CommitChangelistDialog2/0.27.3840.1053@0.27.3840.1053" timestamp="1603722094505" />
     <state x="556" y="60" width="870" height="995" key="CommitChangelistDialog2/1920.0.1920.1080/72.28.1848.1052@72.28.1848.1052" timestamp="1602454728102" />
-    <state x="1920" y="58" key="CommitChangelistDialog2/72.26.3768.1054@72.26.3768.1054" timestamp="1603062411689" />
+    <state x="1920" y="58" width="864" height="995" key="CommitChangelistDialog2/72.26.3768.1054@72.26.3768.1054" timestamp="1603202721991" />
     <state x="556" y="60" width="869" height="995" key="CommitChangelistDialog2/72.28.1848.1052/1920.0.1920.1080@72.28.1848.1052" timestamp="1602455217110" />
     <state x="556" y="60" width="870" height="995" key="CommitChangelistDialog2/72.28.1848.1052@72.28.1848.1052" timestamp="1602340415838" />
-    <state x="247" y="122" width="1478" height="878" key="DiffContextDialog" timestamp="1602340411109">
-      <screen x="72" y="28" width="1848" height="1052" />
+    <state x="1992" y="121" width="1848" height="880" key="DiffContextDialog" timestamp="1603722094159">
+      <screen x="0" y="27" width="3840" height="1053" />
     </state>
+    <state x="1992" y="121" width="1848" height="880" key="DiffContextDialog/0.27.3840.1053@0.27.3840.1053" timestamp="1603722094159" />
+    <state x="1920" y="120" width="1920" height="880" key="DiffContextDialog/72.26.3768.1054@72.26.3768.1054" timestamp="1603206599580" />
     <state x="247" y="122" width="1478" height="878" key="DiffContextDialog/72.28.1848.1052@72.28.1848.1052" timestamp="1602340411109" />
-    <state x="2663" y="298" width="424" height="491" key="FileChooserDialogImpl" timestamp="1602072101431">
+    <state x="2344" y="272" width="424" height="491" key="FileChooserDialogImpl" timestamp="1603537022374">
+      <screen x="0" y="27" width="3840" height="1053" />
+    </state>
+    <state x="2344" y="272" key="FileChooserDialogImpl/0.27.3840.1053@0.27.3840.1053" timestamp="1603537022374" />
+    <state x="2663" y="298" width="424" height="491" key="FileChooserDialogImpl/72.26.1848.1054/1920.0.1920.1080@1920.0.1920.1080" timestamp="1602072101431" />
+    <state x="2406" y="277" width="938" height="533" key="IDE.errors.dialog" timestamp="1603449254372">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2663" y="298" width="424" height="491" key="FileChooserDialogImpl/72.26.1848.1054/1920.0.1920.1080@1920.0.1920.1080" timestamp="1602072101431" />
-    <state x="2405" y="189" width="1022" height="737" key="SettingsEditor" timestamp="1601501223642">
+    <state x="2406" y="277" width="938" height="533" key="IDE.errors.dialog/72.27.1848.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603449254372" />
+    <state x="2405" y="189" width="1022" height="737" key="SettingsEditor" timestamp="1603449284400">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2405" y="189" key="SettingsEditor/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601501223642" />
     <state x="2405" y="189" width="1022" height="737" key="SettingsEditor/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601160538072" />
-    <state x="2037" y="219" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1603062414581">
+    <state x="2405" y="189" width="1022" height="737" key="SettingsEditor/72.27.1848.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603449284400" />
+    <state x="2037" y="219" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1603107465311">
       <screen x="72" y="26" width="3768" height="1054" />
     </state>
-    <state x="2037" y="219" key="Vcs.Push.Dialog.v2/72.26.3768.1054@72.26.3768.1054" timestamp="1603062414581" />
+    <state x="2037" y="219" width="800" height="543" key="Vcs.Push.Dialog.v2/72.26.3768.1054@72.26.3768.1054" timestamp="1603107465311" />
     <state x="591" y="286" key="Vcs.Push.Dialog.v2/72.28.1848.1052/1920.0.1920.1080@72.28.1848.1052" timestamp="1602455219108" />
     <state x="591" y="286" width="800" height="543" key="Vcs.Push.Dialog.v2/72.28.1848.1052@72.28.1848.1052" timestamp="1602340420866" />
     <state x="599" y="183" width="944" height="797" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602456537341">
@@ -276,9 +354,10 @@
     </state>
     <state x="2468" y="159" width="944" height="797" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601859590027" />
     <state x="599" y="183" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/72.28.1848.1052/1920.0.1920.1080@72.28.1848.1052" timestamp="1602456537341" />
-    <state x="762" y="469" width="457" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602340391164">
-      <screen x="72" y="28" width="1848" height="1052" />
+    <state x="970" y="468" width="457" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603721224833">
+      <screen x="0" y="27" width="3840" height="1053" />
     </state>
+    <state x="970" y="468" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.3840.1053@0.27.3840.1053" timestamp="1603721224833" />
     <state x="762" y="469" width="457" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.28.1848.1052@72.28.1848.1052" timestamp="1602340391164" />
     <state x="137" y="26" width="1523" height="682" maximized="true" key="dock-window-1" timestamp="1602071976524">
       <screen x="72" y="26" width="1848" height="1054" />
@@ -293,15 +372,16 @@
     <state x="193" y="26" width="1506" height="560" key="dock-window-2/0.26.1920.1054/1920.0.1920.1080@0.26.1920.1054" timestamp="1602015854329" />
     <state x="2113" y="26" width="1506" height="574" key="dock-window-2/1920.0.1920.1080/0.26.1920.1054@1920.0.1920.1080" timestamp="1602023489539" />
     <state x="193" y="26" width="1506" height="560" maximized="true" key="dock-window-2/72.26.1848.1054/1920.0.1920.1080@1920.0.1920.1080" timestamp="1602003116560" />
-    <state x="1033" y="174" width="887" height="622" key="find.popup" timestamp="1602621905294">
-      <screen x="72" y="26" width="1848" height="1054" />
+    <state x="2513" y="164" width="727" height="568" key="find.popup" timestamp="1603452019952">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2605" y="280" width="674" height="658" key="find.popup/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601860370257" />
     <state x="2608" y="277" width="616" height="554" key="find.popup/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601937894736" />
     <state x="734" y="298" width="593" height="554" key="find.popup/1920.0.1920.1080/72.28.1848.1052@72.28.1848.1052" timestamp="1601740815045" />
     <state x="2608" y="277" width="616" height="554" key="find.popup/72.26.1848.1054/1920.0.1920.1080@1920.0.1920.1080" timestamp="1602002998483" />
     <state x="1033" y="174" width="887" height="622" key="find.popup/72.26.1848.1054/1920.0.1920.1080@72.26.1848.1054" timestamp="1602621905294" />
-    <state x="2212" y="174" width="1209" height="554" key="find.popup/72.26.3768.1054@72.26.3768.1054" timestamp="1602070455056" />
+    <state x="2212" y="174" width="1209" height="554" key="find.popup/72.26.3768.1054@72.26.3768.1054" timestamp="1603208899532" />
+    <state x="2513" y="164" width="727" height="568" key="find.popup/72.27.1848.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603452019952" />
     <state x="734" y="299" width="593" height="554" key="find.popup/72.29.1848.1051@72.29.1848.1051" timestamp="1601826389157" />
     <state x="2582" y="273" width="563" height="526" key="refactoring.ChangeSignatureDialog" timestamp="1601751796555">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -322,5 +402,9 @@
     <state x="2579" y="260" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601161587072" />
     <state x="2579" y="260" width="699" height="679" key="search.everywhere.popup/72.26.1848.1054/1920.0.1920.1080@1920.0.1920.1080" timestamp="1601996341413" />
     <state x="706" y="282" width="672" height="660" key="search.everywhere.popup/72.29.1848.1051@72.29.1848.1051" timestamp="1601828122058" />
+    <state x="2605" y="381" width="540" height="325" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1603448741602">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2605" y="381" width="540" height="325" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/72.27.1848.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603448741602" />
   </component>
 </project>

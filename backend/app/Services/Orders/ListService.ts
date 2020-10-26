@@ -9,7 +9,7 @@ export default class ListService {
     'name',
     'email',
     'status',
-    'createdAt',
+    'created_at',
   ]
   public async run(
     params: IListOrdersServiceParams

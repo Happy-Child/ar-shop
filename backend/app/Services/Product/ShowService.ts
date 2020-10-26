@@ -12,7 +12,7 @@ export default class ShowService {
     'price',
     'description_full',
     'description_small',
-    'createdAt',
+    'created_at',
   ]
   public async run(id: number): Promise<LucidRow>
   {

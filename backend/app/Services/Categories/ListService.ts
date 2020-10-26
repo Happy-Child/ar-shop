@@ -6,9 +6,9 @@ import {SimplePaginatorContract, SimplePaginatorMeta} from "@ioc:Adonis/Lucid/Da
 export default class ListService {
   private readonly _columns: string[] = [
     'id',
-    'image',
+    'image_small',
     'name',
-    'createdAt',
+    'created_at',
   ]
   public async run(
     params: IListCategoriesServiceParams
@@ -44,7 +44,7 @@ export default class ListService {
       resultCategories.data = resultCategories.data.map((category: Category) => {
         return {
           ...category.$attributes,
-          productsCount: category.$extras?.productsCount
+          products_count: category.$extras?.productsCount
         } as Category
       })
 

@@ -1,4 +1,4 @@
-export default interface ISuccessResponse {products
+export default interface ISuccessResponse {
   status: number,
   data?: object
 }
