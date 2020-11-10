@@ -1,3 +1,0 @@
-const store = {};
-
-export { store };

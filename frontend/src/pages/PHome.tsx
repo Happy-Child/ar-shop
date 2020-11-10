@@ -34,17 +34,17 @@ const PHome: React.FC<ReactNode> = () => {
   const classes = useStyles();
 
   React.useEffect(() => {
-    categoriesAPI.all().then((res) => {
-      console.log(res.data);
-    });
-
-    categoriesAPI.list({ page: 2 }).then((res) => {
-      console.log(res.data);
-    });
-
-    categoriesAPI.show({ id: 3 }).then((res) => {
-      console.log(res.data);
-    });
+    // categoriesAPI.all().then((res) => {
+    //   console.log(res.data);
+    // });
+    //
+    // categoriesAPI.list({ page: 2 }).then((res) => {
+    //   console.log(res.data);
+    // });
+    //
+    // categoriesAPI.show({ id: 3 }).then((res) => {
+    //   console.log(res.data);
+    // });
   }, []);
 
   return (

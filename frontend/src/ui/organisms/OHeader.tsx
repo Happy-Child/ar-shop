@@ -23,22 +23,27 @@ import { ShoppingBasket, Menu as MenuIcon, MenuOpen } from '@material-ui/icons';
 
 import OMenuDesktop from './OMenuDesktop';
 import ALink from '../atoms/ALink';
-import { useDispatch } from 'react-redux';
-import { actionFetchAllCategories } from '../../lib/store/categories/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { actionFetchALlCategories } from '../../lib/store/categories/actions';
+import { ICategoryAll } from '../../lib/store/categories/interfases';
+import { IAppState } from '../../lib/store/store';
 
 export interface IMenuLink {
   to: string;
   text: string;
+  children?: null | IMenuLink[] | [];
 }
 
 const menuLinks: Array<IMenuLink> = [
   {
     to: '/products',
     text: 'Products',
+    children: null,
   },
   {
     to: '/categories',
     text: 'Categories',
+    children: null,
   },
 ];
 
@@ -103,10 +108,36 @@ const useStyles = makeStyles((theme) =>
 
 const OHeader: React.FC<ReactNode> = () => {
   const dispatch = useDispatch();
+  const allCategories = useSelector<IAppState, ICategoryAll[]>((state) => state.categories.allCategories);
+  const fetchedAllCategories = useSelector<IAppState, boolean>((state) => state.categories.fetched);
+  const [resultMenuLinks, setResultMenuLinks] = React.useState(menuLinks);
 
   React.useEffect(() => {
-    dispatch(actionFetchAllCategories());
-  }, []);
+    if (!fetchedAllCategories) {
+      dispatch(actionFetchALlCategories());
+    }
+  }, [dispatch, fetchedAllCategories]);
+
+  React.useEffect(() => {
+    if (!fetchedAllCategories || !allCategories.length) return;
+
+    const result = menuLinks.map((link) => {
+      if (link.to === '/categories') {
+        return {
+          to: '/categories',
+          text: 'Categories',
+          children: allCategories.map((category: ICategoryAll) => ({
+            to: `/categories/${category.id}`,
+            text: category.name,
+            children: null,
+          })),
+        };
+      }
+      return link;
+    });
+
+    setResultMenuLinks(result);
+  }, [allCategories, fetchedAllCategories]);
 
   const location: Location = useLocation();
   const mobileUp = useMediaQuery(useTheme().breakpoints.up('sm'));
@@ -126,7 +157,7 @@ const OHeader: React.FC<ReactNode> = () => {
 
             {mobileUp && (
               <Grid className={classes.wrapperMenu} item sm={4} md={6}>
-                <OMenuDesktop menuLinks={menuLinks} />
+                <OMenuDesktop menuLinks={resultMenuLinks} />
               </Grid>
             )}
 

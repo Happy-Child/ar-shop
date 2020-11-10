@@ -1,13 +1,27 @@
 import { createStore, compose, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
 import { rootReducer } from './root-reducer';
+import createSagaMiddleware from 'redux-saga';
+import { rootSaga } from './sagas';
+import { ICategoryAll } from './categories/interfases';
+
+const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   rootReducer,
   compose(
-    applyMiddleware(thunk),
+    applyMiddleware(sagaMiddleware),
     window && (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
   ),
 );
+
+sagaMiddleware.run(rootSaga);
+
+export interface IAppState {
+  categories: {
+    allCategories: Array<ICategoryAll> | [];
+    loading: false;
+    fetched: false;
+  };
+}
 
 export { store };

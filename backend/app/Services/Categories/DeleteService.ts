@@ -7,7 +7,6 @@ export default class DeleteService {
 
       await category.delete()
     } catch (e) {
-      console.log(e)
       throw e
     }
   }

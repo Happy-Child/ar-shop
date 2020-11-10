@@ -10,62 +10,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66425bd5-43fa-4ecb-bba2-ff1abc931582" name="Default Changelist" comment="Init project. User logic">
-      <change afterPath="$PROJECT_DIR$/.idea/composerJson.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.idea/frontend.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/interfases/metaPagination.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/categories/actions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/categories/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/categories/interfases.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/categories/reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/root-reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/store.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/plugins/axios.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/services/api/categories/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/services/api/categories/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/services/api/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/services/api/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/ui/molecules/MBreadcrumbs.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/ui/molecules/MLogo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/ui/molecules/MPageTitle.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/ui/organisms/OCategories/OCategoriesFilterPanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="66425bd5-43fa-4ecb-bba2-ff1abc931582" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/categories/sagas.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/sagas.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Category.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Category.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Order.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Order.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/OrdersProduct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/OrdersProduct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Product.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/ResetPasswordsToken.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/ResetPasswordsToken.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/VerifiedEmailsToken.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/VerifiedEmailsToken.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Services/Categories/ListService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Categories/ListService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Services/Categories/ShowService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Categories/ShowService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Services/Orders/ListService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Orders/ListService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Services/Product/ShowService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Product/ShowService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Services/User/Member/GetUserService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Member/GetUserService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Services/User/Member/GetUsersService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/User/Member/GetUsersService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/contracts/interfaces/IErrorResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/interfaces/IErrorResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/contracts/interfaces/ISuccessResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/contracts/interfaces/ISuccessResponse.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/Categories/DeleteService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Categories/DeleteService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/PCategories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PCategories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/lib/store/categories/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/store/categories/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/lib/store/categories/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/lib/store/categories/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/store/categories/reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/lib/store/root-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/store/root-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/lib/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/store/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/PHome.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PHome.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/react-app-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/react-app-env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/routes/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/routes/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/ui/atoms/ALink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/ui/atoms/ALink.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/ui/organisms/OFooter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/ui/organisms/OFooter.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/ui/organisms/OHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/ui/organisms/OHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/ui/organisms/OMenuDesktop.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/ui/organisms/OMenuDesktop.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/ui/templates/TDefault.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/ui/templates/TDefault.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -202,7 +161,8 @@
       <workItem from="1603468217689" duration="622000" />
       <workItem from="1603491413287" duration="5149000" />
       <workItem from="1603577312927" duration="146000" />
-      <workItem from="1603721222589" duration="885000" />
+      <workItem from="1603721222589" duration="1800000" />
+      <workItem from="1604861206566" duration="476000" />
     </task>
     <task id="LOCAL-00001" summary="Init project. User logic">
       <created>1601593338858</created>
@@ -260,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603107463633</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Init project. User logic">
+      <created>1603722116874</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1603722116874</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,10 +281,10 @@
       <screen x="72" y="28" width="1848" height="1052" />
     </state>
     <state x="728" y="390" width="525" height="335" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/72.28.1848.1052/1920.0.1920.1080@72.28.1848.1052" timestamp="1602522379731" />
-    <state x="2582" y="41" width="870" height="995" key="CommitChangelistDialog2" timestamp="1603722094505">
+    <state x="2582" y="41" width="870" height="995" key="CommitChangelistDialog2" timestamp="1603722112672">
       <screen x="0" y="27" width="3840" height="1053" />
     </state>
-    <state x="2582" y="41" width="870" height="995" key="CommitChangelistDialog2/0.27.3840.1053@0.27.3840.1053" timestamp="1603722094505" />
+    <state x="2582" y="41" width="870" height="995" key="CommitChangelistDialog2/0.27.3840.1053@0.27.3840.1053" timestamp="1603722112672" />
     <state x="556" y="60" width="870" height="995" key="CommitChangelistDialog2/1920.0.1920.1080/72.28.1848.1052@72.28.1848.1052" timestamp="1602454728102" />
     <state x="1920" y="58" width="864" height="995" key="CommitChangelistDialog2/72.26.3768.1054@72.26.3768.1054" timestamp="1603202721991" />
     <state x="556" y="60" width="869" height="995" key="CommitChangelistDialog2/72.28.1848.1052/1920.0.1920.1080@72.28.1848.1052" timestamp="1602455217110" />
@@ -343,9 +310,10 @@
     <state x="2405" y="189" key="SettingsEditor/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1601501223642" />
     <state x="2405" y="189" width="1022" height="737" key="SettingsEditor/1920.0.1920.1080/0.29.1920.1051@1920.0.1920.1080" timestamp="1601160538072" />
     <state x="2405" y="189" width="1022" height="737" key="SettingsEditor/72.27.1848.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603449284400" />
-    <state x="2037" y="219" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1603107465311">
-      <screen x="72" y="26" width="3768" height="1054" />
+    <state x="2340" y="186" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1603722119155">
+      <screen x="0" y="27" width="3840" height="1053" />
     </state>
+    <state x="2340" y="186" key="Vcs.Push.Dialog.v2/0.27.3840.1053@0.27.3840.1053" timestamp="1603722119155" />
     <state x="2037" y="219" width="800" height="543" key="Vcs.Push.Dialog.v2/72.26.3768.1054@72.26.3768.1054" timestamp="1603107465311" />
     <state x="591" y="286" key="Vcs.Push.Dialog.v2/72.28.1848.1052/1920.0.1920.1080@72.28.1848.1052" timestamp="1602455219108" />
     <state x="591" y="286" width="800" height="543" key="Vcs.Push.Dialog.v2/72.28.1848.1052@72.28.1848.1052" timestamp="1602340420866" />
