@@ -20,7 +20,6 @@ export interface IAppState {
   categories: {
     allCategories: Array<ICategoryAll> | [];
     loading: false;
-    fetched: false;
   };
 }
 

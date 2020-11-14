@@ -27,6 +27,7 @@
     "mysql": "^2.18.1",
     "phc-argon2": "^1.0.10",
     "proxy-addr": "^2.0.6",
+    "query-string": "^6.13.7",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.19"
   }

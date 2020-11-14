@@ -1,8 +1,7 @@
 import React from 'react';
-import OHeader from '../organisms/OHeader';
-import OFooter from '../organisms/OFooter';
 import MBreadcrumbs, { IBreadcrumbEl } from '../molecules/MBreadcrumbs';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -11,7 +10,7 @@ const useStyles = makeStyles(() =>
       alignItems: 'stretch',
       flexDirection: 'column',
     },
-    main: {
+    flexGrow: {
       flexGrow: 1,
       display: 'flex',
       alignItems: 'stretch',
@@ -27,15 +26,12 @@ interface IProps {
 
 const TDefault: React.FC<IProps> = ({ breadcrumbs, children }: IProps) => {
   const classes = useStyles();
+
   return (
-    <div className={`t-common ${classes.root}`}>
-      <OHeader />
-      <main className={classes.main}>
-        {breadcrumbs && <MBreadcrumbs list={breadcrumbs} />}
-        {children}
-      </main>
-      <OFooter />
-    </div>
+    <main className={classes.flexGrow}>
+      {breadcrumbs && <MBreadcrumbs list={breadcrumbs} />}
+      <Container className={classes.flexGrow}>{children}</Container>
+    </main>
   );
 };
 

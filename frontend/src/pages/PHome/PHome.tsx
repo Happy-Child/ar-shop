@@ -1,13 +1,10 @@
 import React, { ReactNode } from 'react';
-import TDefault from '../ui/templates/TDefault';
+import TDefault from '../../ui/templates/TDefault';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import ALink from '../ui/atoms/ALink';
+import ALink from '../../ui/atoms/ALink';
 import Button from '@material-ui/core/Button';
-import { categoriesAPI } from '../services/api';
-import ISuccessResponse from '../../../backend/contracts/interfaces/ISuccessResponse';
-import { ICategoryAll } from '../lib/store/categories/interfases';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -32,20 +29,6 @@ const useStyles = makeStyles((theme) =>
 
 const PHome: React.FC<ReactNode> = () => {
   const classes = useStyles();
-
-  React.useEffect(() => {
-    // categoriesAPI.all().then((res) => {
-    //   console.log(res.data);
-    // });
-    //
-    // categoriesAPI.list({ page: 2 }).then((res) => {
-    //   console.log(res.data);
-    // });
-    //
-    // categoriesAPI.show({ id: 3 }).then((res) => {
-    //   console.log(res.data);
-    // });
-  }, []);
 
   return (
     <TDefault>

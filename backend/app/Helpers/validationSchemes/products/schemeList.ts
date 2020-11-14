@@ -17,6 +17,6 @@ export default {
     rules.range(1, 999999)
   ]),
   limit: schema.number.optional([
-    rules.range(1, 9)
+    rules.range(1, 20)
   ]),
 }

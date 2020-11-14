@@ -5,13 +5,11 @@ import { TDefaultAction } from '../types';
 type initialState = {
   allCategories: Array<ICategoryAll>;
   loading: boolean;
-  fetched: boolean;
 };
 
 const initialState: initialState = {
   allCategories: [],
   loading: false,
-  fetched: false,
 };
 
 export const categoriesReducer = (state = initialState, action: TDefaultAction) => {
@@ -24,7 +22,6 @@ export const categoriesReducer = (state = initialState, action: TDefaultAction) 
     case EActionsTypes.LOADING_ALL_CATEGORIES:
       return {
         ...state,
-        fetched: !action.payload ? true : state.fetched,
         loading: action.payload,
       };
     default: {

@@ -1,7 +1,7 @@
 import axiosInstance from '../../../plugins/axios';
 import { TResponseAllCategories, TResponseListCategories, TResponseShowCategory } from './types';
 
-interface IListParams {
+export interface IListParams {
   search?: string;
   sort_by?: string;
   sort_desc?: boolean;
@@ -9,7 +9,7 @@ interface IListParams {
   limit?: number;
 }
 
-interface IShowParams {
+export interface IShowParams {
   id: number;
 }
 
