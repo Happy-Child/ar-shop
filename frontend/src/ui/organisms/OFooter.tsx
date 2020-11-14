@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) =>
         padding: '8px 0',
       },
     },
+    link: {
+      color: '#3f50b5',
+    },
     copyrightWrapper: {
       textAlign: 'right',
 
@@ -43,7 +46,16 @@ const OFooter: React.FC<ReactNode> = () => {
               <MLogo />
             </Grid>
             <Grid item xs={12} sm={6} className={classes.copyrightWrapper}>
-              <Typography>Creator Egor Lazuka</Typography>
+              <Typography>
+                <a
+                  className={classes.link}
+                  href="https://www.youtube.com/channel/UC3upZJN_lZvE_Nf90XBESWw"
+                  target="_blank"
+                  referrerPolicy="no-referrer"
+                >
+                  Creator Egor Lazuka
+                </a>
+              </Typography>
             </Grid>
           </Grid>
         </Toolbar>
