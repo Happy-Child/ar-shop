@@ -1,6 +1,6 @@
-import {LucidModel} from "@ioc:Adonis/Lucid/Model";
 import Product from "App/Models/Product";
 import IListProductsServiceParams from "Contracts/interfaces/IListProductsServiceParams";
+import {LucidModel} from "@ioc:Adonis/Lucid/Model";
 
 export default class ListService {
   private readonly _columns: string[] = [
@@ -9,10 +9,11 @@ export default class ListService {
     'name',
     'price',
     'description_small',
+    'created_at',
   ]
   public async run(
     params: IListProductsServiceParams
-  ): Promise<InstanceType<LucidModel>[]>
+  ): Promise<{ products: InstanceType<LucidModel>[], prices: {min: number, max: number} }>
   {
     try {
       const resultQuery = Product
@@ -33,7 +34,7 @@ export default class ListService {
       }
 
       if (params.price_max) {
-        resultQuery.where('category_id', '<=', params.price_max)
+        resultQuery.where('price', '<=', params.price_max)
       }
 
       if (params.sort_desc) {
@@ -45,8 +46,20 @@ export default class ListService {
       const limit: number = params.limit || 9
       const page: number = params.page || 1
 
-      return await resultQuery.paginate(page, limit)
+      const [minPrice]: {min: number}[] = await Product.query().min('price as min');
+      const [maxPrice]: {max: number}[] = await Product.query().max('price as max');
+
+      const products: InstanceType<LucidModel>[] = await resultQuery.paginate(page, limit)
+
+      return {
+        products,
+        prices: {
+          min: minPrice.min,
+          max: maxPrice.max,
+        }
+      }
     } catch (e) {
+      console.log(e)
       throw e
     }
   }

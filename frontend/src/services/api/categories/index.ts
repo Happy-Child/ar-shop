@@ -2,11 +2,11 @@ import axiosInstance from '../../../plugins/axios';
 import { TResponseAllCategories, TResponseListCategories, TResponseShowCategory } from './types';
 
 export interface IListParams {
-  search?: string;
-  sort_by?: string;
-  sort_desc?: boolean;
-  page?: number;
-  limit?: number;
+  search?: string | null;
+  sort_by?: string | null;
+  sort_desc?: boolean | null;
+  page?: number | null;
+  limit?: number | null;
 }
 
 export interface IShowParams {

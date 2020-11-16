@@ -51,7 +51,7 @@ const OFooter: React.FC<ReactNode> = () => {
                   className={classes.link}
                   href="https://www.youtube.com/channel/UC3upZJN_lZvE_Nf90XBESWw"
                   target="_blank"
-                  referrerPolicy="no-referrer"
+                  rel="noreferrer"
                 >
                   Creator Egor Lazuka
                 </a>

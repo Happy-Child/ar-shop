@@ -3,12 +3,13 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { ICategoryList } from '../../../lib/store/categories/interfases';
 import { TResponseListCategories } from '../../../services/api/categories/types';
 import { IOCategoriesCardSite } from './OCategoriesCard/OCategoriesCardSite';
-import { ICategoriesPanelFormSortedItem } from '../../../pages/PCategories/types';
+import { IPanelFormSortedItem } from '../../../interfases/panelFormSortedItem';
 import { categoriesAPI } from '../../../services/api';
 import { IListParams } from '../../../services/api/categories';
 import { IMetaPagination } from '../../../interfases/metaPagination';
 import { useRoute } from '../../../hooks/useRoute';
-import OCategoriesFilterPanel from './OCategoriesFilterPanel';
+import { useScrollToRef } from '../../../hooks/useScrollToRef';
+import OFilterPanel from '../OFilterPanel';
 import Grid from '@material-ui/core/Grid';
 import Pagination from '@material-ui/lab/Pagination';
 
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) =>
   }),
 );
 
-const sortByItemsList: ICategoriesPanelFormSortedItem[] = [
+const sortByItemsList: IPanelFormSortedItem[] = [
   {
     value: 'created_at',
     label: 'Created at',
@@ -38,7 +39,7 @@ const sortByItemsList: ICategoriesPanelFormSortedItem[] = [
   },
 ];
 
-const sortTypesItemsList: ICategoriesPanelFormSortedItem[] = [
+const sortTypesItemsList: IPanelFormSortedItem[] = [
   {
     value: false,
     label: 'Sort Ascending',
@@ -49,15 +50,22 @@ const sortTypesItemsList: ICategoriesPanelFormSortedItem[] = [
   },
 ];
 
-const getQueryByCategories = (queryObject: { [key: string]: string }) => {
-  const { search = '', sort_by = 'created_at', page = 1, sort_desc = false } = queryObject;
+const defaultFormData: IListParams = {
+  search: '',
+  sort_by: 'created_at',
+  sort_desc: false,
+  page: 1,
+};
 
-  return {
-    search,
-    sort_by,
-    sort_desc: Boolean(sort_desc),
-    page: Number(page),
+const getQueryByCategories = (queryObject: { [key: string]: string }) => {
+  const { search = null, sort_by = null, page = null, sort_desc = null } = queryObject;
+  const result: IListParams = {
+    search: search != null ? String(search) : defaultFormData.search,
+    sort_by: sort_by != null ? String(sort_by) : defaultFormData.sort_by,
+    sort_desc: sort_desc != null ? Boolean(sort_desc) : defaultFormData.sort_desc,
+    page: page != null ? Number(page) : 1,
   };
+  return result;
 };
 
 interface IOCategoriesBlock {
@@ -77,13 +85,20 @@ const OCategoriesBlock: React.FC<IOCategoriesBlock> = ({
   const [categoriesList, setCategoriesList] = React.useState<ICategoryList[] | []>([]);
   const [metaPagination, setMetaPagination] = React.useState<IMetaPagination | null>(null);
   const [loading, setLoading] = React.useState<boolean>(false);
+  const { refEl: refFilter, handleScrollToEl } = useScrollToRef();
 
-  const changeFormData = (value: string | number | boolean, fieldName: string): void => {
-    const page = fieldName === 'search' ? 1 : formData.page;
-    pushRoute(pathname, { ...queryObject, [fieldName]: value, page });
+  const changeFormData = (newData: object, resetPagination = false): void => {
+    let page = formData.page;
+    if (resetPagination) page = 1;
+    pushRoute(pathname, { ...queryObject, ...newData, page });
+  };
+
+  const onResetFilter = (): void => {
+    pushRoute(pathname, { ...queryObject, ...defaultFormData });
   };
 
   const handlePaginationChange = (e: React.ChangeEvent<unknown>, page: number): void => {
+    handleScrollToEl();
     pushRoute(pathname, { ...queryObject, page });
   };
 
@@ -110,7 +125,10 @@ const OCategoriesBlock: React.FC<IOCategoriesBlock> = ({
 
   React.useEffect(() => {
     (async function () {
+      if (loading) return;
+
       setLoading(true);
+
       try {
         const response: TResponseListCategories = await categoriesAPI.list({
           ...formData,
@@ -128,8 +146,10 @@ const OCategoriesBlock: React.FC<IOCategoriesBlock> = ({
 
   return (
     <>
-      <OCategoriesFilterPanel
+      <OFilterPanel
+        ref={refFilter}
         className={classes.panel}
+        onResetFilter={onResetFilter}
         changeFormData={changeFormData}
         formData={formData}
         loading={loading}
@@ -147,7 +167,7 @@ const OCategoriesBlock: React.FC<IOCategoriesBlock> = ({
         <Pagination
           className={classes.pagination}
           count={metaPagination?.last_page || 1}
-          page={formData.page}
+          page={formData.page || 1}
           onChange={handlePaginationChange}
           disabled={loading}
           variant="outlined"

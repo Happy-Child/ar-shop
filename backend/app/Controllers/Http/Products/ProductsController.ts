@@ -48,7 +48,7 @@ export default class ProductsController extends BaseController {
         schema: schema.create(schemeList)
       })
 
-      const data: InstanceType<LucidModel>[] = await ListServiceInit.run(
+      const data: { products: InstanceType<LucidModel>[], prices: {min: number, max: number} } = await ListServiceInit.run(
         {
           category_id,
           price_min,
