@@ -2,9 +2,9 @@ import React, { ReactNode } from 'react';
 import { useParams } from 'react-router-dom';
 import TDefault from '../../ui/templates/TDefault';
 import MPageTitle from '../../ui/molecules/MPageTitle';
-import { IProduct } from '../../lib/store/products/interfases';
+import { IProduct, IProductList } from '../../lib/store/products/interfases';
 import { productsAPI } from '../../services/api';
-import { TResponseShowProduct } from '../../services/api/products/types';
+import { TResponseListProducts, TResponseShowProduct } from '../../services/api/products/types';
 import { IBreadcrumbEl } from '../../ui/molecules/MBreadcrumbs';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -14,6 +14,8 @@ import { useCount } from '../../hooks/useCount';
 import { IDataListItem } from '../../ui/molecules/MDataList/MDataListItem';
 import { MDataList } from '../../ui/molecules/MDataList/MDataList';
 import moment from 'moment';
+import Grid from '@material-ui/core/Grid';
+import { OProductsCardSite, IOProductCardSite } from '../../ui/organisms/OProducts/OProductsCard/OProductsCardSite';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -87,6 +89,10 @@ const useStyles = makeStyles((theme) =>
       marginTop: 'auto',
       marginBottom: '1.5rem',
     },
+    similarProducts: {
+      padding: '1rem 0 5rem',
+    },
+    similarProductsList: {},
   }),
 );
 
@@ -114,6 +120,8 @@ const PProduct: React.FC<ReactNode> = () => {
   const [breadcrumbs, setBreadcrumbs] = React.useState<Array<IBreadcrumbEl>>(startBreadcrumbs);
   const [loading, setLoading] = React.useState<boolean>(true);
   const [product, setProduct] = React.useState<IProduct | null>(null);
+  const [loadingSimilarProducts, setLoadingSimilarProducts] = React.useState<boolean>(true);
+  const [similarProducts, setSimilarProducts] = React.useState<IProductList[] | [] | null>(null);
   const { count: productCount, changeCount: changeProductCount, handleInputCount, handleBlurCount } = useCount(1);
   const [dataList, setDataList] = React.useState<IDataListItem[] | []>([]);
 
@@ -141,6 +149,22 @@ const PProduct: React.FC<ReactNode> = () => {
   }, [productId]);
 
   React.useEffect(() => {
+    (async () => {
+      try {
+        setLoadingSimilarProducts(true);
+        const response: TResponseListProducts = await productsAPI.list({
+          limit: 4,
+        });
+        setSimilarProducts(response.data.products.data);
+        setLoadingSimilarProducts(false);
+      } catch (e) {
+        console.log(e);
+        setLoadingSimilarProducts(false);
+      }
+    })();
+  }, []);
+
+  React.useEffect(() => {
     if (product) {
       const result: IDataListItem[] = [
         {
@@ -164,46 +188,62 @@ const PProduct: React.FC<ReactNode> = () => {
     <TDefault breadcrumbs={breadcrumbs}>
       <div className={classes.content}>
         {!loading && product ? (
-          <>
-            <div className={classes.contentTop}>
-              <div className={classes.contentTopImage}>
-                <picture className={classes.wrapImage}>
-                  {product?.image && <img className={classes.img} src={product.image} alt="" />}
-                </picture>
-              </div>
+          <div className={classes.contentTop}>
+            <div className={classes.contentTopImage}>
+              <picture className={classes.wrapImage}>
+                {product?.image && <img className={classes.img} src={product.image} alt="" />}
+              </picture>
+            </div>
 
-              <div className={classes.contentTopDesc}>
-                <MPageTitle className={classes.title} variant="h3">
-                  {product.name}
-                </MPageTitle>
+            <div className={classes.contentTopDesc}>
+              <MPageTitle className={classes.title} variant="h3">
+                {product.name}
+              </MPageTitle>
 
-                {product.description_full && (
-                  <Typography className={classes.descriptionFull}>{product.description_full}</Typography>
-                )}
+              {product.description_full && (
+                <Typography className={classes.descriptionFull}>{product.description_full}</Typography>
+              )}
 
-                <Typography className={classes.price}>${product.price}</Typography>
+              <Typography className={classes.price}>${product.price}</Typography>
 
-                {dataList.length > 0 && <MDataList list={dataList} className={classes.dataList} />}
+              {dataList.length > 0 && <MDataList list={dataList} className={classes.dataList} />}
 
-                <div className={classes.contentTopDescBottom}>
-                  <MCounter
-                    className={classes.counter}
-                    count={productCount}
-                    changeCount={changeProductCount}
-                    handleInputCount={handleInputCount}
-                    handleBlurCount={handleBlurCount}
-                  />
-                  <Button className={classes.buttonCart} variant="contained" color="primary">
-                    Add to cart
-                  </Button>
-                </div>
+              <div className={classes.contentTopDescBottom}>
+                <MCounter
+                  className={classes.counter}
+                  count={productCount}
+                  changeCount={changeProductCount}
+                  handleInputCount={handleInputCount}
+                  handleBlurCount={handleBlurCount}
+                />
+                <Button className={classes.buttonCart} variant="contained" color="primary">
+                  Add to cart
+                </Button>
               </div>
             </div>
-          </>
+          </div>
         ) : (
           <span>loading or Empty</span>
         )}
       </div>
+
+      {!loadingSimilarProducts && similarProducts ? (
+        <div className={classes.similarProducts}>
+          <Typography variant="h4" gutterBottom>
+            Similar products
+          </Typography>
+
+          <Grid className={classes.similarProductsList} container alignItems="stretch" spacing={2}>
+            {(similarProducts as IProductList[]).map((product: IProductList) => (
+              <Grid key={product.id} item sm={6} md={3}>
+                <OProductsCardSite product={product} />
+              </Grid>
+            ))}
+          </Grid>
+        </div>
+      ) : (
+        <span>loading or Empty</span>
+      )}
     </TDefault>
   );
 };
