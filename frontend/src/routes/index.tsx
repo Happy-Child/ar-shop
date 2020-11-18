@@ -3,6 +3,7 @@ const PHome = React.lazy(() => import('../pages/PHome/PHome'));
 const PCategories = React.lazy(() => import('../pages/PCategories/PCategories'));
 const PCategory = React.lazy(() => import('../pages/PCategory/PCategory'));
 const PProducts = React.lazy(() => import('../pages/PProducts/PProducts'));
+const PProduct = React.lazy(() => import('../pages/PProduct/PProduct'));
 
 export interface IRoute {
   path: string;
@@ -30,6 +31,11 @@ const routes: Array<IRoute> = [
     path: '/products',
     exact: true,
     component: PProducts,
+  },
+  {
+    path: '/products/:id',
+    exact: true,
+    component: PProduct,
   },
 ];
 

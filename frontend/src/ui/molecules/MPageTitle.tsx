@@ -5,6 +5,7 @@ import { Variant } from '@material-ui/core/styles/createTypography';
 
 interface IMPageTitleProps {
   children: any;
+  className?: string;
   variant?: Variant;
 }
 
@@ -19,10 +20,10 @@ const useStyles = makeStyles((theme) =>
   }),
 );
 
-const MPageTitle: React.FC<IMPageTitleProps> = ({ children, variant = 'h2' }: IMPageTitleProps) => {
+const MPageTitle: React.FC<IMPageTitleProps> = ({ className = '', children, variant = 'h2' }: IMPageTitleProps) => {
   const classes = useStyles();
   return (
-    <Typography variant={variant} className={classes.root}>
+    <Typography variant={variant} className={`${classes.root} ${className}`}>
       {children}
     </Typography>
   );

@@ -7,10 +7,11 @@ import { categoriesAPI } from '../../services/api';
 import { TResponseShowCategory } from '../../services/api/categories/types';
 import { IBreadcrumbEl } from '../../ui/molecules/MBreadcrumbs';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import { MDataList } from '../../ui/molecules/MDataList/MDataList';
+import { IDataListItem } from '../../ui/molecules/MDataList/MDataListItem';
 import moment from 'moment';
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     content: {
       padding: '0 0 3rem 0',
@@ -36,29 +37,6 @@ const useStyles = makeStyles((theme) =>
       height: '100%',
       objectFit: 'cover',
       objectPosition: 'center',
-    },
-    list: {
-      maxWidth: '600px',
-      width: '100%',
-    },
-    listItem: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      marginBottom: '8px',
-      paddingBottom: '8px',
-      borderBottom: '1px solid #eaeaea',
-
-      '&:last-child': {
-        marginBottom: 0,
-      },
-    },
-    listItemKey: {
-      fontWeight: 500,
-      flexShrink: 0,
-      marginRight: '6px',
-    },
-    listItemValue: {
-      textAlign: 'right',
     },
   }),
 );
@@ -87,6 +65,7 @@ const PCategory: React.FC<ReactNode> = () => {
   const [breadcrumbs, setBreadcrumbs] = React.useState<Array<IBreadcrumbEl>>(startBreadcrumbs);
   const [loading, setLoading] = React.useState<boolean>(true);
   const [category, setCategory] = React.useState<ICategory | null>(null);
+  const [dataList, setDataList] = React.useState<IDataListItem[] | []>([]);
 
   React.useEffect(() => {
     (async () => {
@@ -111,36 +90,37 @@ const PCategory: React.FC<ReactNode> = () => {
     })();
   }, [categoryId]);
 
+  React.useEffect(() => {
+    if (category) {
+      const result: IDataListItem[] = [
+        {
+          key: 'Products count',
+          value: category.products_count,
+        },
+        {
+          key: 'Creator (for admin/managers role)',
+          value: category.user_id,
+        },
+        {
+          key: 'Created at',
+          value: moment(category.created_at).format(createdAtFormat),
+        },
+      ];
+      setDataList(result);
+    }
+  }, [category]);
+
   return (
     <TDefault breadcrumbs={breadcrumbs}>
       <div className={classes.content}>
         {!loading && category ? (
           <>
             <MPageTitle variant="h3">{category.name}</MPageTitle>
-
             <picture className={classes.wrapImage}>
               {category?.image && <img className={classes.img} src={category.image} alt="" />}
             </picture>
 
-            <ul className={classes.list}>
-              <li className={classes.listItem}>
-                <Typography className={classes.listItemKey}>Products count:</Typography>
-                <Typography className={classes.listItemValue}>{category.products_count}</Typography>
-              </li>
-
-              <li className={classes.listItem}>
-                <Typography className={classes.listItemKey}>Created at:</Typography>
-                <Typography className={classes.listItemValue}>
-                  {moment(category.created_at).format(createdAtFormat)}
-                </Typography>
-              </li>
-
-              {/*If role manager/admin - view it*/}
-              {/*<li className={classes.listItem}>*/}
-              {/*  <Typography className={classes.listItemKey}>Creator:</Typography>*/}
-              {/*  <Typography className={classes.listItemValue}>link to admin</Typography>*/}
-              {/*</li>*/}
-            </ul>
+            {dataList.length > 0 && <MDataList list={dataList} />}
           </>
         ) : (
           <span>loading or Empty</span>

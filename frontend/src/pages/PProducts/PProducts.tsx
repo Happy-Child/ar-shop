@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 import TDefault from '../../ui/templates/TDefault';
 import MPageTitle from '../../ui/molecules/MPageTitle';
-import { OProductsBlock } from '../../ui/organisms/PProducts/OProductsBlock';
-import { OProductsCardSite } from '../../ui/organisms/PProducts/OProducts/OProductsCardSite';
+import { OProductsBlock } from '../../ui/organisms/OProducts/OProductsBlock';
+import { OProductsCardSite } from '../../ui/organisms/OProducts/OProductsCard/OProductsCardSite';
 
 const breadcrumbs = [
   {

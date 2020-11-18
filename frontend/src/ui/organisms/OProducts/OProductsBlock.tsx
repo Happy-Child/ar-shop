@@ -10,7 +10,7 @@ import Pagination from '@material-ui/lab/Pagination';
 import { OProductsFilter } from './OProductsFilter';
 import { IPanelFormSortedItem } from '../../../interfases/panelFormSortedItem';
 import { IMetaPagination } from '../../../interfases/metaPagination';
-import { IOProductCardSite } from './OProducts/OProductsCardSite';
+import { IOProductCardSite } from './OProductsCard/OProductsCardSite';
 import { IListProductsParams } from '../../../services/api/products';
 import { IProductList } from '../../../lib/store/products/interfases';
 import { TResponseListProducts } from '../../../services/api/products/types';
