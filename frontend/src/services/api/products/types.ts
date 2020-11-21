@@ -1,4 +1,4 @@
-import { IProduct, IProductList } from '../../../lib/store/products/interfases';
+import { IProduct } from '../../../lib/store/products/interfases';
 import { IMetaPagination } from '../../../interfases/metaPagination';
 
 export type TResponseListProducts = {
@@ -6,7 +6,7 @@ export type TResponseListProducts = {
   data: {
     products: {
       meta: IMetaPagination;
-      data: Array<IProductList> | [];
+      data: Array<IProduct> | [];
     };
     prices: { min: number; max: number };
   };

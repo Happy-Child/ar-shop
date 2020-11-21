@@ -5,9 +5,12 @@ import {LucidModel} from "@ioc:Adonis/Lucid/Model";
 export default class ListService {
   private readonly _columns: string[] = [
     'id',
+    'category_id',
+    'user_id',
     'image',
     'name',
     'price',
+    'description_full',
     'description_small',
     'created_at',
   ]
@@ -19,6 +22,23 @@ export default class ListService {
       const resultQuery = Product
         .query()
         .select(this._columns)
+        .preload('category', query => {
+          query.select([
+            'id',
+            'name',
+          ])
+        })
+        .preload('user', query => {
+          query.select([
+            'id',
+            'role',
+            'avatar',
+            'name',
+            'phone',
+            'email',
+            'created_at',
+          ])
+        })
 
       if (params.search) {
         const resultString: string = params.search.toLowerCase()

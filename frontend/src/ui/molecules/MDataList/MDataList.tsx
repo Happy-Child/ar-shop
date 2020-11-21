@@ -3,7 +3,7 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { MDataListItem, IDataListItem } from './MDataListItem';
 
 interface IDataListProps {
-  list: IDataListItem[];
+  list?: IDataListItem[];
   className?: string;
   children?: any;
 }
@@ -40,7 +40,7 @@ const MDataList: React.FC<IDataListProps> = ({ list, children, className = '' }:
   const classes = useStyles();
   return (
     <ul className={`${classes.list} ${className}`}>
-      {children ? { children } : list.map((item: IDataListItem) => <MDataListItem key={item.key} item={item} />)}
+      {children ? children : list?.map((item: IDataListItem) => <MDataListItem key={item.key} item={item} />)}
     </ul>
   );
 };

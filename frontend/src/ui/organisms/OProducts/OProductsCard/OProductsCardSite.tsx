@@ -8,7 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import ALink from '../../../atoms/ALink';
 import { useCount } from '../../../../hooks/useCount';
 import { MCounter } from '../../../molecules/MCounter';
-import { IProductList } from '../../../../lib/store/products/interfases';
+import { IProduct } from '../../../../lib/store/products/interfases';
+import { MDataList } from '../../../molecules/MDataList/MDataList';
+import { IDataListItem, MDataListItem } from '../../../molecules/MDataList/MDataListItem';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -29,16 +31,19 @@ const useStyles = makeStyles((theme) =>
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      marginTop: 'auto',
       paddingBottom: '0',
     },
     content: {},
     title: {},
+    wrapDataList: {
+      marginTop: 'auto',
+      paddingBottom: '0',
+    },
   }),
 );
 
 export interface IOProductCardSite {
-  product: IProductList;
+  product: IProduct;
 }
 
 const OProductsCardSite: React.FC<IOProductCardSite> = ({ product }: IOProductCardSite) => {
@@ -63,6 +68,10 @@ const OProductsCardSite: React.FC<IOProductCardSite> = ({ product }: IOProductCa
             {product.description_small}
           </Typography>
         )}
+      </CardContent>
+
+      <CardContent className={classes.wrapDataList}>
+        <MDataList list={[{ key: 'Category', value: product.category?.name || '' }]} />
       </CardContent>
 
       <CardContent className={classes.row}>

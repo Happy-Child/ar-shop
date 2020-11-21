@@ -12,7 +12,7 @@ import { IPanelFormSortedItem } from '../../../interfases/panelFormSortedItem';
 import { IMetaPagination } from '../../../interfases/metaPagination';
 import { IOProductCardSite } from './OProductsCard/OProductsCardSite';
 import { IListProductsParams } from '../../../services/api/products';
-import { IProductList } from '../../../lib/store/products/interfases';
+import { IProduct } from '../../../lib/store/products/interfases';
 import { TResponseListProducts } from '../../../services/api/products/types';
 import { IAppState } from '../../../lib/store/store';
 import { ICategoryAll } from '../../../lib/store/categories/interfases';
@@ -123,7 +123,7 @@ const OProductsBlock: React.FC<IOProductsBlock> = ({
     min: 0,
     max: 0,
   });
-  const [productsList, setProductsList] = React.useState<IProductList[] | []>([]);
+  const [productsList, setProductsList] = React.useState<IProduct[] | []>([]);
   const [metaPagination, setMetaPagination] = React.useState<IMetaPagination | null>(null);
   const [loading, setLoading] = React.useState<boolean>(false);
   const { refEl: refFilter, handleScrollToEl } = useScrollToRef();
@@ -221,7 +221,7 @@ const OProductsBlock: React.FC<IOProductsBlock> = ({
           sortTypesItemsList={sortTypesItemsList}
         />
         <Grid className={classes.cardsList} container alignItems="stretch" spacing={2}>
-          {(productsList as IProductList[]).map((product: IProductList) => (
+          {(productsList as IProduct[]).map((product: IProduct) => (
             <Grid key={product.id} item sm={6} md={4}>
               <CardComponent product={product} />
             </Grid>

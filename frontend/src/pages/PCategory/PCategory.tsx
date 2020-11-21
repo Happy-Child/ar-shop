@@ -2,13 +2,14 @@ import React, { ReactNode } from 'react';
 import { useParams } from 'react-router-dom';
 import TDefault from '../../ui/templates/TDefault';
 import MPageTitle from '../../ui/molecules/MPageTitle';
+import ALink from '../../ui/atoms/ALink';
 import { ICategory } from '../../lib/store/categories/interfases';
 import { categoriesAPI } from '../../services/api';
 import { TResponseShowCategory } from '../../services/api/categories/types';
 import { IBreadcrumbEl } from '../../ui/molecules/MBreadcrumbs';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { MDataList } from '../../ui/molecules/MDataList/MDataList';
-import { IDataListItem } from '../../ui/molecules/MDataList/MDataListItem';
+import { IDataListItem, MDataListItem } from '../../ui/molecules/MDataList/MDataListItem';
 import moment from 'moment';
 
 const useStyles = makeStyles(() =>
@@ -97,14 +98,6 @@ const PCategory: React.FC<ReactNode> = () => {
           key: 'Products count',
           value: category.products_count,
         },
-        {
-          key: 'Creator (for admin/managers role)',
-          value: category.user_id,
-        },
-        {
-          key: 'Created at',
-          value: moment(category.created_at).format(createdAtFormat),
-        },
       ];
       setDataList(result);
     }
@@ -120,7 +113,17 @@ const PCategory: React.FC<ReactNode> = () => {
               {category?.image && <img className={classes.img} src={category.image} alt="" />}
             </picture>
 
-            {dataList.length > 0 && <MDataList list={dataList} />}
+            {dataList.length > 0 && (
+              <MDataList>
+                {(dataList as []).map((item: IDataListItem) => (
+                  <MDataListItem key={item.key} item={item} />
+                ))}
+                <MDataListItem
+                  keyEl={'Creator'}
+                  valueEl={<ALink to={`/`}>{category?.user?.name || 'No name'}</ALink>}
+                />
+              </MDataList>
+            )}
           </>
         ) : (
           <span>loading or Empty</span>

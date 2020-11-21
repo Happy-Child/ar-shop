@@ -3,6 +3,7 @@ import { rootReducer } from './root-reducer';
 import createSagaMiddleware from 'redux-saga';
 import { rootSaga } from './sagas';
 import { ICategoryAll } from './categories/interfases';
+import { ICartItem } from './cart/interfases';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -21,6 +22,7 @@ export interface IAppState {
     allCategories: Array<ICategoryAll> | [];
     loading: false;
   };
+  cart: ICartItem[] | [];
 }
 
 export { store };

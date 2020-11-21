@@ -21,6 +21,23 @@ export default class ShowService {
         .query()
         .select(this._columns)
         .where('id', '=', id)
+        .preload('category', query => {
+          query.select([
+            'id',
+            'name',
+          ])
+        })
+        .preload('user', query => {
+          query.select([
+            'id',
+            'role',
+            'avatar',
+            'name',
+            'phone',
+            'email',
+            'created_at',
+          ])
+        })
 
       const [product]: LucidRow[] =  await resultQuery
 

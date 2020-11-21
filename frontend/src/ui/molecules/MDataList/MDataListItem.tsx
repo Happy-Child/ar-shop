@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import Typography from '@material-ui/core/Typography';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 
@@ -8,8 +8,10 @@ export interface IDataListItem {
 }
 
 interface IDataListItemProps {
-  item: IDataListItem;
+  item?: IDataListItem;
   className?: string;
+  keyEl?: ReactNode;
+  valueEl?: ReactNode;
 }
 
 const useStyles = makeStyles(() =>
@@ -36,12 +38,17 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-const MDataListItem: React.FC<IDataListItemProps> = ({ item, className = '' }: IDataListItemProps) => {
+const MDataListItem: React.FC<IDataListItemProps> = ({
+  item,
+  className = '',
+  keyEl: KeyEl,
+  valueEl: ValueEl,
+}: IDataListItemProps) => {
   const classes = useStyles();
   return (
     <li className={`${classes.listItem} ${className}`}>
-      <Typography className={classes.listItemKey}>{item.key}:</Typography>
-      <Typography className={classes.listItemValue}>{item.value}</Typography>
+      <Typography className={classes.listItemKey}>{KeyEl ? KeyEl : item?.key}</Typography>
+      <Typography className={classes.listItemValue}>{ValueEl ? ValueEl : item?.value}</Typography>
     </li>
   );
 };

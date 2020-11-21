@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { useParams } from 'react-router-dom';
 import TDefault from '../../ui/templates/TDefault';
 import MPageTitle from '../../ui/molecules/MPageTitle';
-import { IProduct, IProductList } from '../../lib/store/products/interfases';
+import { IProduct } from '../../lib/store/products/interfases';
 import { productsAPI } from '../../services/api';
 import { TResponseListProducts, TResponseShowProduct } from '../../services/api/products/types';
 import { IBreadcrumbEl } from '../../ui/molecules/MBreadcrumbs';
@@ -11,11 +11,12 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { MCounter } from '../../ui/molecules/MCounter';
 import { useCount } from '../../hooks/useCount';
-import { IDataListItem } from '../../ui/molecules/MDataList/MDataListItem';
+import { IDataListItem, MDataListItem } from '../../ui/molecules/MDataList/MDataListItem';
 import { MDataList } from '../../ui/molecules/MDataList/MDataList';
 import moment from 'moment';
 import Grid from '@material-ui/core/Grid';
-import { OProductsCardSite, IOProductCardSite } from '../../ui/organisms/OProducts/OProductsCard/OProductsCardSite';
+import { OProductsCardSite } from '../../ui/organisms/OProducts/OProductsCard/OProductsCardSite';
+import ALink from '../../ui/atoms/ALink';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -111,8 +112,6 @@ const startBreadcrumbs = [
   },
 ];
 
-const createdAtFormat = 'DD.MM.YYYY';
-
 const PProduct: React.FC<ReactNode> = () => {
   const classes = useStyles();
 
@@ -121,9 +120,8 @@ const PProduct: React.FC<ReactNode> = () => {
   const [loading, setLoading] = React.useState<boolean>(true);
   const [product, setProduct] = React.useState<IProduct | null>(null);
   const [loadingSimilarProducts, setLoadingSimilarProducts] = React.useState<boolean>(true);
-  const [similarProducts, setSimilarProducts] = React.useState<IProductList[] | [] | null>(null);
+  const [similarProducts, setSimilarProducts] = React.useState<IProduct[] | [] | null>(null);
   const { count: productCount, changeCount: changeProductCount, handleInputCount, handleBlurCount } = useCount(1);
-  const [dataList, setDataList] = React.useState<IDataListItem[] | []>([]);
 
   React.useEffect(() => {
     (async () => {
@@ -164,26 +162,6 @@ const PProduct: React.FC<ReactNode> = () => {
     })();
   }, []);
 
-  React.useEffect(() => {
-    if (product) {
-      const result: IDataListItem[] = [
-        {
-          key: 'Category',
-          value: product.category_id,
-        },
-        {
-          key: 'Creator (for admin/managers role)',
-          value: product.user_id,
-        },
-        {
-          key: 'Created at',
-          value: moment(product.created_at).format(createdAtFormat),
-        },
-      ];
-      setDataList(result);
-    }
-  }, [product]);
-
   return (
     <TDefault breadcrumbs={breadcrumbs}>
       <div className={classes.content}>
@@ -206,7 +184,20 @@ const PProduct: React.FC<ReactNode> = () => {
 
               <Typography className={classes.price}>${product.price}</Typography>
 
-              {dataList.length > 0 && <MDataList list={dataList} className={classes.dataList} />}
+              <MDataList className={classes.dataList}>
+                {product?.user && (
+                  <MDataListItem keyEl={'Creator'} valueEl={<ALink to={`/`}>{product.user.name || 'No name'}</ALink>} />
+                )}
+
+                {product?.category && (
+                  <MDataListItem
+                    keyEl={'Category'}
+                    valueEl={
+                      <ALink to={`/categories/${product.category.id}`}>{product.category.name || 'No name'}</ALink>
+                    }
+                  />
+                )}
+              </MDataList>
 
               <div className={classes.contentTopDescBottom}>
                 <MCounter
@@ -234,7 +225,7 @@ const PProduct: React.FC<ReactNode> = () => {
           </Typography>
 
           <Grid className={classes.similarProductsList} container alignItems="stretch" spacing={2}>
-            {(similarProducts as IProductList[]).map((product: IProductList) => (
+            {(similarProducts as IProduct[]).map((product: IProduct) => (
               <Grid key={product.id} item sm={6} md={3}>
                 <OProductsCardSite product={product} />
               </Grid>

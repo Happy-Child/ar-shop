@@ -1,3 +1,5 @@
+import { IUser } from '../users/interfases';
+
 export interface ICategoryAll {
   id: number;
   name: string;
@@ -16,6 +18,7 @@ export interface ICategory {
   id: number;
   name: string;
   user_id: number;
+  user?: IUser;
   image: string | null;
   products_count: number;
   created_at: Date;

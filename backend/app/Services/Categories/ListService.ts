@@ -6,6 +6,7 @@ import {SimplePaginatorContract, SimplePaginatorMeta} from "@ioc:Adonis/Lucid/Da
 export default class ListService {
   private readonly _columns: string[] = [
     'id',
+    'user_id',
     'image_small',
     'name',
     'created_at',
@@ -17,7 +18,6 @@ export default class ListService {
       const resultQuery = Category
         .query()
         .select(this._columns)
-        .withCount('products')
 
       if (params.search) {
         const resultString: string = params.search.toLowerCase()
@@ -44,12 +44,13 @@ export default class ListService {
       resultCategories.data = resultCategories.data.map((category: Category) => {
         return {
           ...category.$attributes,
-          products_count: category.$extras?.productsCount
+          products_count: category.$extras?.productsCount,
         } as Category
       })
 
       return resultCategories
     } catch (e) {
+      console.log(e)
       throw e
     }
   }

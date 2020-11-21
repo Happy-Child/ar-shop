@@ -16,8 +16,19 @@ export default class ShowService {
       const resultQuery = Category
         .query()
         .select(this._columns)
-        .withCount('products')
         .where('id', '=', id)
+        .withCount('products')
+        .preload('user', query => {
+          query.select([
+            'id',
+            'role',
+            'avatar',
+            'name',
+            'phone',
+            'email',
+            'created_at',
+          ])
+        })
 
       resultQuery.withCount('products', query => {
         query.as('productsCount')
