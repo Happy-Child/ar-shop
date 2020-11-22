@@ -2,13 +2,13 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import { rootReducer } from './root-reducer';
 import createSagaMiddleware from 'redux-saga';
 import { rootSaga } from './sagas';
-import { ICategoryAll } from './categories/interfases';
-import { ICartItem } from './cart/interfases';
+import { AppStore } from './types';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(
+const store: AppStore = createStore(
   rootReducer,
+  {},
   compose(
     applyMiddleware(sagaMiddleware),
     window && (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
@@ -16,13 +16,5 @@ const store = createStore(
 );
 
 sagaMiddleware.run(rootSaga);
-
-export interface IAppState {
-  categories: {
-    allCategories: Array<ICategoryAll> | [];
-    loading: false;
-  };
-  cart: ICartItem[] | [];
-}
 
 export { store };

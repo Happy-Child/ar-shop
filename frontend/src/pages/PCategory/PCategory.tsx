@@ -10,13 +10,10 @@ import { IBreadcrumbEl } from '../../ui/molecules/MBreadcrumbs';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { MDataList } from '../../ui/molecules/MDataList/MDataList';
 import { IDataListItem, MDataListItem } from '../../ui/molecules/MDataList/MDataListItem';
-import moment from 'moment';
 
 const useStyles = makeStyles(() =>
   createStyles({
-    content: {
-      padding: '0 0 3rem 0',
-    },
+    content: {},
     wrapImage: {
       flexShrink: 0,
       width: '100%',

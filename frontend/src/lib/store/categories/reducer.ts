@@ -1,18 +1,10 @@
-import { EActionsTypes } from './actions';
-import { ICategoryAll } from './interfases';
-import { TDefaultAction } from '../types';
+import { EActionsTypes, CategoriesActions } from './actions';
+import { categoriesInitialState, TCategoriesInitialState } from './state';
 
-type initialState = {
-  allCategories: Array<ICategoryAll>;
-  loading: boolean;
-};
-
-const initialState: initialState = {
-  allCategories: [],
-  loading: false,
-};
-
-export const categoriesReducer = (state = initialState, action: TDefaultAction) => {
+export const categoriesReducer = (
+  state = categoriesInitialState,
+  action: CategoriesActions,
+): TCategoriesInitialState => {
   switch (action.type) {
     case EActionsTypes.SET_ALL_CATEGORIES:
       return {

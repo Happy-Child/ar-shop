@@ -62,7 +62,7 @@ export interface IOCategoriesCardSite {
 const OCategoriesCardSite: React.FC<IOCategoriesCardSite> = ({ category }: IOCategoriesCardSite) => {
   const classes = useStyles();
   return (
-    <ALink to={`categories/${category.id}`} className={classes.card}>
+    <ALink to={`/categories/${category.id}`} className={classes.card}>
       <Card className={classes.cardInner}>
         <picture className={classes.wrapImage}>
           {category.image_small && <img className={classes.image} src={category.image_small} alt="" />}

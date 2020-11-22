@@ -16,6 +16,9 @@ const useStyles = makeStyles(() =>
       alignItems: 'stretch',
       flexDirection: 'column',
     },
+    mainContainer: {
+      paddingBottom: '4rem',
+    },
   }),
 );
 
@@ -30,7 +33,7 @@ const TDefault: React.FC<IProps> = ({ breadcrumbs, children }: IProps) => {
   return (
     <main className={classes.flexGrow}>
       {breadcrumbs && <MBreadcrumbs list={breadcrumbs} />}
-      <Container className={classes.flexGrow}>{children}</Container>
+      <Container className={`${classes.mainContainer} ${classes.flexGrow}`}>{children}</Container>
     </main>
   );
 };

@@ -14,8 +14,10 @@ import { IOProductCardSite } from './OProductsCard/OProductsCardSite';
 import { IListProductsParams } from '../../../services/api/products';
 import { IProduct } from '../../../lib/store/products/interfases';
 import { TResponseListProducts } from '../../../services/api/products/types';
-import { IAppState } from '../../../lib/store/store';
+import { AppState } from '../../../lib/store/types';
 import { ICategoryAll } from '../../../lib/store/categories/interfases';
+import { selectorAllCategories, selectorCategoriesLoading } from '../../../lib/store/categories/selectors';
+import { useAddToCart } from '../../../hooks/useAddToCart';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -34,7 +36,7 @@ const useStyles = makeStyles((theme) =>
       flexDirection: 'column',
     },
     pagination: {
-      margin: '2rem auto 4rem',
+      margin: '2rem auto 0',
       width: 'auto',
     },
     sidebar: {
@@ -113,8 +115,8 @@ const OProductsBlock: React.FC<IOProductsBlock> = ({
 }: IOProductsBlock) => {
   const classes = useStyles();
 
-  const allCategories = useSelector<IAppState, ICategoryAll[]>((state) => state.categories.allCategories);
-  const allCategoriesLoading = useSelector<IAppState, boolean>((state) => state.categories.loading);
+  const allCategories = useSelector<AppState, ICategoryAll[]>(selectorAllCategories);
+  const allCategoriesLoading = useSelector<AppState, boolean>(selectorCategoriesLoading);
   const { pathname, search, queryObject, pushRoute } = useRoute();
 
   const startFormData = getQueryByProducts(queryObject);
@@ -127,6 +129,7 @@ const OProductsBlock: React.FC<IOProductsBlock> = ({
   const [metaPagination, setMetaPagination] = React.useState<IMetaPagination | null>(null);
   const [loading, setLoading] = React.useState<boolean>(false);
   const { refEl: refFilter, handleScrollToEl } = useScrollToRef();
+  const { handleAddToCart } = useAddToCart();
 
   const changeFormData = (newData: object, resetPagination = false): void => {
     let page = formData.page;
@@ -223,7 +226,7 @@ const OProductsBlock: React.FC<IOProductsBlock> = ({
         <Grid className={classes.cardsList} container alignItems="stretch" spacing={2}>
           {(productsList as IProduct[]).map((product: IProduct) => (
             <Grid key={product.id} item sm={6} md={4}>
-              <CardComponent product={product} />
+              <CardComponent product={product} handleAddToCart={handleAddToCart} />
             </Grid>
           ))}
         </Grid>

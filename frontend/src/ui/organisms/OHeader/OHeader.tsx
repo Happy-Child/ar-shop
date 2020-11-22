@@ -1,17 +1,16 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Location } from 'history';
 import { createStyles, makeStyles, useTheme } from '@material-ui/core/styles';
 import { useLocation } from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { useToggle } from '../../hooks/useToggle';
-import { useDispatch, useSelector } from 'react-redux';
-import { actionFetchALlCategories } from '../../lib/store/categories/actions';
-import { ICategoryAll } from '../../lib/store/categories/interfases';
-import { IAppState } from '../../lib/store/store';
+import { useToggle } from '../../../hooks/useToggle';
+import { connect } from 'react-redux';
+import { ICategoryAll } from '../../../lib/store/categories/interfases';
+import { AppState } from '../../../lib/store/types';
+import { selectorAllCategories } from '../../../lib/store/categories/selectors';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
@@ -19,10 +18,12 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
-import MLogo from '../molecules/MLogo';
-import { ShoppingBasket, Menu as MenuIcon, MenuOpen } from '@material-ui/icons';
-import OMenuDesktop from './OMenuDesktop';
-import ALink from '../atoms/ALink';
+import { Menu as MenuIcon, MenuOpen } from '@material-ui/icons';
+import MLogo from '../../molecules/MLogo';
+import { OHeaderMenuDesktop } from './OHeaderMenuDesktop';
+import ALink from '../../atoms/ALink';
+import { OHeaderCart } from './OHeaderCart';
+import { selectorCartCount } from '../../../lib/store/cart/selectors';
 
 export interface IMenuLink {
   to: string;
@@ -60,35 +61,6 @@ const useStyles = makeStyles((theme) =>
       alignItems: 'center',
       justifyContent: 'center',
     },
-    wrapBasket: {
-      [theme.breakpoints.down('xs')]: {
-        marginLeft: 'auto',
-      },
-    },
-    basketButton: {
-      display: 'flex',
-      alignItems: 'center',
-    },
-    basketIcon: {
-      marginRight: '0.5rem',
-      position: 'relative',
-
-      [theme.breakpoints.down('xs')]: {
-        marginRight: '0',
-      },
-    },
-    productCount: {
-      position: 'absolute',
-      top: '-6px',
-      right: '-6px',
-      fontSize: '10px',
-      backgroundColor: '#000',
-      width: '18px',
-      height: '18px',
-      borderRadius: '10000px',
-      lineHeight: '18px',
-      fontWeight: 500,
-    },
     menuBtn: {
       marginLeft: '1rem',
       position: 'relative',
@@ -99,17 +71,26 @@ const useStyles = makeStyles((theme) =>
       left: 'auto !important',
       transform: 'none !important',
     },
+    wrapBasket: {
+      [theme.breakpoints.down('xs')]: {
+        marginLeft: 'auto',
+      },
+    },
   }),
 );
 
-const OHeader: React.FC<ReactNode> = () => {
-  const dispatch = useDispatch();
-  const allCategories = useSelector<IAppState, ICategoryAll[]>((state) => state.categories.allCategories);
-  const [resultMenuLinks, setResultMenuLinks] = React.useState(menuLinks);
+interface IOHeaderProps {
+  allCategories: ICategoryAll[];
+  cartCount: number;
+}
 
-  React.useEffect(() => {
-    dispatch(actionFetchALlCategories());
-  }, [dispatch]);
+const OHeaderTemplate: React.FC<IOHeaderProps> = ({ cartCount, allCategories }: IOHeaderProps) => {
+  const classes = useStyles();
+  const [resultMenuLinks, setResultMenuLinks] = React.useState(menuLinks);
+  const location: Location = useLocation();
+  const mobileUp = useMediaQuery(useTheme().breakpoints.up('sm'));
+  const popperRef = React.useRef<HTMLButtonElement>(null);
+  const [menuOpened, setMenuOpened] = useToggle(false);
 
   React.useEffect(() => {
     if (!allCategories.length) return;
@@ -132,13 +113,6 @@ const OHeader: React.FC<ReactNode> = () => {
     setResultMenuLinks(result);
   }, [allCategories]);
 
-  const location: Location = useLocation();
-  const mobileUp = useMediaQuery(useTheme().breakpoints.up('sm'));
-  const classes = useStyles();
-  const productCount = 12;
-  const popperRef = React.useRef<HTMLButtonElement>(null);
-  const [menuOpened, setMenuOpened] = useToggle(false);
-
   return (
     <AppBar position="static">
       <Container>
@@ -150,7 +124,7 @@ const OHeader: React.FC<ReactNode> = () => {
 
             {mobileUp && (
               <Grid className={classes.wrapperMenu} item sm={4} md={6}>
-                <OMenuDesktop menuLinks={resultMenuLinks} />
+                <OHeaderMenuDesktop menuLinks={resultMenuLinks} />
               </Grid>
             )}
 
@@ -164,14 +138,9 @@ const OHeader: React.FC<ReactNode> = () => {
               sm={4}
               md={3}
             >
-              <button className={classes.basketButton}>
-                <span className={classes.basketIcon}>
-                  <ShoppingBasket />
-                  {productCount && <Typography className={classes.productCount}>{productCount}</Typography>}
-                </span>
-
-                {mobileUp && <Typography>Cart</Typography>}
-              </button>
+              <ALink to="/cart">
+                <OHeaderCart count={cartCount} />
+              </ALink>
             </Grid>
 
             {!mobileUp && (
@@ -217,4 +186,11 @@ const OHeader: React.FC<ReactNode> = () => {
   );
 };
 
-export default OHeader;
+const mapStateToProps = (state: AppState) => ({
+  cartCount: selectorCartCount(state),
+  allCategories: selectorAllCategories(state),
+});
+
+const OHeader = connect(mapStateToProps, {})(OHeaderTemplate);
+
+export { OHeader };

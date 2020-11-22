@@ -3,8 +3,14 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { routes, IRoute } from './routes';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import MPageLoading from './ui/molecules/MPageLoading';
-import OHeader from './ui/organisms/OHeader';
+import { OHeader } from './ui/organisms/OHeader/OHeader';
 import OFooter from './ui/organisms/OFooter';
+import { actionFetchALlCategories } from './lib/store/categories/actions';
+import { connect, useDispatch } from 'react-redux';
+import { ICartItem } from './lib/store/cart/interfases';
+import { AppState } from './lib/store/types';
+import { selectorAllCart } from './lib/store/cart/selectors';
+import { useEffectAfterRender } from './hooks/useEffectAfterRender';
 const PNotFound = React.lazy(() => import('./pages/PNotFound'));
 
 const useStyles = makeStyles(() =>
@@ -17,8 +23,27 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-const App: React.FC<ReactNode> = () => {
+interface IAppProps {
+  cart: ICartItem[] | [];
+}
+
+const App: React.FC<IAppProps> = ({ cart }: IAppProps) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  useEffectAfterRender(() => {
+    try {
+      const cartJSON = JSON.stringify(cart);
+      window.localStorage.setItem('cart', cartJSON);
+    } catch (e) {
+      console.log(e);
+    }
+  }, [cart]);
+
+  React.useEffect(() => {
+    dispatch(actionFetchALlCategories());
+  }, [dispatch]);
+
   return (
     <BrowserRouter>
       <div className={`t-common ${classes.root}`}>
@@ -39,4 +64,8 @@ const App: React.FC<ReactNode> = () => {
   );
 };
 
-export default App;
+const mapStateToProps = (state: AppState) => ({
+  cart: selectorAllCart(state),
+});
+
+export default connect(mapStateToProps)(App);

@@ -11,18 +11,16 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { MCounter } from '../../ui/molecules/MCounter';
 import { useCount } from '../../hooks/useCount';
-import { IDataListItem, MDataListItem } from '../../ui/molecules/MDataList/MDataListItem';
+import { MDataListItem } from '../../ui/molecules/MDataList/MDataListItem';
 import { MDataList } from '../../ui/molecules/MDataList/MDataList';
-import moment from 'moment';
 import Grid from '@material-ui/core/Grid';
 import { OProductsCardSite } from '../../ui/organisms/OProducts/OProductsCard/OProductsCardSite';
 import ALink from '../../ui/atoms/ALink';
+import { useAddToCart } from '../../hooks/useAddToCart';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
-    content: {
-      padding: '0 0 3rem 0',
-    },
+    content: {},
     wrapImage: {
       flexShrink: 0,
       width: '100%',
@@ -91,7 +89,7 @@ const useStyles = makeStyles((theme) =>
       marginBottom: '1.5rem',
     },
     similarProducts: {
-      padding: '1rem 0 5rem',
+      padding: '1rem 0 0',
     },
     similarProductsList: {},
   }),
@@ -121,7 +119,21 @@ const PProduct: React.FC<ReactNode> = () => {
   const [product, setProduct] = React.useState<IProduct | null>(null);
   const [loadingSimilarProducts, setLoadingSimilarProducts] = React.useState<boolean>(true);
   const [similarProducts, setSimilarProducts] = React.useState<IProduct[] | [] | null>(null);
-  const { count: productCount, changeCount: changeProductCount, handleInputCount, handleBlurCount } = useCount(1);
+  const {
+    count: productCount,
+    setCount,
+    changeCount: changeProductCount,
+    handleInputCount,
+    handleBlurCount,
+  } = useCount(1);
+  const { handleAddToCart } = useAddToCart();
+
+  const handleClick = (): void => {
+    if (product) {
+      handleAddToCart({ product, quantity: Number(productCount) });
+    }
+    setCount(1);
+  };
 
   React.useEffect(() => {
     (async () => {
@@ -207,7 +219,7 @@ const PProduct: React.FC<ReactNode> = () => {
                   handleInputCount={handleInputCount}
                   handleBlurCount={handleBlurCount}
                 />
-                <Button className={classes.buttonCart} variant="contained" color="primary">
+                <Button onClick={handleClick} className={classes.buttonCart} variant="contained" color="primary">
                   Add to cart
                 </Button>
               </div>

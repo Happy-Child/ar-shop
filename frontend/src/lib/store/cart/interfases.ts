@@ -1,6 +1,6 @@
 import { IProduct } from '../products/interfases';
 
 export interface ICartItem {
-  product: IProduct[] | [];
+  product: IProduct;
   quantity: number;
 }

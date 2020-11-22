@@ -1,4 +1,3 @@
-import { TDefaultAction } from '../types';
 import { ICartItem } from './interfases';
 
 export enum EActionsTypes {
@@ -8,22 +7,51 @@ export enum EActionsTypes {
   SET_FULL_CART = 'cart/SET_FULL_CART',
 }
 
-export const actionAddToCart = (product: ICartItem): TDefaultAction => ({
+export type ADD_TO_CART_ACTION = {
+  type: EActionsTypes.ADD_TO_CART;
+  payload: ICartItem;
+};
+
+export type REMOVE_FROM_CART_ACTION = {
+  type: EActionsTypes.REMOVE_FROM_CART;
+  payload: number;
+};
+
+export type CHANGE_CART_ITEM_QUANTITY_ACTION = {
+  type: EActionsTypes.CHANGE_CART_ITEM_QUANTITY;
+  payload: { id: number; quantity: number };
+};
+
+export type SET_FULL_CART_ACTION = {
+  type: EActionsTypes.SET_FULL_CART;
+  payload: ICartItem[] | [];
+};
+
+export type CartActions =
+  | ADD_TO_CART_ACTION
+  | REMOVE_FROM_CART_ACTION
+  | CHANGE_CART_ITEM_QUANTITY_ACTION
+  | SET_FULL_CART_ACTION;
+
+export const actionAddToCart = (product: ICartItem): ADD_TO_CART_ACTION => ({
   type: EActionsTypes.ADD_TO_CART,
   payload: product,
 });
 
-export const actionRemoveFromCart = (productId: number): TDefaultAction => ({
+export const actionRemoveFromCart = (id: number): REMOVE_FROM_CART_ACTION => ({
   type: EActionsTypes.REMOVE_FROM_CART,
-  payload: productId,
+  payload: id,
 });
 
-export const actionChangeCartItemQuantity = (payload: { productId: number; quantity: number }): TDefaultAction => ({
+export const actionChangeCartItemQuantity = (payload: {
+  id: number;
+  quantity: number;
+}): CHANGE_CART_ITEM_QUANTITY_ACTION => ({
   type: EActionsTypes.CHANGE_CART_ITEM_QUANTITY,
   payload,
 });
 
-export const actionSetFullCart = (cart: ICartItem[] | []): TDefaultAction => ({
+export const actionSetFullCart = (cart: ICartItem[] | []): SET_FULL_CART_ACTION => ({
   type: EActionsTypes.SET_FULL_CART,
   payload: cart,
 });

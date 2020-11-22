@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) =>
       marginBottom: 'auto',
     },
     pagination: {
-      margin: '2rem auto 4rem',
+      margin: '2rem auto 0',
       width: 'auto',
     },
   }),

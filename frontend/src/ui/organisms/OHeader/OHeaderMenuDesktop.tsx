@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import ALink from '../atoms/ALink';
+import ALink from '../../atoms/ALink';
 import { IMenuLink } from './OHeader';
 import { Location } from 'history';
 import { useLocation } from 'react-router-dom';
@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme) =>
   }),
 );
 
-const OMenuDesktop: React.FC<IOMenuDesktop> = ({ menuLinks }: IOMenuDesktop) => {
+const OHeaderMenuDesktop: React.FC<IOMenuDesktop> = ({ menuLinks }: IOMenuDesktop) => {
   const classes = useStyles();
   const location: Location = useLocation();
 
@@ -115,4 +115,4 @@ const OMenuDesktop: React.FC<IOMenuDesktop> = ({ menuLinks }: IOMenuDesktop) => 
   );
 };
 
-export default OMenuDesktop;
+export { OHeaderMenuDesktop };

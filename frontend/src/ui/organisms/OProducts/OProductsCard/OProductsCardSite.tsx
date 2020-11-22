@@ -8,9 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import ALink from '../../../atoms/ALink';
 import { useCount } from '../../../../hooks/useCount';
 import { MCounter } from '../../../molecules/MCounter';
-import { IProduct } from '../../../../lib/store/products/interfases';
+import { IProduct } from '../../../../lib/store//products/interfases';
 import { MDataList } from '../../../molecules/MDataList/MDataList';
-import { IDataListItem, MDataListItem } from '../../../molecules/MDataList/MDataListItem';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -44,20 +43,32 @@ const useStyles = makeStyles((theme) =>
 
 export interface IOProductCardSite {
   product: IProduct;
+  handleAddToCart?: (payload: { product: IProduct; quantity: number }) => void;
 }
 
-const OProductsCardSite: React.FC<IOProductCardSite> = ({ product }: IOProductCardSite) => {
+const OProductsCardSite: React.FC<IOProductCardSite> = ({ product, handleAddToCart = () => {} }: IOProductCardSite) => {
   const classes = useStyles();
-  const { count: productCount, changeCount: changeProductCount, handleInputCount, handleBlurCount } = useCount();
+  const {
+    count: productCount,
+    setCount,
+    changeCount: changeProductCount,
+    handleInputCount,
+    handleBlurCount,
+  } = useCount();
+
+  const handleOnClick = (): void => {
+    handleAddToCart({ product, quantity: Number(productCount) });
+    setCount(1);
+  };
 
   return (
     <Card className={classes.card}>
-      <ALink to={`products/${product.id}`} className={classes.wrapMedia}>
+      <ALink to={`/products/${product.id}`} className={classes.wrapMedia}>
         <CardMedia className={classes.media} image={product.image || ''} />
       </ALink>
 
       <CardContent className={classes.content}>
-        <ALink to={`products/${product.id}`}>
+        <ALink to={`/products/${product.id}`}>
           <Typography gutterBottom variant="h5" className={classes.title} component="h2">
             {product.name}
           </Typography>
@@ -87,7 +98,7 @@ const OProductsCardSite: React.FC<IOProductCardSite> = ({ product }: IOProductCa
       </CardContent>
 
       <CardContent className={classes.actions}>
-        <Button size="large" variant="contained" color="secondary" fullWidth>
+        <Button onClick={handleOnClick.bind(null)} size="large" variant="contained" color="secondary" fullWidth>
           Add to cart
         </Button>
       </CardContent>

@@ -37,6 +37,7 @@ const useCount = (initialState: number | string = 1) => {
 
   return {
     count,
+    setCount,
     changeCount,
     handleInputCount,
     handleBlurCount,
