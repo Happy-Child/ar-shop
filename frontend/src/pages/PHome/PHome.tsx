@@ -37,9 +37,9 @@ const PHome: React.FC<ReactNode> = () => {
           Welcome!
         </Typography>
 
-        <ALink to={'/categories'} className={classes.btn}>
+        <ALink to={'/products'} className={classes.btn}>
           <Button color="primary" variant="contained">
-            View categories
+            View products
           </Button>
         </ALink>
       </Container>

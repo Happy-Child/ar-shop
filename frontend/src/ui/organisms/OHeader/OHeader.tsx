@@ -18,6 +18,7 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+import Button from '@material-ui/core/Button';
 import { Menu as MenuIcon, MenuOpen } from '@material-ui/icons';
 import MLogo from '../../molecules/MLogo';
 import { OHeaderMenuDesktop } from './OHeaderMenuDesktop';
@@ -74,6 +75,16 @@ const useStyles = makeStyles((theme) =>
     wrapBasket: {
       [theme.breakpoints.down('xs')]: {
         marginLeft: 'auto',
+      },
+    },
+    basket: {
+      marginRight: '1rem',
+    },
+    actionButton: {
+      marginRight: '1rem',
+
+      '&:last-child': {
+        marginRight: 0,
       },
     },
   }),
@@ -138,8 +149,20 @@ const OHeaderTemplate: React.FC<IOHeaderProps> = ({ cartCount, allCategories }: 
               sm={4}
               md={3}
             >
-              <ALink to="/cart">
+              <ALink to="/cart" className={classes.basket}>
                 <OHeaderCart count={cartCount} />
+              </ALink>
+
+              <ALink to="/login" className={classes.actionButton}>
+                <Button variant="contained" color="default">
+                  Login
+                </Button>
+              </ALink>
+
+              <ALink to="/registration" className={classes.actionButton}>
+                <Button variant="contained" color="default">
+                  Registration
+                </Button>
               </ALink>
             </Grid>
 

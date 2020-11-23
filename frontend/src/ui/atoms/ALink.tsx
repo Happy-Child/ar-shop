@@ -13,7 +13,6 @@ const useStyles = makeStyles(() =>
   createStyles({
     link: {
       display: 'block',
-      transition: '0.3s all ease',
 
       '&:hover:not(.a-link_active)': {
         opacity: 0.8,
