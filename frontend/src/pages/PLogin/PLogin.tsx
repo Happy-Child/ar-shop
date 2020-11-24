@@ -31,16 +31,16 @@ const defaultFormData = {
 const PLogin: React.FC<ReactNode> = () => {
   const classes = usePageStyles();
 
-  const { onSubmit, setLoading, loading, formErrors, getFieldErrorText } = useForm<ILoginForm>({
+  const { onSubmit, setLoading, loading, formErrors, getFieldErrorText } = useForm({
     formValidationRules,
     defaultFormData,
     callbackSuccessValidation: handleSubmitForm,
   });
 
-  async function handleSubmitForm() {
+  function handleSubmitForm() {
     try {
       setLoading(true);
-      await alert('Login');
+      alert('Login');
       setLoading(false);
     } catch (e) {
       setLoading(false);
@@ -73,6 +73,7 @@ const PLogin: React.FC<ReactNode> = () => {
                 className={classes.formItem}
                 label="Password"
                 name="password"
+                type="password"
                 placeholder="********"
                 error={formErrors?.password?.length > 0}
                 helperText={formErrors?.password && getFieldErrorText(formErrors?.password[0])}

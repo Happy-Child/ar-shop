@@ -1,7 +1,4 @@
-import {AuthContract} from "@ioc:Adonis/Addons/Auth";
 import ISuccessResponse from "Contracts/interfaces/ISuccessResponse";
-import IErrorResponse from "Contracts/interfaces/IErrorResponse";
-import {RequestContract} from "@ioc:Adonis/Core/Request";
 import {rules, schema} from "@ioc:Adonis/Core/Validator";
 
 import BaseController from "App/Controllers/Http/BaseController";
@@ -20,6 +17,7 @@ import LoginService from "App/Services/User/Guest/LoginService";
 import RegistrationService from "App/Services/User/Guest/RegistrationService";
 import ResetPasswordService from "App/Services/User/Guest/ResetPasswordService";
 import CreatePasswordService from "App/Services/User/Guest/CreatePasswordService";
+import {HttpContextContract} from "@ioc:Adonis/Core/HttpContext";
 
 const ReConfirmationEmailServiceInit = new ReConfirmationEmailService()
 const VerifyEmailServiceInit = new VerifyEmailService()
@@ -28,23 +26,27 @@ const RegistrationServiceInit = new RegistrationService()
 const ResetPasswordServiceInit = new ResetPasswordService()
 const CreatePasswordServiceInit = new CreatePasswordService()
 
+
+
 export default class UsersGuestsController extends BaseController {
   public async reConfirmationEmail (
-    {params, auth}: {params: any, auth: AuthContract}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {params, auth, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       await ReConfirmationEmailServiceInit.run(params.email, auth)
 
       return this.successResponse(200)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async verifyEmail (
-    {request}: {request: RequestContract}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {request, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       const {token} = request.get()
@@ -59,13 +61,15 @@ export default class UsersGuestsController extends BaseController {
 
       return this.successResponse(200)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async login (
-    {request, auth}: {request: RequestContract, auth: AuthContract}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {request, auth, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       const {email, password} = await request.validate({
@@ -80,13 +84,15 @@ export default class UsersGuestsController extends BaseController {
 
       return this.successResponse(200, data)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async registration (
-    {request, auth}: {request: RequestContract, auth: AuthContract}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {request, auth, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       const {
@@ -112,26 +118,30 @@ export default class UsersGuestsController extends BaseController {
 
       return this.successResponse(200)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async resetPassword (
-    {params, auth}: {params: any, auth: AuthContract}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {params, auth, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       await ResetPasswordServiceInit.run(params.email, auth)
 
       return this.successResponse(200)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async createNewPassword (
-    {request}: {request: RequestContract}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {request, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       const {token} = request.get()
@@ -158,7 +168,9 @@ export default class UsersGuestsController extends BaseController {
 
       return this.successResponse(200)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 }

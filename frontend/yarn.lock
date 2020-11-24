@@ -3454,7 +3454,7 @@ clone-deep@^4.0.1:
     kind-of "^6.0.2"
     shallow-clone "^3.0.0"
 
-clsx@^1.0.2, clsx@^1.0.4:
+clsx@^1.0.2, clsx@^1.0.4, clsx@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.1.1.tgz#98b3134f9abbdf23b2663491ace13c5c03a73188"
   integrity sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==
@@ -7419,11 +7419,6 @@ lodash._reinterpolate@^3.0.0:
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
   integrity sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=
 
-lodash.debounce@^4.0.8:
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
-  integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
-
 lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
@@ -7448,11 +7443,6 @@ lodash.templatesettings@^4.0.0:
   integrity sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==
   dependencies:
     lodash._reinterpolate "^3.0.0"
-
-lodash.throttle@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
-  integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
 
 lodash.uniq@^4.5.0:
   version "4.5.0"
@@ -9631,14 +9621,6 @@ react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-i
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-lazy-load-image-component@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/react-lazy-load-image-component/-/react-lazy-load-image-component-1.5.0.tgz#48939f86cb262b93b345c6fa6322f75ede55160d"
-  integrity sha512-dAvuueTq0FNjswHEII8tcd0FRRHZgPoIdVhE1fcAfCdqY7LZ37IHd0xWb2c6rCl+dsSm9Z4AloEffM8JYPxTlA==
-  dependencies:
-    lodash.debounce "^4.0.8"
-    lodash.throttle "^4.1.1"
-
 react-redux@^7.2.1:
   version "7.2.1"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.2.1.tgz#8dedf784901014db2feca1ab633864dee68ad985"
@@ -9739,7 +9721,16 @@ react-scripts@3.4.3:
   optionalDependencies:
     fsevents "2.1.2"
 
-react-transition-group@^4.0.0, react-transition-group@^4.4.0:
+react-toastify@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-6.1.0.tgz#32ee52477530b9024553586b9072a3326f7618dc"
+  integrity sha512-Ne+wIoO9A+jZlaqGqgeuXDC/DQfqTuJdyoc7G5SsuCHsr8mNRx7W26417YKtHRH0LcnFFd5ii76tGnmm0cMlLg==
+  dependencies:
+    clsx "^1.1.1"
+    prop-types "^15.7.2"
+    react-transition-group "^4.4.1"
+
+react-transition-group@^4.0.0, react-transition-group@^4.4.0, react-transition-group@^4.4.1:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.1.tgz#63868f9325a38ea5ee9535d828327f85773345c9"
   integrity sha512-Djqr7OQ2aPUiYurhPalTrVy9ddmFCCzwhqQmtN+J3+3DzLO209Fdr70QrN8Z3DsglWql6iY1lDWAfpFiBtuKGw==

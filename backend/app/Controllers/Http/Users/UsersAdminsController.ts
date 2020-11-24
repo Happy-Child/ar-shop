@@ -4,10 +4,7 @@ import {schema} from "@ioc:Adonis/Core/Validator";
 import schemeRegistration from "App/Helpers/validationSchemes/users/schemeRegistration";
 import schemeUserUpdate from "App/Helpers/validationSchemes/users/schemeUserUpdate";
 
-import {RequestContract} from "@ioc:Adonis/Core/Request";
-import {AuthContract} from "@ioc:Adonis/Addons/Auth";
 import ISuccessResponse from "Contracts/interfaces/ISuccessResponse";
-import IErrorResponse from "Contracts/interfaces/IErrorResponse";
 
 import EUserRoles from "Contracts/enums/userRoles";
 
@@ -16,6 +13,7 @@ import User from "App/Models/User";
 import UserCreateService from "App/Services/User/Admin/UserCreateService";
 import UserUpdateService from "App/Services/User/Admin/UserUpdateService";
 import UserDeleteService from "App/Services/User/Admin/UserDeleteService";
+import {HttpContextContract} from "@ioc:Adonis/Core/HttpContext";
 
 const UserCreateServiceInit = new UserCreateService()
 const UserUpdateServiceInit = new UserUpdateService()
@@ -28,10 +26,9 @@ export default class UsersAdminsController extends BaseController {
     EUserRoles.ROLE_USER,
   ]
 
-  public async userCreate (
-    {request, auth}: {request: RequestContract, auth: AuthContract}
-  ): Promise<ISuccessResponse | IErrorResponse>
-  {
+  public async userCreate(
+    {request, auth, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void> {
     try {
       const {
         role,
@@ -64,14 +61,15 @@ export default class UsersAdminsController extends BaseController {
 
       return this.successResponse(200)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
-  public async userUpdate (
-    {request, params, auth}: {request: RequestContract, params: any, auth: AuthContract}
-  ): Promise<ISuccessResponse | IErrorResponse>
-  {
+  public async userUpdate(
+    {request, params, auth, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void> {
     try {
       const {
         role,
@@ -105,14 +103,15 @@ export default class UsersAdminsController extends BaseController {
 
       return this.successResponse(200)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
-  public async userDelete (
-    {params, auth}: {params: any, auth: AuthContract}
-  ): Promise<ISuccessResponse | IErrorResponse>
-  {
+  public async userDelete(
+    {params, auth, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void> {
     try {
       await UserDeleteServiceInit.run(
         auth,
@@ -121,7 +120,9 @@ export default class UsersAdminsController extends BaseController {
 
       return this.successResponse(200)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 }

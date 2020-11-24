@@ -22,10 +22,14 @@ const api = {
       .get<TResponseListProducts>('/products', {
         params,
       })
-      .then((response) => response.data);
+      .then((response) => response.data)
+      .catch((e) => e.response.data);
   },
   show(params: IShowProductParams) {
-    return axiosInstance.get<TResponseShowProduct>(`/products/${params.id}`).then((response) => response.data);
+    return axiosInstance
+      .get<TResponseShowProduct>(`/products/${params.id}`)
+      .then((response) => response.data)
+      .catch((e) => e.response.data);
   },
 };
 

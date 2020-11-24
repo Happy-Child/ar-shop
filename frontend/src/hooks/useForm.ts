@@ -1,26 +1,26 @@
 import React from 'react';
 import { startValidation, TCurFieldsValidationRules, TResultFieldsValidation } from '../lib/validation/startValidation';
-import { valuesErrorCodes } from '../lib/valuesErrorCodes';
+import { errorsCodesValues } from '../lib/errors/errorsCodesValues';
 
 export type TDefaultFormData = { [key: string]: any };
 
 interface IUseForm {
   defaultFormData: TDefaultFormData;
   formValidationRules: TCurFieldsValidationRules;
-  callbackSuccessValidation: () => void;
+  callbackSuccessValidation: (formData: object) => void;
 }
 
-const useForm = <T>({ defaultFormData, formValidationRules, callbackSuccessValidation }: IUseForm) => {
+const useForm = ({ defaultFormData, formValidationRules, callbackSuccessValidation }: IUseForm) => {
   const [loading, setLoading] = React.useState<boolean>(false);
   const [formErrors, setFormErrors] = React.useState<TResultFieldsValidation>({});
 
-  const onSubmit = React.useCallback(async (data: T) => {
+  const onSubmit = React.useCallback((formData) => {
     setFormErrors({});
 
     const resultValidation = startValidation(
       {
         ...defaultFormData,
-        ...data,
+        ...formData,
       },
       formValidationRules,
     );
@@ -30,17 +30,18 @@ const useForm = <T>({ defaultFormData, formValidationRules, callbackSuccessValid
       return;
     }
 
-    await callbackSuccessValidation();
+    callbackSuccessValidation(formData);
   }, []);
 
   const getFieldErrorText = React.useCallback((errorCode: string) => {
-    return valuesErrorCodes[errorCode];
+    return errorsCodesValues[errorCode] || errorsCodesValues.DEFAULT_FIELD_INVALID;
   }, []);
 
   return {
     loading,
     setLoading,
     formErrors,
+    setFormErrors,
     onSubmit,
     getFieldErrorText,
   };

@@ -6,6 +6,6 @@ export type TSuccessResponse = {
 export type TErrorResponse = {
   error: {
     code: string;
-    data: string | null | undefined;
+    data: any;
   };
 };

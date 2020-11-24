@@ -1,10 +1,7 @@
 import BaseController from "App/Controllers/Http/BaseController";
-import {RequestContract} from "@ioc:Adonis/Core/Request";
-import {AuthContract} from "@ioc:Adonis/Addons/Auth";
 import {LucidModel, LucidRow} from "@ioc:Adonis/Lucid/Model";
 
 import ISuccessResponse from "Contracts/interfaces/ISuccessResponse";
-import IErrorResponse from "Contracts/interfaces/IErrorResponse";
 
 import {schema} from "@ioc:Adonis/Core/Validator";
 
@@ -22,6 +19,7 @@ import ListService from "App/Services/Product/ListService";
 import ShowService from "App/Services/Product/ShowService";
 import UpdateService from "App/Services/Product/UpdateService";
 import DeleteService from "App/Services/Product/DeleteService";
+import {HttpContextContract} from "@ioc:Adonis/Core/HttpContext";
 
 const CreateServiceInit = new CreateService()
 const ListServiceInit = new ListService()
@@ -31,8 +29,8 @@ const DeleteServiceInit = new DeleteService()
 
 export default class ProductsController extends BaseController {
   public async list (
-    {request}: {request: RequestContract}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {request, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       const {
@@ -63,26 +61,30 @@ export default class ProductsController extends BaseController {
 
       return this.successResponse(200, data)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async show (
-    {params}: {params: any}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {params, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       const data: LucidRow = await ShowServiceInit.run(params.id)
 
       return this.successResponse(200, data)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async create (
-    {request, auth}: {request: RequestContract, auth: AuthContract}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {request, auth, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       const {
@@ -113,13 +115,15 @@ export default class ProductsController extends BaseController {
 
       return this.successResponse(200)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async update (
-    {request, params}: {request: RequestContract, params: any}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {request, params, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       const {
@@ -147,20 +151,24 @@ export default class ProductsController extends BaseController {
 
       return this.successResponse(200)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async delete (
-    {params}: {params: any}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {params, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       await DeleteServiceInit.run(Number(params.id))
 
       return this.successResponse(200)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 }

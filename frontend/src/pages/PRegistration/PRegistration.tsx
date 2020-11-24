@@ -5,15 +5,20 @@ import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import { TextField } from 'mui-rff';
 import { Form } from 'react-final-form';
-import { TCurFieldsValidationRules, TValidationFields } from '../../lib/validation/startValidation';
+import { TCurFieldsValidationRules } from '../../lib/validation/startValidation';
 import { usePageStyles } from '../../assets/styles/pages/login';
 import { TDefaultFormData, useForm } from '../../hooks/useForm';
-
-interface IRegistrationForm extends TValidationFields {
-  name: string;
-  email: string;
-  password: string;
-}
+import { authAPI } from '../../services/api';
+import { IRegistrationParams } from '../../services/api/auth';
+import { TErrorResponse } from '../../services/api/types';
+import { E_VALIDATION_FAILURE } from '../../lib/errors/errorsCodes';
+import { TResponseRegistration } from '../../services/api/auth/types';
+import { convertValidationErrors } from '../../lib/dataConversion/convertValidationErrors';
+import { errorsCodesValues } from '../../lib/errors/errorsCodesValues';
+import { messagesCodesValues } from '../../lib/messages/messagesCodesValues';
+import { SUCCESS_REGISTRATION } from '../../lib/messages/messagesCodes';
+import { notify } from '../../lib/notifications';
+import { useRoute } from '../../hooks/useRoute';
 
 const formValidationRules: TCurFieldsValidationRules = {
   name: {
@@ -25,32 +30,53 @@ const formValidationRules: TCurFieldsValidationRules = {
   password: {
     rules: ['required', 'range:8:20', 'password'],
   },
+  password_confirmation: {
+    rules: ['required', 'range:8:20', 'password'],
+  },
 };
 
 const defaultFormData: TDefaultFormData = {
   name: '',
   email: '',
   password: '',
+  password_confirmation: '',
 };
 
 const PRegistration: React.FC<ReactNode> = () => {
   const classes = usePageStyles();
+  const { pushRoute } = useRoute();
 
-  const { onSubmit, setLoading, loading, formErrors, getFieldErrorText } = useForm<IRegistrationForm>({
+  const { onSubmit, setLoading, loading, formErrors, setFormErrors, getFieldErrorText } = useForm({
     formValidationRules,
     defaultFormData,
-    callbackSuccessValidation: handleSubmitForm,
+    callbackSuccessValidation: (formData: object) => handleSubmitForm(formData),
   });
 
-  async function handleSubmitForm() {
-    try {
-      setLoading(true);
-      await alert('Registration');
-      setLoading(false);
-    } catch (e) {
-      setLoading(false);
-      console.log(e);
+  const successHandling = () => {
+    notify('success', messagesCodesValues[SUCCESS_REGISTRATION]);
+    pushRoute('/login');
+  };
+
+  const errorHandling = (e: TErrorResponse) => {
+    if (e.error.code === E_VALIDATION_FAILURE) {
+      setFormErrors(convertValidationErrors(e.error.data));
+    } else {
+      notify('error', errorsCodesValues[e.error.code]);
     }
+  };
+
+  function handleSubmitForm(formData: object): void {
+    setLoading(true);
+    authAPI
+      .registration(formData as IRegistrationParams)
+      .then((response) => {
+        if (response?.error) errorHandling(response);
+        else if (response.status === 200) {
+          successHandling();
+        }
+      })
+      .catch(errorHandling)
+      .finally(() => setLoading(false));
   }
 
   return (
@@ -87,9 +113,22 @@ const PRegistration: React.FC<ReactNode> = () => {
                 className={classes.formItem}
                 label="Password"
                 name="password"
+                type="password"
                 placeholder="********"
                 error={formErrors?.password?.length > 0}
                 helperText={formErrors?.password && getFieldErrorText(formErrors?.password[0])}
+                disabled={loading}
+              />
+              <TextField
+                className={classes.formItem}
+                label="Password confirmation"
+                name="password_confirmation"
+                type="password"
+                placeholder="********"
+                error={formErrors?.password_confirmation?.length > 0}
+                helperText={
+                  formErrors?.password_confirmation && getFieldErrorText(formErrors?.password_confirmation[0])
+                }
                 disabled={loading}
               />
               <Button type="submit" fullWidth variant="contained" color="secondary" disabled={loading}>

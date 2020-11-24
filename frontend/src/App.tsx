@@ -1,7 +1,9 @@
-import React, { ReactNode, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { routes, IRoute } from './routes';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import MPageLoading from './ui/molecules/MPageLoading';
 import { OHeader } from './ui/organisms/OHeader/OHeader';
 import OFooter from './ui/organisms/OFooter';
@@ -11,6 +13,7 @@ import { ICartItem } from './lib/store/cart/interfases';
 import { AppState } from './lib/store/types';
 import { selectorAllCart } from './lib/store/cart/selectors';
 import { useEffectAfterRender } from './hooks/useEffectAfterRender';
+
 const PNotFound = React.lazy(() => import('./pages/PNotFound'));
 
 const useStyles = makeStyles(() =>
@@ -59,6 +62,8 @@ const App: React.FC<IAppProps> = ({ cart }: IAppProps) => {
         </Switch>
 
         <OFooter />
+
+        <ToastContainer />
       </div>
     </BrowserRouter>
   );

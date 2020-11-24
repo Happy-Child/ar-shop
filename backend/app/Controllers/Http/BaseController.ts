@@ -11,6 +11,7 @@ export default class BaseController {
 
   protected errorResponse (e: any): IErrorResponse {
     return {
+      status: e.status,
       error: {
         code: e?.code || 'E_UNDEFINED',
         data: e?.messages?.errors

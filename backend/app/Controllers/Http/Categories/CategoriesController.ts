@@ -1,11 +1,8 @@
 import BaseController from "App/Controllers/Http/BaseController";
-import {RequestContract} from "@ioc:Adonis/Core/Request";
-import {AuthContract} from "@ioc:Adonis/Addons/Auth";
 import {LucidModel, LucidRow} from "@ioc:Adonis/Lucid/Model";
 import {SimplePaginatorMeta} from "@ioc:Adonis/Lucid/DatabaseQueryBuilder";
 
 import ISuccessResponse from "Contracts/interfaces/ISuccessResponse";
-import IErrorResponse from "Contracts/interfaces/IErrorResponse";
 
 import {schema} from "@ioc:Adonis/Core/Validator";
 
@@ -24,6 +21,7 @@ import DeleteService from "App/Services/Categories/DeleteService";
 
 import Category from "App/Models/Category";
 import User from "App/Models/User";
+import {HttpContextContract} from "@ioc:Adonis/Core/HttpContext";
 
 const GetAllServiceInit = new GetAllService()
 const CreateServiceInit = new CreateService()
@@ -33,19 +31,21 @@ const UpdateServiceInit = new UpdateService()
 const DeleteServiceInit = new DeleteService()
 
 export default class CategoriesController extends BaseController {
-  public async getAll (): Promise<ISuccessResponse | IErrorResponse>
+  public async getAll ({response}: HttpContextContract): Promise<ISuccessResponse | void>
   {
     try {
       const data: InstanceType<LucidModel>[] = await GetAllServiceInit.run()
       return this.successResponse(200, data)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async list (
-    {request}: {request: RequestContract}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {request, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       const {
@@ -70,26 +70,30 @@ export default class CategoriesController extends BaseController {
 
       return this.successResponse(200, data)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async show (
-    {params}: {params: any}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {params, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       const data: LucidRow = await ShowServiceInit.run(params.id)
 
       return this.successResponse(200, data)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async create (
-    {request, auth}: {request: RequestContract, auth: AuthContract}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {request, auth, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       const {
@@ -112,13 +116,15 @@ export default class CategoriesController extends BaseController {
 
       return this.successResponse(200)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async update (
-    {request, params}: {request: RequestContract, params: any}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {request, params, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       const {
@@ -138,20 +144,24 @@ export default class CategoriesController extends BaseController {
 
       return this.successResponse(200)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async delete (
-    {params}: {params: any}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {params, response}: {params: any, response: any}
+  ): Promise<ISuccessResponse | void>
   {
     try {
       await DeleteServiceInit.run(Number(params.id))
 
       return this.successResponse(200)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 }

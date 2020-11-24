@@ -1,11 +1,8 @@
 import BaseController from "App/Controllers/Http/BaseController";
-import {RequestContract} from "@ioc:Adonis/Core/Request";
-import {AuthContract} from "@ioc:Adonis/Addons/Auth";
 import {LucidModel} from "@ioc:Adonis/Lucid/Model";
 import {SimplePaginatorContract} from "@ioc:Adonis/Lucid/DatabaseQueryBuilder";
 
 import ISuccessResponse from "Contracts/interfaces/ISuccessResponse";
-import IErrorResponse from "Contracts/interfaces/IErrorResponse";
 import IOrderProducts from "Contracts/interfaces/IOrderProducts";
 
 import {schema} from "@ioc:Adonis/Core/Validator";
@@ -26,6 +23,7 @@ import DeleteService from "App/Services/Orders/DeleteService";
 import Order from "App/Models/Order";
 import User from "App/Models/User";
 import EOrderStatuses from "Contracts/enums/orderStatuses";
+import {HttpContextContract} from "@ioc:Adonis/Core/HttpContext";
 
 const GetMyServiceInit = new GetMyService()
 const CreateServiceInit = new CreateService()
@@ -35,19 +33,21 @@ const UpdateServiceInit = new UpdateService()
 const DeleteServiceInit = new DeleteService()
 
 export default class OrdersController extends BaseController {
-  public async getMyOrders ({auth}: {auth: AuthContract}): Promise<ISuccessResponse | IErrorResponse>
+  public async getMyOrders ({auth, response}: HttpContextContract): Promise<ISuccessResponse | void>
   {
     try {
       const data: InstanceType<LucidModel>[] = await GetMyServiceInit.run(auth)
       return this.successResponse(200, data)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async list (
-    {request}: {request: RequestContract}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {request, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       const {
@@ -74,26 +74,30 @@ export default class OrdersController extends BaseController {
 
       return this.successResponse(200, data)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async show (
-    {params}: {params: any}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {params, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       const data: Order = await ShowServiceInit.run(Number(params.id))
 
       return this.successResponse(200, data)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async create (
-    {request, auth}: {request: RequestContract, auth: AuthContract}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {request, auth, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       const {
@@ -126,13 +130,15 @@ export default class OrdersController extends BaseController {
 
       return this.successResponse(200)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async update (
-    {request, params}: {request: RequestContract, params: any}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {request, params, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       const {
@@ -161,20 +167,24 @@ export default class OrdersController extends BaseController {
 
       return this.successResponse(200)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 
   public async delete (
-    {params}: {params: any}
-  ): Promise<ISuccessResponse | IErrorResponse>
+    {params, response}: HttpContextContract
+  ): Promise<ISuccessResponse | void>
   {
     try {
       await DeleteServiceInit.run(Number(params.id))
 
       return this.successResponse(200)
     } catch (e) {
-      return this.errorResponse(e)
+      response
+        .status(e.status)
+        .json(this.errorResponse(e))
     }
   }
 }

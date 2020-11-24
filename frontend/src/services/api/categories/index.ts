@@ -15,17 +15,24 @@ export interface IShowParams {
 
 const api = {
   all() {
-    return axiosInstance.get<TResponseAllCategories>('/categories/all').then((response) => response.data);
+    return axiosInstance
+      .get<TResponseAllCategories>('/categories/all')
+      .then((response) => response.data)
+      .catch((e) => e.response.data);
   },
   list(params?: IListParams) {
     return axiosInstance
       .get<TResponseListCategories>('/categories', {
         params,
       })
-      .then((response) => response.data);
+      .then((response) => response.data)
+      .catch((e) => e.response.data);
   },
   show(params: IShowParams) {
-    return axiosInstance.get<TResponseShowCategory>(`/categories/${params.id}`).then((response) => response.data);
+    return axiosInstance
+      .get<TResponseShowCategory>(`/categories/${params.id}`)
+      .then((response) => response.data)
+      .catch((e) => e.response.data);
   },
 };
 
