@@ -1,12 +1,12 @@
 import { toast } from 'react-toastify';
-import { messagesCodesValues } from '../messages/messagesCodesValues';
-import { SUCCESS, UNKNOWN_MESSAGE } from '../messages/messagesCodes';
-import { UNKNOWN_ERROR } from '../errors/errorsCodes';
-import { errorsCodesValues } from '../errors/errorsCodesValues';
+import { messagesCodesValues } from '../lib/messages/messagesCodesValues';
+import { SUCCESS, UNKNOWN_MESSAGE } from '../lib/messages/messagesCodes';
+import { UNKNOWN_ERROR } from '../lib/errors/errorsCodes';
+import { errorsCodesValues } from '../lib/errors/errorsCodesValues';
 
 type TNotifyTypes = 'success' | 'info' | 'error' | 'warning' | 'dark' | 'warn';
 
-export const notify = (type: TNotifyTypes, message: string): void => {
+export const toastNotification = (type: TNotifyTypes, message: string): void => {
   let resultMessage = message;
 
   if (!resultMessage) {

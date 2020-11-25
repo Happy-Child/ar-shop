@@ -12,12 +12,11 @@ import { authAPI } from '../../services/api';
 import { IRegistrationParams } from '../../services/api/auth';
 import { TErrorResponse } from '../../services/api/types';
 import { E_VALIDATION_FAILURE } from '../../lib/errors/errorsCodes';
-import { TResponseRegistration } from '../../services/api/auth/types';
 import { convertValidationErrors } from '../../lib/dataConversion/convertValidationErrors';
 import { errorsCodesValues } from '../../lib/errors/errorsCodesValues';
 import { messagesCodesValues } from '../../lib/messages/messagesCodesValues';
 import { SUCCESS_REGISTRATION } from '../../lib/messages/messagesCodes';
-import { notify } from '../../lib/notifications';
+import { toastNotification } from '../../plugins/toast';
 import { useRoute } from '../../hooks/useRoute';
 
 const formValidationRules: TCurFieldsValidationRules = {
@@ -53,7 +52,7 @@ const PRegistration: React.FC<ReactNode> = () => {
   });
 
   const successHandling = () => {
-    notify('success', messagesCodesValues[SUCCESS_REGISTRATION]);
+    toastNotification('success', messagesCodesValues[SUCCESS_REGISTRATION]);
     pushRoute('/login');
   };
 
@@ -61,7 +60,7 @@ const PRegistration: React.FC<ReactNode> = () => {
     if (e.error.code === E_VALIDATION_FAILURE) {
       setFormErrors(convertValidationErrors(e.error.data));
     } else {
-      notify('error', errorsCodesValues[e.error.code]);
+      toastNotification('error', errorsCodesValues[e.error.code]);
     }
   };
 

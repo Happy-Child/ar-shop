@@ -8,6 +8,18 @@ import { Form } from 'react-final-form';
 import { TCurFieldsValidationRules, TValidationFields } from '../../lib/validation/startValidation';
 import { usePageStyles } from '../../assets/styles/pages/login';
 import { useForm } from '../../hooks/useForm';
+import { toastNotification } from '../../plugins/toast';
+import { messagesCodesValues } from '../../lib/messages/messagesCodesValues';
+import { SUCCESS_LOGIN } from '../../lib/messages/messagesCodes';
+import { TErrorResponse } from '../../services/api/types';
+import { E_VALIDATION_FAILURE } from '../../lib/errors/errorsCodes';
+import { convertValidationErrors } from '../../lib/dataConversion/convertValidationErrors';
+import { errorsCodesValues } from '../../lib/errors/errorsCodesValues';
+import { TResponseLogin } from '../../services/api/auth/types';
+import { useDispatch, useSelector } from 'react-redux';
+import { actionLoginUser } from '../../lib/store/auth/actions';
+import { AppState } from '../../lib/store/types';
+import { selectorAuthUserLoading } from '../../lib/store/auth/selectors';
 
 interface ILoginForm extends TValidationFields {
   email: string;
@@ -30,22 +42,40 @@ const defaultFormData = {
 
 const PLogin: React.FC<ReactNode> = () => {
   const classes = usePageStyles();
+  const dispatch = useDispatch();
+  const authUserLoading = useSelector<AppState, boolean>(selectorAuthUserLoading);
 
-  const { onSubmit, setLoading, loading, formErrors, getFieldErrorText } = useForm({
+  const { onSubmit, formErrors, setFormErrors, getFieldErrorText } = useForm({
     formValidationRules,
     defaultFormData,
     callbackSuccessValidation: handleSubmitForm,
   });
 
-  function handleSubmitForm() {
-    try {
-      setLoading(true);
-      alert('Login');
-      setLoading(false);
-    } catch (e) {
-      setLoading(false);
-      console.log(e);
+  const successHandling = ({ data }: TResponseLogin) => {
+    toastNotification('success', messagesCodesValues[SUCCESS_LOGIN]);
+    console.log(data);
+  };
+
+  const errorHandling = (e: TErrorResponse) => {
+    if (e.error.code === E_VALIDATION_FAILURE) {
+      setFormErrors(convertValidationErrors(e.error.data));
+    } else {
+      toastNotification('error', errorsCodesValues[e.error.code]);
     }
+  };
+
+  function handleSubmitForm(formData: object): void {
+    dispatch(actionLoginUser(formData as ILoginForm));
+    // authAPI
+    //   .login(formData as ILoginForm)
+    //   .then((response) => {
+    //     if (response?.error) errorHandling(response);
+    //     else if (response.status === 200) {
+    //       successHandling(response);
+    //     }
+    //   })
+    //   .catch(errorHandling)
+    //   .finally(() => setLoading(false));
   }
 
   return (
@@ -67,7 +97,7 @@ const PLogin: React.FC<ReactNode> = () => {
                 placeholder="example@gmail.com"
                 error={formErrors?.email?.length > 0}
                 helperText={formErrors?.email && getFieldErrorText(formErrors?.email[0])}
-                disabled={loading}
+                disabled={authUserLoading}
               />
               <TextField
                 className={classes.formItem}
@@ -77,9 +107,9 @@ const PLogin: React.FC<ReactNode> = () => {
                 placeholder="********"
                 error={formErrors?.password?.length > 0}
                 helperText={formErrors?.password && getFieldErrorText(formErrors?.password[0])}
-                disabled={loading}
+                disabled={authUserLoading}
               />
-              <Button type="submit" fullWidth variant="contained" color="secondary" disabled={loading}>
+              <Button type="submit" fullWidth variant="contained" color="secondary" disabled={authUserLoading}>
                 Submit
               </Button>
             </form>

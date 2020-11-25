@@ -11,21 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66425bd5-43fa-4ecb-bba2-ff1abc931582" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/categories/sagas.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/sagas.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/lib/store/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Services/Categories/DeleteService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/Categories/DeleteService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/lib/store/categories/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/store/categories/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/lib/store/categories/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/lib/store/categories/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/store/categories/reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/lib/store/root-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/store/root-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/lib/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/store/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/PHome.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PHome.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/ui/organisms/OHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/ui/organisms/OHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/lib/errors/errorsCodes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/errors/errorsCodes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/lib/errors/errorsCodesValues.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/errors/errorsCodesValues.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/lib/messages/messagesCodes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/messages/messagesCodes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/lib/messages/messagesCodesValues.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/messages/messagesCodesValues.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/PLogin/PLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PLogin/PLogin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/PRegistration/PRegistration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PRegistration/PRegistration.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,6 +154,7 @@
       <workItem from="1603577312927" duration="146000" />
       <workItem from="1603721222589" duration="1800000" />
       <workItem from="1604861206566" duration="476000" />
+      <workItem from="1606234664851" duration="53000" />
     </task>
     <task id="LOCAL-00001" summary="Init project. User logic">
       <created>1601593338858</created>

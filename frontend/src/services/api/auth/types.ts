@@ -1,9 +1,9 @@
-import { IUser } from '../../../lib/store/users/interfases';
+import { IUser, IUserToken } from '../../../lib/store/auth/interfases';
 
 export type TResponseLogin = {
   status: number;
   data: {
-    token: string;
+    token: IUserToken;
     user: IUser;
   };
 };
@@ -11,14 +11,12 @@ export type TResponseLogin = {
 export type TResponseRegistration = {
   status: number;
   data: {
-    token: string;
+    token: IUserToken;
     user: IUser;
   };
 };
 
 export type TResponseMe = {
   status: number;
-  data: {
-    user: IUser;
-  };
+  data: IUser;
 };

@@ -1,4 +1,4 @@
-import { IUser } from '../users/interfases';
+import { IUser } from '../auth/interfases';
 import { ICategory } from '../categories/interfases';
 
 export interface IProduct {

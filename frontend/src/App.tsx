@@ -8,11 +8,14 @@ import MPageLoading from './ui/molecules/MPageLoading';
 import { OHeader } from './ui/organisms/OHeader/OHeader';
 import OFooter from './ui/organisms/OFooter';
 import { actionFetchALlCategories } from './lib/store/categories/actions';
+import { actionFetchUserByToken } from './lib/store/auth/actions';
 import { connect, useDispatch } from 'react-redux';
 import { ICartItem } from './lib/store/cart/interfases';
 import { AppState } from './lib/store/types';
 import { selectorAllCart } from './lib/store/cart/selectors';
 import { useEffectAfterRender } from './hooks/useEffectAfterRender';
+import { toastNotification } from './plugins/toast';
+import { errorsCodesValues } from './lib/errors/errorsCodesValues';
 
 const PNotFound = React.lazy(() => import('./pages/PNotFound'));
 
@@ -36,19 +39,20 @@ const App: React.FC<IAppProps> = ({ cart }: IAppProps) => {
 
   useEffectAfterRender(() => {
     try {
-      const cartJSON = JSON.stringify(cart);
-      window.localStorage.setItem('cart', cartJSON);
+      window.localStorage.setItem('cart', JSON.stringify(cart));
     } catch (e) {
-      console.log(e);
+      toastNotification('error', errorsCodesValues[e?.message]);
     }
   }, [cart]);
 
   React.useEffect(() => {
+    dispatch(actionFetchUserByToken());
     dispatch(actionFetchALlCategories());
-  }, [dispatch]);
+  }, []);
 
   return (
     <BrowserRouter>
+      <MPageLoading />
       <div className={`t-common ${classes.root}`}>
         <OHeader />
 

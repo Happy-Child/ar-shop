@@ -1,4 +1,4 @@
-import { IUser } from '../users/interfases';
+import { IUser } from '../auth/interfases';
 
 export interface ICategoryAll {
   id: number;

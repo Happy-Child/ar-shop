@@ -1,4 +1,6 @@
 export const errorsCodesValues: { [key: string]: string } = {
+  E_INVALID_AUTH_UID: 'Wrong login or password',
+  E_INVALID_AUTH_PASSWORD: 'Wrong login or password',
   DEFAULT_FIELD_INVALID: 'Invalid field',
   UNKNOWN_ERROR: 'Unknown error',
   E_FIELD_REQUIRED: 'Field required',

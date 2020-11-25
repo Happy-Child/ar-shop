@@ -10,3 +10,9 @@ export interface IUser {
   sex: EUserSexes | null;
   created_at: Date;
 }
+
+export interface IUserToken {
+  token: string;
+  type: string;
+  expires_at: string;
+}
